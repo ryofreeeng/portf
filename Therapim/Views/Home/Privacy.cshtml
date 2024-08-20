@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+<!-- いったんここに置くが、あとでナビゲーションバーなどにログアウトボタンを追加 -->
+<form asp-controller="Login" asp-action="XtLogout" method="post" asp-controller="Account">
+    <button type="submit" class="btn btn-danger">Logout</button>
+</form>

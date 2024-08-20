@@ -1,0 +1,36 @@
+﻿@model Therapim.Models.LoginRequestModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    </div>
+}
+
+<form asp-controller="Login" asp-action="XtLogin" method="post">
+    @Html.AntiForgeryToken()
+    <div>
+        <label asp-for="FullName"></label>
+        <input asp-for="FullName" />
+        <span asp-validation-for="FullName"></span>
+    </div>
+    <div>
+        <label asp-for="Birthday"></label>
+        <input asp-for="Birthday" />
+        <span asp-validation-for="Birthday"></span>
+    </div>
+    <div>
+        <label asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" />
+        <span asp-validation-for="PhoneNumber"></span>
+    </div>
+    <button type="submit">Login</button>
+    <p>Param1: @ViewData["Param1"]</p>
+    <p>Param2: @ViewData["Param2"]</p>
+
+</form>
