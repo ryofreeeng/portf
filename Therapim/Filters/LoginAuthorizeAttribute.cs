@@ -39,8 +39,8 @@ namespace Therapim.Filters
             
             //CookieにあるUserIdとSessionIdをセッションにも保存してログイン状態を復活させる。ただし名前などの情報は保存していないので
             //これらがセッション情報に必要なら再度ログインが必要
-            _commonService.HttpContextAccessor.HttpContext.Session.SetString("UserId", _commonService.GetCookieUserId());
-            _commonService.HttpContextAccessor.HttpContext.Session.SetString("SessionId", _commonService.GetCookieSessionId());
+            _commonService.HttpContextAccessor.HttpContext.Session.SetString("UserId", _commonService.GetCookieUserId() ?? "");
+            _commonService.HttpContextAccessor.HttpContext.Session.SetString("SessionId", _commonService.GetCookieSessionId() ?? "");
 
         }
     }
