@@ -37,7 +37,7 @@ namespace Therapim.Filters
             //var logger = context.HttpContext.RequestServices.GetService(typeof(ILogger<LoginAuthorizeAttribute>)) as ILogger;            
             _logger.LogInformation("★★★★★★★★★★★ログインフィルター処理通過確認");
             
-            //CookieにあるUserIdとSessionIdをセッションにも保存してログイン状態を復活させる。ただし名前などの情報は保存していないので
+            //CookieにUserIdとSessionIdがあればセッションにも保存してログイン状態を復活させる。ただし名前などの情報は保存していないので
             //これらがセッション情報に必要なら再度ログインが必要
             _commonService.HttpContextAccessor.HttpContext.Session.SetString("UserId", _commonService.GetCookieUserId() ?? "");
             _commonService.HttpContextAccessor.HttpContext.Session.SetString("SessionId", _commonService.GetCookieSessionId() ?? "");
