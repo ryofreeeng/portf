@@ -1,0 +1,38 @@
+// _variables.scss
+
+//メディアクエリ用
+$breakpoint-sm: 320px; // 小程度の画面幅
+$breakpoint-md: 768px; // 中程度の画面幅
+$breakpoint-lg: 1024px; // 大きな画面幅
+
+//文字サイズ
+$small-font-size: 14px; // 小さめ
+$base-font-size: 16px; // 標準サイズ
+$large-font-size: 18px; // 大きめ
+
+//背景等のカラー
+$primary-back-color: #B0E0E6; // メインカラー
+$secondary-back-color: #2ecc71; // セカンダリーカラー
+$tertiary-back-color: #6C8EBF; // サードカラー
+$quaternary-back-color: #FF0000; // フォースカラー
+$quinary-back-color: #FFFFFF; // ファイブカラー
+
+//ボタンのカラー
+$primary-btn-color: #3498db; // メインカラー
+$secondary-btn-color: #2ecc71; // セカンダリーカラー
+$tertiary-btn-color: #FFFFFF; // サードカラー
+$quaternary-btn-color: #FFFFFF; // フォースカラー
+$quinary-btn-color: #FFFFFF; // ファイブカラー
+
+//文字色カラー
+$primary-color: #000000; // メインカラー（通常）
+$secondary-color: #FFFFFF; // セカンダリーカラー（ボタンの文字色 進む）
+$tertiary-color: #000000; // サードカラー（ボタンの文字色 戻る）
+$quaternary-color: #3498db; // フォースカラー（強調文字色）
+$quinary-color: #2ecc71; // ファイブカラー
+
+//フォント
+//$font-stack: Arial, sans-serif;
+//$font-stack: "Times New Roman", Times, serif;
+$font-stack: Georgia, serif;
+

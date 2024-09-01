@@ -1,0 +1,280 @@
+// reviews.scss
+@import 'variables';
+@import 'mixins';
+
+/* ホーム画面スタイル */
+//上部画像の基準
+.hero-section {
+  position: relative;
+  filter: brightness(100%) contrast(100%) blur(0px);
+}
+//上部画像のアニメーション等
+.hero-image {
+	display: block;
+	width:100%;
+	height:auto;
+	animation: fadeOutIn 7s;
+}
+//上部画像上の文字
+.hero-title {
+  position: absolute;
+  top: 33%;
+  left: 30%;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+  text-align: center;
+  animation: fadeInOut 7s forwards;
+}
+
+//上部画像より下は両端を空ける
+.contents-container {
+	padding: 0 3%;
+}
+
+/* お知らせ */
+.news-section {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px; /* セクションの最大幅を設定 */
+    position: relative;
+    text-align: center; /* タイトルを中央に配置 */
+    overflow: hidden; /* はみ出しを防ぐ */
+}
+.news-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #b0bec5; /* セクションの区切り色 */
+    border-radius: 4px 4px 0 0;
+}
+.news-section h2 {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 22px;
+    color: #333;
+}
+.news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff; /* リストの背景色 */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    //max-width: 100%; /* リストの最大幅を親要素に合わせる */
+    margin: 0 auto; /* センター配置 */
+    //box-sizing: border-box; /* パディングとボーダーを含む幅の調整 */
+}
+.news-list li {
+    font-size: 16px;
+    color: #555;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+.news-list li:last-child {
+    border-bottom: none; /* 最後のアイテムのボーダーを削除 */
+}
+
+
+/* キャンペーン */
+.campaign-section {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px; /* セクションの最大幅を設定 */
+    position: relative;
+    text-align: center; /* タイトルを中央に配置 */
+    overflow: hidden; /* はみ出しを防ぐ */
+}
+.campaign-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #00bcd4; /* セクションの区切り色 */
+    border-radius: 4px 4px 0 0;
+}
+.campaign-section h2 {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+}
+.campaign-content {
+    display: inline-block; /* コンテンツを中央に配置 */
+    text-align: center; /* 内容を中央揃え */
+    background-color: #e0f7fa; /* コンテンツの背景色 */
+    border: 1px solid #b2ebf2;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%; /* コンテンツの幅を調整 */
+    max-width: 600px; /* コンテンツの最大幅を設定 */
+    margin: 0 auto; /* センター配置 */
+    box-sizing: border-box; /* ボックスモデルを調整 */
+}
+.campaign-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.campaign-content li {
+    font-size: 20px;
+    color: #333;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #00bcd4; /* ボタンの背景色 */
+    border: none;
+    cursor: pointer;
+}
+.btn-primary {
+    background-color: #00bcd4; /* プライマリボタンの背景色 */
+}
+.btn-primary:hover {
+    background-color: #0097a7; /* ホバー時の色 */
+}
+
+
+/* アクションボタンセクション */
+.action-buttons {
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 0 40px 0;
+}
+
+
+/* メインコンテンツ */
+//各メニューごとに高さを設ける
+.contents-section {
+	position: relative;
+	height:250px;
+}
+//メニューのタイトル
+.section-title {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+}
+//メニューのメッセージ
+.section-message {
+	position: absolute;
+	top: 45%;
+	left: 40%;
+}
+//メニューのボタンリンク
+.section-btn {
+	position: absolute;
+	top: 75%;
+	right: 5%;
+}
+//画像が用意できたら変えたいがひとまず背景CSSで作成
+.section-image {
+    position: relative;
+    //width: 70vw; /* 左側70%のスペースを使用 */
+    height: 15vh; /* 高さも調整可能 */
+    overflow: hidden;
+    background: linear-gradient(to bottom, #a2c2e2, #e0f7fa); /* 水面を意識した背景 */
+    margin: auto; /* 中央に配置するためのスタイル */
+}
+//メニュー背景に実験的においてみたが微妙
+.chain-pattern {
+	display: none;
+    position: relative;
+    width: 300px; /* デザインに合わせてサイズを調整 */
+    height: 300px;
+    background: #e0f7fa; /* 背景色を淡い青に設定 */
+    margin: 20px auto;
+    overflow: hidden;
+}
+.chain-link {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 8px solid rgba(0, 150, 255, 0.5); /* 輪の色を淡い青に設定 */
+    border-radius: 50%;
+    background: rgba(0, 150, 255, 0.2); /* 内部の色を淡い青に設定 */
+    box-sizing: border-box;
+}
+.chain-link:nth-child(1) {
+    top: 5%;
+    left: 3%;
+}
+.chain-link:nth-child(2) {
+    top: 0%;
+    left: 50%;
+}
+.chain-link:nth-child(3) {
+    top: 16%;
+    left: 19%;
+}
+.chain-link:nth-child(4) {
+    top: 34%;
+    left: 22%;
+}
+.chain-link:nth-child(5) {
+    top: 20%;
+    left: 55%;
+}
+.chain-link:nth-child(6) {
+    top: 7%;
+    left: 76%;
+}
+.chain-link:nth-child(7) {
+    top: 40%;
+    left: 70%;
+}
+.chain-link:nth-child(8) {
+    top: 60%;
+    left: 10%;
+}
+.chain-link:nth-child(9) {
+    top: 90%;
+    left: 50%;
+}
+
+
+
+//アニメーション定義
+@keyframes zoomInOut {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOutIn {
+  0% { opacity: 1; }
+  70% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 0; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}

@@ -4,54 +4,42 @@
 }
 
 
-<h2>Reviews</h2>
+<div class="reviews-container">
+    <h2>Reviews</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Review ID</th>
-            <th>Author</th>
-            <th>Gender</th>
-            <th>Age</th>
-            <th>Posted At</th>
-            <th>Title</th>
-            <th>Content</th>
-            <th>Rating</th>            
-            <th>編集</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.SqlContent)
-        {
-            <tr>
-                <td>@item.ReviewId</td>
-                <td>@item.Author</td>
-                <td>@item.Gender</td>
-                <td>@item.Age</td>
-                <td>@item.PostedDateTime</td>
-                <td>@item.Title</td>
-                <td>@item.Content</td>
-                <td>@item.Rating</td>
-                @if (ViewData["UserId"]?.ToString() == item.UserId && ViewData["UserId"]?.ToString() != "")
-                {
-                    <td>
-                        <a href="/Review/Edit?reviewId=@item.ReviewId" class="btn">Edit</a>
-                        <!--
-                        <form asp-controller="Review" asp-action="Edit" method="post">
-                            <input type="hidden" name="reviewId" value="@item.ReviewId" />
-                            <button type="submit" class="btn btn-primary">Edit</button>
-                        </form>
-                        -->
-                    </td>
-                }
-                else
-                {
-                    <td></td>
-                }
-            </tr>
-        }
-    </tbody>
-</table>
+    @foreach (var item in Model.SqlContent)
+    {
+        <section class="review-item">
+            <div class="review-header">
+                <span class="review-rating">
+                    @for (int i = 0; i < item.Rating; i++)
+                    {
+                        <span class="star">★</span>
+                    }
+                </span>
+                <span class="review-author">@item.Author</span>
+                <span class="review-age">@item.Age</span>
+                <span class="review-gender">@item.Gender</span>
+            </div>
+            <div class="review-title">
+                <strong>@item.Title</strong>
+            </div>
+            <div class="review-content">
+                @item.Content
+            </div>
+            <div class="review-posted-at">
+                Posted at: @item.PostedDateTime
+            </div>
+            @if (ViewData["UserId"]?.ToString() == item.UserId && ViewData["UserId"]?.ToString() != "")
+            {
+                <div class="review-edit">
+                    <a href="/Review/Edit?reviewId=@item.ReviewId" class="btn btn-primary">編集</a>
+                </div>
+            }
+        </section>
+    }
+</div>
+
 
 @if (User.Identity.IsAuthenticated)
 {
