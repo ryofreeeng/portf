@@ -53,7 +53,7 @@ namespace Therapim.Controllers
             {
                 _logger.LogInformation($"★★★userIdInCookieが存在するためログインの必要はありません");
                 _logger.LogInformation($"★{ControllerContext.ActionDescriptor.ControllerName}/{ControllerContext.ActionDescriptor.ActionName}　終了");
-                return RedirectToAction("Home", "Index");
+                return RedirectToAction("Index", "Home");
             }
 
             _logger.LogWarning("★★★userIdInSession == nullのためログイン画面へ遷移します");
@@ -126,7 +126,7 @@ namespace Therapim.Controllers
         */
 
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> XtLogout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

@@ -1,8 +1,77 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "ホーム";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="home-container">
+    <section class="hero-section">
+        <img class="hero-image" src="https://lh3.googleusercontent.com/d/1mWi0-eG_7y8mBJq76Z7e_4f-SzK10Q61" />
+        <h1 class="hero-title">心と体の癒しの空間</h1>        
+    </section>
+    <div class="contents-container">
+        
+        <section class="news-section">
+            <h2>お知らせ</h2>
+            <ul class="news-list">
+                <li>新しいリラクゼーションコースが登場しました！</li>
+                <li>夏季限定キャンペーン実施中！</li>
+                <li>営業時間変更のお知らせ</li>                
+            </ul>
+        </section>
+
+        <section class="campaign-section">
+            <h2>キャンペーン</h2>
+            <div class="campaign-content">
+                <ul>
+                    <li>期間限定！全コース20%オフ</li>
+                    <li><a href="#" class="btn btn-primary">詳細を見る</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="action-buttons">
+            <a href="#" class="btn btn-primary">ご予約</a>
+            <a href="#" class="btn btn-secondary">ログイン</a>
+        </section>
+        
+
+        <section class="course-section contents-section">
+            <div class="course-image section-image">
+                <!--
+                <div class="chain-pattern">
+                    <div class="chain-link"></div>
+                    <div class="chain-link"></div>
+                    <div class="chain-link"></div>
+                    <div class="chain-link"></div>
+                    <div class="chain-link"></div>
+                    <div class="chain-link"></div>
+                    <div class="chain-link"></div>
+                    <div class="chain-link"></div>
+                    <div class="chain-link"></div>
+                </div>
+                -->
+            </div>            
+            <h2 class="course-title section-title">コース</h2>
+            <p class="course-message section-message">心と体を解放する、至福のひとときをお過ごしください。</p>
+            <a href="#" class="btn btn-primary section-btn">コース一覧を見る</a>
+        </section>
+
+        <section class="therapist-section contents-section">
+            <div class="therapist-image section-image"></div>
+            <h2 class="therapist-title section-title">セラピスト</h2>
+            <p class="therapist-message section-message">経験豊富なプロフェッショナルが、あなたの癒しをサポートします。</p>
+            <a href="#" class="btn btn-primary section-btn">セラピスト一覧を見る</a>
+        </section>
+
+        <section class="review-section contents-section">
+            <div class="review-image section-image"></div>
+            <h2 class="review-title section-title">レビュー</h2>
+            <p class="review-message section-message">お客様の声をご紹介します。</p>
+            <a href="#" class="btn btn-primary section-btn">レビューを見る</a>                                    
+        </section>
+
+        <section class="action-buttons">
+            <a href="#" class="btn btn-primary">ご予約</a>
+            <a href="#" class="btn btn-secondary">ログイン</a>
+        </section>
+    </div>
 </div>
