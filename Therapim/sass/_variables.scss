@@ -20,8 +20,8 @@ $quinary-back-color: #FFFFFF; // ファイブカラー
 //ボタンのカラー
 $primary-btn-color: #3498db; // メインカラー
 $secondary-btn-color: #2ecc71; // セカンダリーカラー
-$tertiary-btn-color: #FFFFFF; // サードカラー
-$quaternary-btn-color: #FFFFFF; // フォースカラー
+$tertiary-btn-color: #007bff; // サードカラー
+$quaternary-btn-color: #2e86c1; // フォースカラー
 $quinary-btn-color: #FFFFFF; // ファイブカラー
 
 //文字色カラー
@@ -30,6 +30,13 @@ $secondary-color: #FFFFFF; // セカンダリーカラー（ボタンの文字�
 $tertiary-color: #000000; // サードカラー（ボタンの文字色 戻る）
 $quaternary-color: #3498db; // フォースカラー（強調文字色）
 $quinary-color: #2ecc71; // ファイブカラー
+
+//入力欄の枠線カラー
+$primary-border-color: #cccccc; // メインカラー（通常）
+$secondary-border-color: #FFFFFF; // セカンダリーカラー（ボタンの文字色 進む）
+$tertiary-border-color: #000000; // サードカラー（ボタンの文字色 戻る）
+$quaternary-border-color: #3498db; // フォースカラー（強調文字色）
+$quinary-border-color: #2ecc71; // ファイブカラー
 
 //フォント
 //$font-stack: Arial, sans-serif;

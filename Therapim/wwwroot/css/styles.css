@@ -1,7 +1,22 @@
 @charset "UTF-8";
+/* 共通設定 */
+* {
+  box-sizing: border-box;
+}
+
 /* 全体構造 */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
-  margin: 0 0 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 /* フォントとカラーのベースを設定 */
@@ -228,7 +243,8 @@ header {
   }
 }
 .footer {
-  height: 30px;
+  bottom: 0px;
+  height: 40px;
   padding: 10px 0;
   text-align: center;
 }

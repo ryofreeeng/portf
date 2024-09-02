@@ -121,7 +121,6 @@
   width: 100%; /* コンテンツの幅を調整 */
   max-width: 600px; /* コンテンツの最大幅を設定 */
   margin: 0 auto; /* センター配置 */
-  box-sizing: border-box; /* ボックスモデルを調整 */
 }
 
 .campaign-content ul {
@@ -216,7 +215,6 @@
   border: 8px solid rgba(0, 150, 255, 0.5); /* 輪の色を淡い青に設定 */
   border-radius: 50%;
   background: rgba(0, 150, 255, 0.2); /* 内部の色を淡い青に設定 */
-  box-sizing: border-box;
 }
 
 .chain-link:nth-child(1) {
