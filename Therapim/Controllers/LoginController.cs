@@ -64,7 +64,7 @@ namespace Therapim.Controllers
         /// <summary>
         /// ログイン処理
         /// </summary>
-        /// <param name="model">ログイン用リクエスト情報</param>
+        /// <param name="model">ログイン用リクエスト情報</  >
         /// <returns>ログイン成功時：ホーム画面、ログイン失敗時：ログイン画面</returns>
         [HttpPost]
         public async Task<IActionResult> XtLogin(LoginRequestModel model)

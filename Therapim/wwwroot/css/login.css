@@ -1,20 +1,26 @@
 @charset "UTF-8";
 /* ログイン画面用のスタイル */
 .login-container {
-  padding: 1em;
+  padding: 15px 5%;
   background-color: #f5f5f5;
   border-radius: 8px;
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+@media (min-width: 768px) {
+  .login-container {
+    padding: 15px 3%;
+    border-radius: 15px;
+    margin: 40px auto;
+  }
+}
 .login-container h2 {
   text-align: center;
-  margin-bottom: 1.5em;
-  font-size: 1.5em;
 }
 
+/* フォーム領域 */
 .login-container .form-group {
   margin-bottom: 1.2em;
 }
@@ -27,11 +33,10 @@
 
 .login-container .form-group input {
   width: 100%;
-  padding: 0.75em;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: 4px;
   font-size: 1em;
-  box-sizing: border-box;
+  padding: 0.75em;
 }
 
 .login-container .form-group .text-danger {
@@ -43,24 +48,18 @@
 
 .login-container button {
   width: 100%;
-  padding: 0.75em;
-  background-color: #007bff;
-  color: #fff;
+  margin: 1.2em 0;
+  padding: 0.65em;
+  background-color: #3498db;
+  color: #FFFFFF;
   border: none;
   border-radius: 4px;
-  font-size: 1em;
+  font-size: 1.2em;
   cursor: pointer;
 }
 
 .login-container button:hover {
-  background-color: #0056b3;
-}
-
-.login-container p {
-  margin-top: 1em;
-  text-align: center;
-  font-size: 0.875em;
-  color: #6c757d;
+  background-color: #2e86c1;
 }
 
 /*# sourceMappingURL=login.css.map */
