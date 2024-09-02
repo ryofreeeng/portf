@@ -5,6 +5,9 @@
     var formAction = ViewData["Title"] == "新規投稿" ? "Create" : "Edit";
     var buttonText = ViewData["Title"] == "新規投稿" ? "投稿する" : "更新する";
 }
+@section CustomStyles {
+    <link rel="stylesheet" href="~/css/reviews.css" asp-append-version="true" />
+}
 
 <div class="review-edit-container">
     <h2>@ViewData["Title"]</h2>
