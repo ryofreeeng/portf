@@ -1,56 +1,61 @@
 ﻿@model Therapim.Models.ReviewResponseModel
 @{
-    ViewData["Title"] = "Review List";
+    ViewData["Title"] = " レビュー";
 }
 @section CustomStyles {
     <link rel="stylesheet" href="~/css/reviews.css" asp-append-version="true" />
 }
 
 <div class="reviews-container">
-    <h2>Reviews</h2>
+    <h2>@ViewData["Title"]</h2>
 
-    @foreach (var item in Model.SqlContent)
-    {
-        <section class="review-item">
-            <div class="review-header">
-                <span class="review-rating">
-                    @for (int i = 0; i < item.Rating; i++)
-                    {
-                        <span class="star">★</span>
-                    }
-                </span>
-                <span class="review-author">@item.Author</span>
-                <span class="review-age">@item.Age</span>
-                <span class="review-gender">@item.Gender</span>
-            </div>
-            <div class="review-title">
-                <strong>@item.Title</strong>
-            </div>
-            <div class="review-content">
-                @item.Content
-            </div>
-            <div class="review-posted-at">
-                Posted at: @item.PostedDateTime
-            </div>
-            @if (ViewData["UserId"]?.ToString() == item.UserId && ViewData["UserId"]?.ToString() != "")
-            {
-                <div class="review-edit">
-                    <a href="/Review/Edit?reviewId=@item.ReviewId" class="btn btn-primary">編集</a>
+    <div class="review-list">
+        @foreach (var item in Model.SqlContent)
+        {
+            <section class="review-item">
+                <div class="review-header">
+                    <span class="review-rating">
+                        @for (int i = 0; i < item.Rating; i++)
+                        {
+                            <span class="star">★</span>
+                        }
+                    </span>
+                    <span class="review-authorInfo">
+                        <span class="review-author">@item.Author</span>
+                        <span class="review-age">@item.Age</span>
+                        <span class="review-gender">@item.Gender</span>
+                    </span>
                 </div>
-            }
-        </section>
-    }
-</div>
-
-
-@if (User.Identity.IsAuthenticated)
-{
-    <div>
-        <!--
-        <form asp-controller="Login" asp-action="XtLogout" method="post" style="display:inline;">
-            <button type="submit">ログアウト</button>
-        </form>
-        -->
-        <a class="nav-link text-dark" asp-area="" asp-controller="Review" asp-action="Create">Review新規登録</a>
+                <div class="review-title">
+                    <strong>@item.Title</strong>
+                </div>
+                <div class="review-content">
+                    @item.Content
+                </div>
+                <div class="review-posted-at">
+                    Posted at: @item.PostedDateTime
+                </div>
+                @if (ViewData["UserId"]?.ToString() == item.UserId && ViewData["UserId"]?.ToString() != "")
+                {
+                    <div class="review-edit">
+                        <a href="/Review/Edit?reviewId=@item.ReviewId" class="btn btn-primary">編集</a>
+                    </div>
+                }
+            </section>
+        }
     </div>
-}
+
+    <div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div>
+                <!--
+                <form asp-controller="Login" asp-action="XtLogout" method="post" style="display:inline;">
+                    <button type="submit">ログアウト</button>
+                </form>
+                -->
+                <a class="nav-link text-dark" asp-area="" asp-controller="Review" asp-action="Create">Review新規登録</a>
+            </div>
+        }
+    </div>
+</div>
