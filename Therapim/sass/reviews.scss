@@ -10,6 +10,10 @@
     margin: 0 auto;
     //overflow-x: hidden; /* 横スクロールを防ぐ */
 }
+.reviews-container h2 {
+	text-align:center;
+}
+
 //レビュー一覧のコンテナはPC用の最大幅を決めておく
 .review-list {
 	max-width: 800px;
@@ -66,7 +70,7 @@
     padding-top: 1em;
 }
 //編集ボタン自体の装飾
-.review-edit .btn {
+.btn {
     padding: 0.5em 1em;
     background-color: $primary-btn-color;
     color: $secondary-color;
@@ -78,6 +82,22 @@
 .review-edit .btn:hover {
     background-color: $quaternary-btn-color;
 }
+
+/* 下部の口コミ投稿に関する案内とボタン */
+//口コミ投稿の案内
+.revirew-create-guide {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 1em;
+	width: 90%;
+	margin: 2em auto;
+}
+//口コミ投稿ボタン
+.revirew-create-guide .btn {
+	padding: 0.7em 1.2em;
+}
+
 
 /* PCスタイルのオーバーライド */
 @media (min-width: $breakpoint-md) {
@@ -123,82 +143,56 @@
 }
 
 
-
-
-/* レビュー編集画面用のスタイル */
-.review-edit-container {
-    padding: 1em;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: 0 auto;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+/* 口コミ割引の案内モーダル */
+//初期状態では背景ごと非表示
+.review-coupon-guide-modal-bk {
+	width:100%;
+	height:100vh;
+	position:fixed;
+	top: 0;
+	left: 0;
+	//display: none; //アニメーションをつけるためにvisibilityにした	
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0.5s ease,opacity 0.5s ease; //この二つでスムーズな視覚化
+	background-color: rgba(0, 0, 0, 0.8);
+}
+//背景の表示状態の設定
+.review-coupon-guide-modal-bk.open {	
+	//animation: fadeIn 2s forwards;
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 0.5s ease;
+}
+//背景を閉じるときの設定
+.review-coupon-guide-modal-bk.close {
+	opacity: 0;
+}
+//モーダルの中身の設定
+.review-coupon-guide-modal {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.5em;
+	width:80%;
+	max-width: 500px;
+	height:auto;
+	padding: 1.5em;
+	margin: 10% auto;	
+	background-color: $primary-back-color;
 }
 
-.review-edit-container h2 {
-    text-align: center;
-    margin-bottom: 1.5em;
-    font-size: 1.5em;
+
+
+
+@keyframes fadeIn {
+  from { background-color: rgba(0, 0, 0, 0); }
+  to { background-color: rgba(0, 0, 0, 0.8); }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
-.review-edit-container .form-group {
-    margin-bottom: 1.2em;
-}
 
-.review-edit-container .form-group label {
-    font-weight: bold;
-    margin-bottom: 0.5em;
-    display: block;
-}
 
-.review-edit-container .form-group input,
-.review-edit-container .form-group textarea,
-.review-edit-container .form-group select {
-    width: 100%;
-    padding: 0.75em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em;
-}
 
-.review-edit-container .form-group input[readonly] {
-    background-color: #e9ecef;
-}
-
-.review-edit-container .form-group .text-danger {
-    color: #dc3545;
-    font-size: 0.875em;
-    margin-top: 0.25em;
-    display: block;
-}
-
-.review-edit-container .btn {
-    padding: 0.75em 1.5em;
-    font-size: 1em;
-    border-radius: 4px;
-    text-align: center;
-}
-
-.review-edit-container .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    margin-top: 1em;
-    width: 100%;
-}
-
-.review-edit-container .btn-primary:hover {
-    background-color: #0056b3;
-}
-
-.review-edit-container .btn-secondary {
-    background-color: #6c757d;
-    color: #fff;
-    border: none;
-    margin-top: 0.5em;
-    width: 100%;
-}
-
-.review-edit-container .btn-secondary:hover {
-    background-color: #5a6268;
-}
