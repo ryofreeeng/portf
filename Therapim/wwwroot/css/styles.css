@@ -21,7 +21,7 @@ main {
 
 /* フォントとカラーのベースを設定 */
 body {
-  font-family: Georgia, serif;
+  font-family: Arial, sans-serif;
   font-size: 16px;
   color: #000000;
 }
