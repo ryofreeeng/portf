@@ -15,9 +15,9 @@ namespace Therapim.Models
         // レビュー番号 (nullable)
         public int? ReviewId { get; set; }
 
-        // 投稿者 (必須、文字列長最大100)
-        [Required(ErrorMessage = "投稿者は必須項目です。")]
-        [StringLength(100, ErrorMessage = "投稿者の名前は100文字以内で入力してください。")]
+        // 投稿者 (必須、文字列長最大30)
+        [Required(ErrorMessage = "投稿者名は必須項目です。")]
+        [StringLength(30, ErrorMessage = "投稿者名は30文字以内で入力してください。")]
         public string Author { get; set; }
 
         // 性別 (必須、文字列長最大10)
@@ -25,27 +25,27 @@ namespace Therapim.Models
         [StringLength(10, ErrorMessage = "性別は10文字以内で入力してください。")]
         public string Gender { get; set; }
 
-        // 年齢 (必須、範囲1〜120)
-        [Required(ErrorMessage = "年齢は必須項目です。")]
-        [Range(1, 120, ErrorMessage = "年齢は1から120の範囲で入力してください。")]
+        // 年齢 (必須、範囲1〜80)
+        //[Required(ErrorMessage = "年齢は必須項目です。")]
+        [Range(1, 80, ErrorMessage = "年齢を選択してください。")]
         public int Age { get; set; }
 
         // 投稿日時 (任意)
         public DateTime? PostedDateTime { get; set; }
 
         // レビュータイトル (必須、文字列長最大200)
-        [Required(ErrorMessage = "レビュータイトルは必須項目です。")]
-        [StringLength(200, ErrorMessage = "レビュータイトルは200文字以内で入力してください。")]
+        [Required(ErrorMessage = "タイトルは必須項目です。")]
+        [StringLength(50, ErrorMessage = "タイトルは50文字以内で入力してください。")]
         public string Title { get; set; }
 
         // レビュー内容 (必須、文字列長最大1000)
-        [Required(ErrorMessage = "レビュー内容は必須項目です。")]
-        [StringLength(1000, ErrorMessage = "レビュー内容は1000文字以内で入力してください。")]
+        [Required(ErrorMessage = "内容は必須項目です。")]
+        [StringLength(1000, ErrorMessage = "内容は1000文字以内で入力してください。")]
         public string Content { get; set; }
 
         // 評価 (必須、範囲1〜5)
-        [Required(ErrorMessage = "評価は必須項目です。")]
-        [Range(1, 5, ErrorMessage = "評価は1から5の範囲で入力してください。")]
+        //[Required(ErrorMessage = "評価は必須項目です。")]
+        [Range(1, 5, ErrorMessage = "評価を選択してください。")]
         public int Rating { get; set; }
 
         // コース番号 (任意)
