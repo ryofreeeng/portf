@@ -8,6 +8,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  background-color: rgba(248, 252, 255, 0.9);
 }
 
 body {

@@ -1,9 +1,9 @@
 ﻿@model Therapim.Models.ReviewRequestModel
 
 @{
-    ViewData["Title"] = Model.ReviewId == null ? "新規投稿" : "編集";
-    var formAction = ViewData["Title"] == "新規投稿" ? "Create" : "Edit";
-    var buttonText = ViewData["Title"] == "新規投稿" ? "投稿する" : "更新する";
+    ViewData["Title"] = Model.ReviewId == null ? "口コミを投稿する" : "口コミを編集する";
+    var formAction = Model.ReviewId == null ? "Create" : "Edit";
+    var buttonText = Model.ReviewId == null ? "投稿する" : "更新する";
 }
 @section CustomStyles {
     <link rel="stylesheet" href="~/css/reviewEdit.css" asp-append-version="true" />
@@ -22,61 +22,70 @@
     <form asp-action="@formAction" method="post">
         @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            <label asp-for="ReviewId" class="control-label"></label>
-            <input asp-for="ReviewId" class="form-control" readonly />
-            <span asp-validation-for="ReviewId" class="text-danger"></span>
-        </div>
+        <input asp-for="ReviewId" class="form-control" readonly type="hidden"/>
 
         <div class="form-group">
-            <label asp-for="Author" class="control-label"></label>
+            <label asp-for="Author" class="control-label">投稿者名</label>
             <input asp-for="Author" class="form-control" />
             <span asp-validation-for="Author" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Gender" class="control-label"></label>
+            <label asp-for="Gender" class="control-label">性別</label>
             <select asp-for="Gender" class="form-control">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+                <!-- <option value="Male">男性</option> -->
+                <option value="Female" selected>女性</option>
             </select>
             <span asp-validation-for="Gender" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Age" class="control-label"></label>
-            <input asp-for="Age" class="form-control" />
+            <label asp-for="Age" class="control-label">年齢</label>
+            <select asp-for="Age" class="form-control">                
+                <option value=0>-</option>
+                <option value=10>１０代</option>
+                <option value=20>２０代</option>
+                <option value=30>３０代</option>
+                <option value=40>４０代</option>
+                <option value=50>５０代</option>
+                <option value=60>６０代</option>
+                <option value=70>７０代</option>
+                <option value=80>８０代</option>
+            </select>
             <span asp-validation-for="Age" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Title" class="control-label"></label>
+            <label asp-for="Title" class="control-label">タイトル</label>
             <input asp-for="Title" class="form-control" />
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Content" class="control-label"></label>
+            <label asp-for="Content" class="control-label">本文</label>
             <textarea asp-for="Content" class="form-control"></textarea>
             <span asp-validation-for="Content" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Rating" class="control-label"></label>
-            <input asp-for="Rating" class="form-control" type="number" min="1" max="5" />
+            <label asp-for="Rating" class="control-label">評価</label>
+            <select asp-for="Rating" class="form-control review-rating">
+                <option value=0 class="star">-</option>
+                <option value=1 class="star">★</option>
+                <option value=2 class="star">★★</option>
+                <option value=3 class="star">★★★</option>
+                <option value=4 class="star">★★★★</option>
+                <option value=5 class="star">★★★★★</option>
+            </select>
             <span asp-validation-for="Rating" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="CourseId" class="control-label"></label>
-            <input asp-for="CourseId" class="form-control" readonly />
-            <span asp-validation-for="CourseId" class="text-danger"></span>
-        </div>
+        </div>        
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">@buttonText</button>
         </div>
     </form>
-
-    <a class="btn btn-secondary" asp-area="" asp-controller="Review" asp-action="List">レビュー一覧に戻る</a>
+    <div class="btn-container">
+        <a class="btn btn-secondary" asp-area="" asp-controller="Review" asp-action="List">口コミ一覧に戻る</a>
+    </div>    
+    
 </div>
