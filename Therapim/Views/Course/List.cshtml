@@ -1,0 +1,72 @@
+﻿@model Therapim.Models.ReviewResponseModel
+@{
+    ViewData["Title"] = " コース";
+}
+@section CustomStyles {
+    <link rel="stylesheet" href="~/css/courses.css" asp-append-version="true" />
+}
+
+<div class="courses-container">
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="course-list">
+        @foreach (var item in Model.SqlContent)
+        {
+            <section class="review-item">
+                <div class="review-header">
+                    <span class="review-rating">
+                        @for (int i = 0; i < item.Rating; i++)
+                        {
+                            <span class="star">★</span>
+                        }
+                    </span>
+                    <span class="review-authorInfo">
+                        <span class="review-author">@item.Author</span>
+                        <span class="review-age">@item.Age</span>
+                        <span class="review-gender">@item.Gender</span>
+                    </span>
+                </div>
+                <div class="review-title">
+                    <strong>@item.Title</strong>
+                </div>
+                <div class="review-content">
+                    @item.Content
+                </div>
+                <div class="review-posted-at">
+                    Posted at: @item.PostedDateTime
+                </div>
+                @if (ViewData["UserId"]?.ToString() == item.UserId && ViewData["UserId"]?.ToString() != "")
+                {
+                    <div class="review-edit">
+                        <a href="/Review/Edit?reviewId=@item.ReviewId" class="btn btn-primary">編集</a>
+                    </div>
+                }
+            </section>
+        }
+    </div>
+
+    <div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="course-guide">
+                <span class="visited-times">あなたのご来店回数は●回です。</span>
+                <span class="visited-times-navi">※ご来店回数について</span>
+            </div>
+        }else
+        {
+            <div class="course-guide">
+                <span>初めての方は、以下のコースからお選びいただけます。</span>                
+            </div>
+        }
+    </div>
+</div>
+
+<!--
+<div class="review-coupon-guide-modal-bk">
+    <div class="review-coupon-guide-modal">
+        <span>口コミを投稿いただくと、次回¥500割引が適用されます。</span>
+        <span>メンズセラピストサロンナビの口コミも同様に適用されますので、両方お書きいただくと¥1,000割引となります。</span>
+        <a href="https://mtsnavi.com/ty104/"><span>メンズセラピストサロンナビ（THERAPIMのページ）</span></a>
+    </div>
+</div>
+-->
