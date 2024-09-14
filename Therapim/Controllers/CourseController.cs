@@ -15,7 +15,7 @@ using Therapim.Filters;
 namespace Therapim.Controllers
 {
     /// <summary>
-    /// レビュー用コントローラークラス
+    /// コース用コントローラークラス
     /// </summary>
     public class CourseController : Controller
     {
@@ -39,22 +39,22 @@ namespace Therapim.Controllers
         public async Task<IActionResult> List()
         {
             //取得処理
-            //var CourseProcesser = new CourseProccesser(_logger, _commonService);
-            //var CourseList = await CourseProcesser.getCourseList();
+            var CourseProcesser = new CourseProccesser(_logger, _commonService);
+            var CourseList = await CourseProcesser.getCourseList();
 
-            //if(CourseList == null)
-            //{
+            if(CourseList == null)
+            {
                 // TempData にエラーメッセージを設定
-                //TempData["ErrorMessage"] = "コース情報取得の通信に失敗しました。再度お試しいただいても解決しない場合は店舗までお問い合わせください。";
+                TempData["ErrorMessage"] = "コース情報取得の通信に失敗しました。再度お試しいただいても解決しない場合は店舗までお問い合わせください。";
                 // エラー画面にリダイレクト
-                //return RedirectToAction("Error", "Home");
-            //}
+                return RedirectToAction("Error", "Home");
+            }
             //一覧画面で、ユーザIDが一致するレビューには編集ボタンを表示するためのパラメータを持たせる
             ViewData["VisitedTimes"] = 3;
             ViewData["WelcomeMessage"] = "あと1回ご来店いただくとポイントがたまります。";
 
-            //return View(CourseList);
-            return View();
+            return View(CourseList);
+            //return View();
         }
 
 
