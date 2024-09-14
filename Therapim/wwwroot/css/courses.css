@@ -1,0 +1,234 @@
+@charset "UTF-8";
+/* スマホベースの基本スタイル */
+.courses-container {
+  padding: 15px 5%;
+  margin: 0 auto;
+}
+
+.courses-container h2 {
+  text-align: center;
+}
+
+.course-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.course-item {
+  margin: 1em 0;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.course-addInfo {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s linear;
+}
+
+.course-addInfo.open {
+  max-height: 200px;
+  transition: max-height 0.5s linear;
+}
+
+/* アイコン部分（詳細を見る＋円の中に三角形） */
+.course-addInfo-navi {
+  position: relative;
+  width: 130px;
+  margin: 0 0 0 auto;
+  cursor: pointer;
+}
+
+.course-addInfo-icon {
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.2em;
+  height: 1.2em;
+  border: 1px solid #a2846b;
+  border-radius: 50%;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.course-addInfo-icon:before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid #a2846b;
+  box-shadow: 0 0px 18px rgba(10, 100, 200, 0.9);
+}
+
+.course-addInfo-icon.open {
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+}
+
+.course-addInfo-icon.open:before {
+  border-top: none;
+  border-bottom: 6px solid #a2846b;
+  box-shadow: 0 0px 18px rgba(10, 100, 200, 0);
+}
+
+.review-header {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1em;
+  margin-bottom: 0.5em;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.review-rating {
+  font-size: 1.3em;
+  color: #ffcc00; /* 星の色 */
+}
+
+.review-author, .review-age, .review-gender {
+  margin-right: 0.5em;
+}
+
+.review-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+
+.review-content {
+  font-size: 1em;
+  margin-bottom: 0.6em;
+}
+
+.review-posted-at {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 0.3em;
+  text-align: right;
+}
+
+.review-edit {
+  text-align: center;
+  padding-top: 1em;
+}
+
+.btn {
+  padding: 0.5em 1em;
+  background-color: #a2846b;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.review-edit .btn:hover {
+  background-color: #2e86c1;
+}
+
+/* 下部の口コミ投稿に関する案内とボタン */
+.revirew-create-guide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1em;
+  width: 90%;
+  margin: 2em auto;
+}
+
+.revirew-create-guide .btn {
+  padding: 0.7em 1.2em;
+}
+
+/* PCスタイルのオーバーライド */
+@media (min-width: 768px) {
+  .review-item {
+    padding: 1.5em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  .review-header {
+    flex-direction: row;
+    align-items: center;
+  }
+  .review-rating {
+    font-size: 2em; /* 星のサイズをPC向けに大きく */
+    margin-right: 1em; /* PCでは星と他の要素を少し離す */
+  }
+  .review-author, .review-age, .review-gender {
+    font-size: 1.3em;
+  }
+  .review-title {
+    font-size: 1.5em;
+    margin-bottom: 0.3em;
+  }
+  .review-content {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+  }
+  .review-posted-at {
+    font-size: 1.1em;
+  }
+  .review-edit .btn {
+    padding: 0.75em 1.5em;
+  }
+}
+/* 口コミ割引の案内モーダル */
+.review-coupon-guide-modal-bk {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s ease, opacity 0.5s ease;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.review-coupon-guide-modal-bk.open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.review-coupon-guide-modal-bk.close {
+  opacity: 0;
+}
+
+.review-coupon-guide-modal {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  padding: 1.5em;
+  margin: 10% auto;
+  background-color: #B0E0E6;
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=courses.css.map */
