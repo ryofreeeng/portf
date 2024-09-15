@@ -1,4 +1,5 @@
-﻿@model Therapim.Models.CourseResponseModel
+﻿@using static Therapim.Helpers.CommonHelper
+@model Therapim.Models.CourseResponseModel
 @{
     ViewData["Title"] = " コース";
 }
@@ -12,43 +13,112 @@
 <div class="courses-container">
     <h2>@ViewData["Title"]</h2>
 
-    <div class="course-list">
-        @foreach (var item in Model.SqlContent)
+    <div class="course-list">        
+        @for (int i = 0; i < Model.SqlContent.Count; i++)
         {
-            <section class="course-item">
-                <div class="course-label"></div>
-                <div class="course-content"></div>                
-                <div class="course-addInfo">
-                    <div>補足情報1</div>
-                    <div>補足情報2</div>
-                    <div>補足情報3</div>
+            <section class="course-item">                
+                <!--コースのメイン内容-->
+                <div class="course-overview">
+                    <div class="course-image">
+                        <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath1" />
+                    </div>
+                    <div class="course-display">
+                        <!--コースのラベル-->
+                        <div class="course-label">
+                            @Html.Raw(@devideLabel(@Model.SqlContent[i].Label)) <!--メソッドで生成したタグのためHTMLエンコードされないようにする-->
+                        </div>
+                        <!--コース名-->
+                        <div class="course-name">
+                            <strong>@Model.SqlContent[i].CourseNameDisp</strong>
+                        </div>
+                        <!--金額-->
+                        <div class="course-price">
+                            @FormatAsCurrency(Model.SqlContent[i].Price)
+                        </div>
+                        <!--金額補足-->
+                        <div class="course-priceAddInfo">
+                            @Model.SqlContent[i].PriceAddInfo
+                        </div>                    
+                    </div>
+                </div>
+                <!--コース説明-->
+                <div class="course-description">
+                    @Model.SqlContent[i].Description
+                </div>
+                <!--補足情報-->
+                <div class="course-addInfo">                    
+                    <div class="course-addInfo-list">
+                        <div class="course-addInfo-list-title">
+                            ＜補足・注意事項＞
+                        </div>
+                        <ul>
+                            @if (@Model.SqlContent[i].AddInfo1 != "")
+                            {
+                                <li>@Model.SqlContent[i].AddInfo1</li>
+                            }
+                            @if (@Model.SqlContent[i].AddInfo2 != "")
+                            {
+                                <li>@Model.SqlContent[i].AddInfo2</li>
+                            }
+                            @if (@Model.SqlContent[i].AddInfo3 != "")
+                            {
+                                <li>@Model.SqlContent[i].AddInfo3</li>
+                            }
+                            @if (@Model.SqlContent[i].AddInfo4 != "")
+                            {
+                                <li>@Model.SqlContent[i].AddInfo4</li>
+                            }
+                            @if (@Model.SqlContent[i].AddInfo5 != "")
+                            {
+                                <li>@Model.SqlContent[i].AddInfo5</li>
+                            }                            
+                        </ul>
+                    </div>
+                    <div class="course-target">
+                        <div class="course-target-title">
+                            ＜対象＞
+                        </div>
+                        <span>@Model.SqlContent[i].Target</span>
+                    </div>
+                    @if (@Model.SqlContent[i].CourseImagePath1 != "")
+                    {
+                        <div class="course-image-other" id="thumbnails">
+                            @if (@Model.SqlContent[i].CourseImagePath1 != "")
+                            {
+                                <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath1" />
+                            }
+                            @if (@Model.SqlContent[i].CourseImagePath2 != "")
+                            {
+                                <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath2" />
+                            }
+                            @if (@Model.SqlContent[i].CourseImagePath3 != "")
+                            {
+                                <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath3" />
+                            }                        
+                        </div>
+                    }
+                    <div class="course-reserve">
+                        <form asp-controller="Reserve" asp-action="Regist" method="get">
+                            @Html.AntiForgeryToken()
+                            <input asp-for="SqlContent[i].MenuId" class="form-control" readonly type="hidden" />
+                            <button type="submit" class="btn btn-primary">予約へ進む</button>
+                        </form>                                                                                                                
+                    </div>
                 </div>
                 <div class="course-addInfo-navi">詳細を見る <span class="course-addInfo-icon"></span></div>
 
                 <!--
-                <div>@item.CourseNameDisp</div>
-                <div>@item.Price</div>
-                <div>@item.PriceAddInfo</div>
-                <div>@item.Description</div>
-                <div>@item.AddInfo1</div>
-                <div>@item.AddInfo2</div>
-                <div>@item.AddInfo3</div>
-                <div>@item.AddInfo4</div>
-                <div>@item.AddInfo5</div>
-                <div>@item.Target</div>
-                <div>@item.Level</div>
+                
                 <div>
-                    <img class="" src="@item.CourseImagePath1" />
-                </div>                
-                <div>@item.CourseImagePath2</div>
-                <div>@item.CourseImagePath3</div>                
-                <div>
-                    <iframe src="@item.CourseVideoPath1" width="640" height="480" allow="autoplay"></iframe>
+                    <iframe src="@Model.SqlContent[i].CourseVideoPath1" width="640" height="480" allow="autoplay"></iframe>
                 </div>
                 <div>
-                    <iframe width="560" height="315" src="@item.CourseVideoPath2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="@Model.SqlContent[i].CourseVideoPath2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>                
-                <div>@item.CourseVideoPath3</div>
+                <div>@Model.SqlContent[i].CourseVideoPath3</div>
+                <div>@Model.SqlContent[i].Label</div>
+                <div>@Model.SqlContent[i].Rank</div>
+                <div>@Model.SqlContent[i].Permission</div>
 
                 -->
 
@@ -69,5 +139,23 @@
                 <span>初めての方は、以下のコースからお選びいただけます。</span>                
             </div>
         }
+    </div>
+</div>
+
+<!--
+<div class="course-image-modal-bk">
+    <div class="course-image-modal">                
+        <img class="course-image-a" src="" />
+    </div>
+</div>
+-->
+
+<div class="course-image-modal-bk" id="modalBack">
+    <div class="course-image-modal">
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Modal Image">
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
+        </div>
     </div>
 </div>

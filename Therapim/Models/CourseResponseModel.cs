@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Emit;
 
 namespace Therapim.Models
 {
@@ -38,5 +39,9 @@ namespace Therapim.Models
         public string CourseVideoPath1 { get; set; } // イメージ動画パス1
         public string CourseVideoPath2 { get; set; } // イメージ動画パス2
         public string CourseVideoPath3 { get; set; } // イメージ動画パス3
+        public string Label { get; set; } // ラベル
+        public string Rank { get; set; } // ランク
+        public string Permission { get; set; } // 必要権限
+        
     }
 }
