@@ -22,23 +22,110 @@
 //1コースのコンテナサイズ等
 .course-item {
     margin: 1em 0;
-    padding: 1em;
+    padding: 1em 1em 0.5em 1em;
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: #f9f9f9;
 }
+
+
+
+//コースラベルは間をあけて横並び
+.course-label {
+	padding-bottom:0.3em;
+	display: flex;
+	column-gap: 0.5em;
+	row-gap:0.2em;
+	flex-wrap: wrap;
+	justify-content:right;
+}
+//共通のラベル装飾
+.course-label-a {
+	font-size: 0.8em;
+	display: inline-box;
+	//border: 1px solid #ddd;
+	border-radius: 2px;
+	padding:0.1em 0.2em 0em 0.2em;
+	background-color:rgba(211, 211, 211, 1);
+}
+//個別のラベル装飾
+.course-label-a.student {
+	background: linear-gradient(to right, rgba(76, 175, 80, 0.4), rgba(76, 175, 80, 0.6), rgba(76, 175, 80, 0.5));
+}
+.course-label-a.practice {
+	background: linear-gradient(to right, rgba(33, 150, 243, 0.4), rgba(33, 150, 243, 0.6), rgba(33, 150, 243, 0.5));
+}
+.course-label-a.limitedTime {
+	background: linear-gradient(to right, rgba(255, 87, 34, 0.4), rgba(255, 87, 34, 0.6), rgba(255, 87, 34, 0.5));
+}
+.course-label-a.monitor {
+	background: linear-gradient(to right, rgba(255, 193, 7, 0.4), rgba(255, 193, 7, 0.6), rgba(255, 193, 7, 0.5));
+}
+.course-label-a.secret {
+	background: linear-gradient(to right, rgba(156, 39, 176, 0.4), rgba(156, 39, 176, 0.6), rgba(156, 39, 176, 0.5));
+}
+.course-label-a.limitedCustomer {
+	background: linear-gradient(to right, rgba(63, 81, 181, 0.4), rgba(63, 81, 181, 0.6), rgba(63, 81, 181, 0.5));
+}
+.course-label-a.original {
+	background: linear-gradient(to right, rgba(233, 30, 99, 0.4), rgba(233, 30, 99, 0.6), rgba(233, 30, 99, 0.5));
+}
+
+
+
+/* コース内容の初期表示箇所 */
+.course-overview {
+	display: flex;
+	justify-content: space-between;
+	column-gap: 0.5em;
+	padding-bottom: 0.5em;
+}
+//コースのイメージ画像の枠
+.course-image {
+    width: 100px;
+    height: 100px;
+    overflow: hidden; /* はみ出した部分を表示しない */
+    display: flex;
+    align-items: center; /* 中央揃え */
+    justify-content: center; /* 中央揃え */
+    //border: 1px solid #ccc; /* 枠線を確認するため */
+}
+//コースのイメージ画像
+.course-image .course-image-a {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* 画像を要素の枠に合わせて拡大または縮小 */
+}
+//コース名や金額などのセクション
+.course-display {
+	width: 70%;
+	text-align: right;
+}
+//コース名
+.course-name {
+	padding-bottom:0.3em;
+}
+//コース説明
+.course-description {
+	padding-bottom: 0.5em;
+}
+
+
+/* 補足情報の大枠処理 */
 //補足情報は初期状態で高さをなくして見えない状態
-.course-addInfo {	
+.course-addInfo {
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.5s linear;
+	border-top: 1px solid #ddd;
+	padding-top: 0.5em;
 	//display: none;
 	//visibility: hidden;
 	//pointer-events: none;	
 }
 //最大高さにより挙動がかなり異なって見えるため微調整が必要
 .course-addInfo.open {	
-	max-height: 200px;
+	max-height: 800px;
 	transition: max-height 0.5s linear;
 	//visibility: visible;
     //pointer-events: auto; 
@@ -52,8 +139,9 @@
     position: relative;
     width: 130px;
     margin: 0 0 0 auto;
-    //padding-right: 3em; /* アイコン分の余白を確保 */
     cursor: pointer;
+    color: rgba(140, 140, 140, 1);
+    //padding-right: 3em; /* アイコン分の余白を確保 */    
     //background-color: transparent;
     //border: none;
     //font-size: 1em;
@@ -90,6 +178,7 @@
 //表示時は影をなくす
 .course-addInfo-icon.open {    
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+    right: 0.5em;
 }
 //表示時は矢印の向きを逆にする
 .course-addInfo-icon.open:before {
@@ -99,51 +188,60 @@
 }
 
 
+/* 補足情報の中身 */
+//補足情報一覧
+.course-addInfo-list {
+	padding: 0.5em 0 0.3em 0;
+}
+//デフォルト設定解除
+.course-addInfo-list ul {
+	margin-top: 0.3em;
+	margin-bottom: 0;
+    list-style-type: none;
+    padding-left: 1em;
+}
+//一覧要素間の幅
+.course-addInfo-list ul li {	
+	margin-bottom: 0.3em;    
+}
+//一覧要素の接頭マーク指定
+.course-addInfo-list ul li:before {
+    content: "♢";
+    //color: red;
+    //font-size: 20px;
+    margin-right: 5px;
+}
 
-//★と投稿者情報のまとまりの並び方を定義
-.review-header {
+//対象セクション
+.course-target {
+	padding-bottom: 0.5em;
+	border-bottom: 1px solid #ddd;
+}
+
+//その他画像
+.course-image-other {
     display: flex;
-    flex-wrap: wrap;    
-    column-gap: 1em;        
-    margin-bottom: 0.5em;
-    flex-direction: column;
-    align-items: flex-start;
+    column-gap:0.5em;
+    justify-content: center;    
+    border-bottom: 1px solid #ddd;
+    padding: 0.5em 0;
+    //margin-bottom: 1em;
 }
-
-//★の大きさと色
-.review-rating {
-    font-size: 1.3em;
-    color: #ffcc00; /* 星の色 */
+//コースの追加イメージ画像
+.course-image-other .course-image-a {
+    width: 50px;
+    height: 50px;
+    //max-width: 100%;
+    //max-height: 100%;
+    object-fit: cover; /* 画像を要素の枠に合わせて拡大または縮小 */
 }
-//名前、性別、年齢の間のスペースはここで定義
-.review-author, .review-age, .review-gender {
-    margin-right: 0.5em;    
+//コースの予約セクション
+.course-reserve {
+	text-align: center;
+	padding:1em 0;
 }
-//タイトル
-.review-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 0.2em;
-}
-//レビュー内容
-.review-content {
-    font-size: 1em;
-    margin-bottom: 0.6em;
-}
-//投稿日
-.review-posted-at {
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 0.3em;
-    text-align: right;
-}
-//編集ボタンの位置
-.review-edit {
-    text-align: center;
-    padding-top: 1em;
-}
-//編集ボタン自体の装飾
-.btn {
+//予約ボタン
+.course-reserve .btn {
     padding: 0.5em 1em;
     background-color: $primary-btn-color;
     color: $secondary-color;
@@ -152,119 +250,81 @@
     text-decoration: none;
 }
 //ホバー時
-.review-edit .btn:hover {
+.course-reserve .btn:hover {
     background-color: $quaternary-btn-color;
 }
 
-/* 下部の口コミ投稿に関する案内とボタン */
-//口コミ投稿の案内
-.revirew-create-guide {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	row-gap: 1em;
-	width: 90%;
-	margin: 2em auto;
-}
-//口コミ投稿ボタン
-.revirew-create-guide .btn {
-	padding: 0.7em 1.2em;
-}
 
-
-/* PCスタイルのオーバーライド */
-@media (min-width: $breakpoint-md) {
-	//各レビューのコンテナ調整
-	.review-item {
-	    padding: 1.5em;
-	    border: 1px solid #ddd;
-	    border-radius: 4px;
-	    background-color: #f9f9f9;
-	}
-	//大きな画面幅では★と投稿者情報を横並びにする
-    .review-header {
-        flex-direction: row;
-        align-items: center;
-    }
-	//★のサイズと横の要素との間隔
-    .review-rating {
-        font-size: 2em; /* 星のサイズをPC向けに大きく */
-        margin-right: 1em; /* PCでは星と他の要素を少し離す */
-    }
-	//投稿者、年齢、性別の文字サイズ
-    .review-author, .review-age, .review-gender {
-        font-size: 1.3em;
-    }
-	//タイトルの文字サイズと下との間隔
-    .review-title {
-        font-size: 1.5em;
-        margin-bottom: 0.3em;
-    }
-	//レビュー内容の文字サイズと下との間隔
-    .review-content {
-        font-size: 1.2em;
-        margin-bottom: 1em;
-    }
-	//投稿日の文字サイズ
-    .review-posted-at {
-        font-size: 1.1em;
-    }
-	//ボタンのサイズ
-    .review-edit .btn {
-        padding: 0.75em 1.5em;
-    }
+/* コース画像のモーダル */
+//モーダルの位置設定
+.course-image-modal-bk {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
 }
-
-
-/* 口コミ割引の案内モーダル */
-//初期状態では背景ごと非表示
-.review-coupon-guide-modal-bk {
-	width:100%;
-	height:100vh;
-	position:fixed;
-	top: 0;
-	left: 0;
-	//display: none; //アニメーションをつけるためにvisibilityにした	
-	visibility: hidden;
-	opacity: 0;
-	transition: visibility 0.5s ease,opacity 0.5s ease; //この二つでスムーズな視覚化
-	background-color: rgba(0, 0, 0, 0.8);
+.course-image-modal-bk.open {
+    display: block;
 }
-//背景の表示状態の設定
-.review-coupon-guide-modal-bk.open {	
-	//animation: fadeIn 2s forwards;
-	visibility: visible;
-	opacity: 1;
-	transition: opacity 0.5s ease;
+//中央に位置させる設定 背景のdisplayは表示非表示切り替えで使用するので要素を分ける
+.course-image-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
-//背景を閉じるときの設定
-.review-coupon-guide-modal-bk.close {
-	opacity: 0;
+//画像枠のサイズ調整 max設定のため基本的に縦は画像の大きさによって決まる
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
 }
-//モーダルの中身の設定
-.review-coupon-guide-modal {
-	display: flex;
-	flex-direction: column;
-	row-gap: 0.5em;
-	width:80%;
-	max-width: 500px;
-	height:auto;
-	padding: 1.5em;
-	margin: 10% auto;	
-	background-color: $primary-back-color;
+//親要素に沿って表示
+#modalImage {
+    max-width: 100%;
+    //max-height: 100%;
+    object-fit: cover;
+}
+//画像切り替え矢印
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 18px;
+    cursor: pointer;
+}
+//←矢印位置
+.prev {
+    left: 10px;
+}
+//→矢印位置
+.next {
+    right: 10px;
 }
 
 
 
 
-@keyframes fadeIn {
-  from { background-color: rgba(0, 0, 0, 0); }
-  to { background-color: rgba(0, 0, 0, 0.8); }
-}
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
