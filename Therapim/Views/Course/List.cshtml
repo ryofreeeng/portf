@@ -94,7 +94,15 @@
                             @if (@Model.SqlContent[i].CourseImagePath3 != "")
                             {
                                 <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath3" />
-                            }                        
+                            }
+                            @if (@Model.SqlContent[i].CourseImagePath4 != "")
+                            {
+                                <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath4" />
+                            }
+                            @if (@Model.SqlContent[i].CourseImagePath5 != "")
+                            {
+                                <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath5" />
+                            }
                         </div>
                     }
                     <div class="course-reserve">
