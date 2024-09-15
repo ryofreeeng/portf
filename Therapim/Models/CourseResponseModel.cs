@@ -36,6 +36,8 @@ namespace Therapim.Models
         public string CourseImagePath1 { get; set; } // イメージ画像パス1
         public string CourseImagePath2 { get; set; } // イメージ画像パス2
         public string CourseImagePath3 { get; set; } // イメージ画像パス3
+        public string CourseImagePath4 { get; set; } // イメージ画像パス4
+        public string CourseImagePath5 { get; set; } // イメージ画像パス5
         public string CourseVideoPath1 { get; set; } // イメージ動画パス1
         public string CourseVideoPath2 { get; set; } // イメージ動画パス2
         public string CourseVideoPath3 { get; set; } // イメージ動画パス3
