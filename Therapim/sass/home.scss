@@ -27,59 +27,212 @@
   animation: fadeInOut 7s forwards;
 }
 
-//上部画像より下は両端を空ける
-.contents-container {
-	padding: 0 3%;
+//上部画像より下は両端を空ける　⇒途中で横幅いっぱいにするのに面倒なのでやめた。セクションごとに余白つくる
+//.contents-container {
+//	padding: 0;
+//}
+
+
+//セクションタイトル
+.section-title { 
+    position: relative;
+    text-align:center;
+    margin: 3em auto 2em auto;
 }
+//セクションタイトルの英語は変更を加える
+.section-title .english{
+	font-family: $font-EN-serif;
+	font-weight: bold;
+    font-style: normal;
+    font-size: 1.3em;
+    text-shadow: 0 2px 2px rgb(244, 210, 182);
+}
+//セクションタイトルの装飾
+.section-title:before {
+	content:"";
+	height: 0.5em;
+	width: 10em;
+	background-color:rgba(251, 231, 217, 0.3);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+	filter: blur(4px);
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index:-1;	
+}
+//セクションタイトル直下の日本語文字（お知らせ）
+.news-title:after {
+	content:"お知らせ";
+	font-size: 0.5em;
+	background-color:rgba(251, 245, 2344, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translateX(-50%);
+	//color: rgba(83,83,83,1);
+}
+//セクションタイトル直下の日本語文字（当サロンについて）
+.aboutsalon-title:after {
+	content:"サロンの特徴";
+	font-size: 0.5em;
+	background-color:rgba(251, 245, 2344, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translateX(-50%);
+	//color: rgba(83,83,83,1);
+}
+//セクションタイトル直下の日本語文字（ご予約）
+.reserve-title:after {
+	content:"ご予約の流れ";
+	font-size: 0.5em;
+	background-color:rgba(251, 245, 2344, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translateX(-50%);
+	//color: rgba(83,83,83,1);
+}
+
 
 /* お知らせ */
 .news-section {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px; /* セクションの最大幅を設定 */
-    position: relative;
-    text-align: center; /* タイトルを中央に配置 */
-    overflow: hidden; /* はみ出しを防ぐ */
+	padding: 0 10%;
 }
-.news-section::before {
+.news-list {
+    position: relative;
+    list-style: none;
+    padding: 0.3em 0.5em 0 0.5em;
+    margin: 0;
+    background-color:rgba(251, 238, 238, 0.6);
+    border: 1px solid rgba(200,200,200,1);
+    //border-top: solid 6px rgba(182, 216, 244.1);
+    border-radius: 8px;
+    //max-width: 100%; /* リストの最大幅を親要素に合わせる */
+    //margin: 0 auto; /* センター配置 */
+    box-shadow: 0px 0px 18px rgba(150, 150, 150, 0.2);
+}
+.news-list::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background-color: #b0bec5; /* セクションの区切り色 */
+    height: 0.3em;
+    background-color:rgba(182, 216, 244.1);
     border-radius: 4px 4px 0 0;
 }
-.news-section h2 {
-    margin: 0;
-    padding-bottom: 10px;
-    font-size: 22px;
-    color: #333;
-}
-.news-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: #ffffff; /* リストの背景色 */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    //max-width: 100%; /* リストの最大幅を親要素に合わせる */
-    margin: 0 auto; /* センター配置 */
-}
 .news-list li {
-    font-size: 16px;
-    color: #555;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
+    //font-size: 16px;
+    //color: #555;
+    padding: 15px;
+    border-bottom: 1px solid rgba(200,200,200,0.6);
 }
 .news-list li:last-child {
     border-bottom: none; /* 最後のアイテムのボーダーを削除 */
 }
+
+
+/* 当サロンについて */
+//.aboutsalon-container {
+	//width: 100vh;	
+//}
+
+.aboutsalon-list {
+	list-style: none;	
+	padding:0 0 1em 0;
+}
+.aboutsalon-list li{
+	padding: 1.5em 0;
+}
+.aboutsalon-image {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	margin: 0 0 1em 0;
+	position: relative;
+}
+.aboutsalon-image::before {
+	content:"";
+	position: absolute;
+	height: 180px;
+	width: 1000px;
+	background: linear-gradient(rgba(255,255,255,0.7) 0,rgba(255,255,255,1) 50% ,rgba(255,255,255,0.6) 100%);
+	filter: blur(10px);
+	box-shadow: 15px 0 40px rgba(255,255,255,1);
+	top:0%;
+	left: -10%;
+	z-index: 1000;
+	transform: rotate(-30deg);
+	transform-origin: 0% 50%;
+}
+.aboutsalon-image::after {
+	content:"";
+	position: absolute;
+	height: 80px;
+	width: 1000px;
+	background: linear-gradient(rgba(255,255,255,0.5) 0,rgba(255,255,255,0.8) 60% ,rgba(255,255,255,0.6) 100%);
+	filter: blur(10px);
+	box-shadow: 15px 0 40px rgba(255,255,255,1);
+	top:85%;
+	left: -10%;
+	z-index: 1000;
+	transform: rotate(-15deg);
+	transform-origin: 0% 50%;
+}
+
+.aboutsalon-image img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    display: block; //これをつけないと画像下に余白ができる
+}
+
+.aboutsalon-subtitle {
+	font-size: 1.2em;
+	margin: 0 10% 1em 10%;
+	line-height: 2em;
+	border-bottom: solid 1px rgba(100,100,100,1);
+}
+.aboutsalon-description {
+	//font-size: 1em;
+	margin: 0 10%;
+	line-height: 1.8em;
+}
+
+
+
+/* ご予約 */
+.reserve-container {
+	background-color: rgba(255,255,248,0.6);
+	margin: 0 10%;
+	padding: 2em;
+}
+.reserve-flow {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.reserve-flow li{
+	padding: 1.5em 0;
+}
+.reserve-subtitle {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 0 0 0.5em 0;
+	//line-height: 3em;
+	//border-bottom: solid 1px rgba(100,100,100,1);
+}
+.reserve-description {
+	//font-size: 1em;
+	//margin: 0 10%;
+	line-height: 1.8em;
+}
+
 
 
 /* キャンペーン */
@@ -139,7 +292,7 @@
     text-decoration: none;
     border-radius: 4px;
     color: #fff;
-    background-color: $secondary-btn-color;
+    background-color: $primary-btn-color;
     border: none;
     cursor: pointer;
 }
@@ -182,6 +335,7 @@
 	overflow: visible;
 }
 //メニューのタイトル
+/*
 .section-title {
 	position: absolute;
 	top: 8%;
@@ -191,7 +345,9 @@
 	font-weight: 600;
 	text-shadow: 0px 2px 10px rgba(0, 0, 0, 1);
 }
+*/
 //メニューのメッセージ
+/*
 .section-message {
 	position: absolute;
 	top: 25%;
@@ -200,6 +356,7 @@
 	z-index: 10;
 	color: $primary-color;
 }
+*/
 //メニューのボタンリンク
 .section-btn {
 	position: absolute;
@@ -340,13 +497,64 @@
 .divider-text {
 	padding: 0.3em;
 	margin: 0.3em;
-	color: #555; /* テキストの色 */
+	color: rgb(38, 18, 4); /* テキストの色 */
 	background: rgba(230,230,230,0.1);
 	//box-shadow: 5px 5px 5px 0.8;
 	box-shadow: 4px 4px 28px rgba(150, 150, 150, 0.1);
-	text-shadow: 2px 2px 2px rgba(150, 150, 240, 0.5);
+	text-shadow: 2px 2px 2px rgb(251, 231, 217);
 	border-radius: 5px;
 }
+
+
+/* よくある質問 */
+.salon-faq {
+	padding: 0 1em 1em 1em;
+}
+
+.question {
+	//font-weight: bold;
+	font-size: 1.1em;
+	padding: 0.5em 0.4em 0.3em 0.4em;
+	border-top: 1px solid rgba(200,210,220,1);
+	border-bottom: 1px solid rgba(200,210,220,1);
+	//border: 1px solid rgba(200,210,220,1);
+	//border-radius: 5px;
+}
+.question:before {
+	content:"[Q]";
+	font-size: 1.2em;
+}
+
+.answer {
+	max-height: 0px;
+	transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+	overflow: hidden;
+	padding: 0 1em;
+	
+	//visibility: hidden;
+		
+}
+
+.answer.open {	
+	max-height: 200px;
+	transition: max-height 0.3s ease-out, padding 0.3s ease-in;
+	padding: 1em;
+	
+}
+
+
+/* サロン情報 */
+.salon-info {
+	padding: 1.5em 1.5em 1em 1.5em;
+	background-color: rgba(220, 230, 240, 1)
+}
+.salon-subInfo {
+	padding: 0.5em 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    font-size: 0.8em;    
+}
+
 
 
 //アニメーション定義
@@ -372,3 +580,79 @@
   70% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+
+
+
+
+
+
+
+.testback {
+	height: 50vh;
+	//background-color:rgba(190,213,232);
+	background-color:rgba(138,111,58);
+	//background-color:rgba(127,161,217);
+	
+}
+
+.testback2 {
+	height: 100vh;
+	background: linear-gradient(0deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%),
+ 		linear-gradient(90deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%);
+	position: relative;
+	overflow: hidden;
+}
+
+
+.testback2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 90% 30%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 30% 70%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 70% 80%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 65% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 20% 90%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 80% 10%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 40% 40%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 60% 60%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 25% 15%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 75% 85%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 95% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 5% 55%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 55% 5%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 45% 95%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%);
+
+	//opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

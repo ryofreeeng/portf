@@ -4,6 +4,9 @@
 @section CustomStyles {
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
 }
+@section CustomScripts {
+    <script src="~/js/home.js" asp-append-version="true"></script>
+}
 
 <div class="home-container">
     <section class="hero-section">
@@ -13,13 +16,110 @@
     <section class="contents-container">
         
         <section class="news-section">
-            <h2>お知らせ</h2>
-            <ul class="news-list">
-                <li>HPが新しくなりました</li>
-                <li>口コミキャンペーン実施中です</li>                
-            </ul>
+            <h2 class="section-title news-title"><span class="english">Information</span></h2>
+            <div class="news-list-container">
+                <ul class="news-list">
+                    <li><span class="english">2024.10.1</span><br />HPが新しくなりました</li>
+                    <li><span class="english">2024.10</span><br />口コミキャンペーン実施中です（10月末まで）</li>
+                    <li><span class="english">2024.9.1</span><br />学割コースを追加しました</li>
+                </ul>
+            </div>
         </section>
 
+        <section class="aboutsalon-section">
+            <h2 class="section-title aboutsalon-title"><span class="english">AboutSalon</span></h2>
+            <div class="aboutsalon-container">
+                <ul class="aboutsalon-list">
+                    <li>
+                        <div class="aboutsalon-image">
+                            <img src="~/images/home/treatment.jpg" />
+                        </div>
+                        <div class="aboutsalon-subtitle">
+                            
+                            オイルトリートメントによるリラクゼーション
+                        </div>
+                        <div class="aboutsalon-description">
+                            当サロンの主なサービスは、オイルトリートメントによるリラクゼーションです。
+                            身体だけでなく、心も休めるお時間にしていただけるよう努めております。
+                            リンパドレナージュによる深い癒しとリラックスをご堪能ください。
+                        </div>
+                    </li>
+                    <li>
+                        <div class="aboutsalon-image">
+                            <img src="~/images/home/therapist.jpg" />
+                        </div>
+                        <div class="aboutsalon-subtitle">
+                            
+                            セラピストはもう一つの顔
+                        </div>
+                        <div class="aboutsalon-description">
+                            セラピストは、普段は別の仕事をしながら、その傍らで個人セラピストをしています。
+                            そのため、お客様の癒しを第一にゆったりと活動をしております。
+                            一般的なチェーン店よりその方が安心できるというお客様からは特にご支持をいただいております。
+                        </div>
+                    </li>
+                    <li>
+                        <div class="aboutsalon-image">
+                            <img src="~/images/home/salon.jpg" />
+                        </div>
+                        <div class="aboutsalon-subtitle">
+                            
+                            レンタルサロンでの施術
+                        </div>
+                        <div class="aboutsalon-description">
+                            自前の店舗をかまえておらず、レンタルサロンまたは出張での施術をしております。
+                            ある程度場所は固定しておりますが、いくつかの候補からサロンの場所をお選びいただけます。
+                            また、自宅やホテルへの出張も可能ですので、お客様のご都合に合わせてご利用いただけます。
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="reserve-section">
+            <h2 class="section-title reserve-title"><span class="english">Reservation</span></h2>
+            <div class="reserve-container">
+                <ul class="reserve-flow">
+                    <li>
+                        <div class="reserve-subtitle">
+                            <span class="english">０１.</span>
+                            フォームをご提出ください
+                        </div>
+                        <div class="reserve-description">
+                            現在はWebサイトのフォームがないため、googleフォームをご提出いただいております。
+                            <br />googleフォームは、公式LINEからお送りいただけます。
+                            またはMAILやSNSにてご連絡いただければご案内いたします。
+                            <br />※いたずら防止のためにこのようにしております。ご容赦ください
+                        </div>
+                    </li>
+                    <li>
+                        <div class="reserve-subtitle">
+                            <span class="english">０２.</span>
+                            料金をお支払いください
+                        </div>
+                        <div class="reserve-description">
+                            お送りいただいたフォーム内容の確認後、お支払いのご案内をお送りいたします。
+                            <br />お支払いができましたら、完了画面のスクショ等をお送りください。
+                            <br />※クレジットカードまたは銀行振込がご利用いただけます。
+                        </div>
+                    </li>
+                    <li>
+                        <div class="reserve-subtitle">
+                            <span class="english">０３.</span>
+                            当日、サロンへお越しください
+                        </div>
+                        <div class="reserve-description">
+                            お支払いが確認でき次第、レンタルサロンをおさえてご予約確定となります。
+                            <br />日時と場所をお送りいたしますので、当日お時間ちょうどにサロンの入口までお越しください。
+                            <br />※早くお越しになった場合は入口にてお待ちいただく可能性がございますのでご了承ください
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!--
         <section class="campaign-section">
             <h2>キャンペーン</h2>
             <div class="campaign-content">
@@ -32,11 +132,11 @@
         
         <div class="section-divider">
             <h2 class="divider-text">メインメニュー</h2>
-        </div>
+        </div>        
 
         <section class="course-section contents-section">
             <div class="course-image section-image">
-                <!--
+                
                 <div class="chain-pattern">
                     <div class="chain-link"></div>
                     <div class="chain-link"></div>
@@ -48,7 +148,7 @@
                     <div class="chain-link"></div>
                     <div class="chain-link"></div>
                 </div>
-                -->
+                
             </div>            
             <h2 class="course-title section-title">コース</h2>
             <p class="course-message section-message">心と体を解放する、至福のひとときをお過ごしください。</p>
@@ -76,9 +176,72 @@
         <section class="action-section">
             <span class="action-message">過去にご来店済の方はログインいただけます</span>
             <div class="action-buttons">
-                <!-- <a href="#" class="btn btn-primary">ご予約</a> -->
+                <a href="#" class="btn btn-primary">ご予約</a>
                 <a href="#" class="btn btn-secondary">ログイン</a>
             </div>
         </section>
+    </div>
+</div>
+
+-->
+
+<div class="section-divider">
+    <h2 class="divider-text">よくある質問</h2>
+</div>
+<div class="salon-faq">
+    <div class="question">
+        何か持ち物は必要ですか？
+    </div>
+    <div class="answer">
+        特にございませんが、防犯上の理由からお飲み物をこちらでお出ししていないため、ご入用でしたらお水などをお持ちください。
+    </div>
+    <div class="question">
+        当日は何分前に行けばいいですか？
+    </div>
+    <div class="answer">
+        こちらがお伝えしたお時間ちょうどにお越しください。早くお越しいただいた場合は、恐れ入りますが玄関前にてお待ちいただくことがございます。
+    </div>
+    <div class="question">
+        男性セラピストの施術を受けるのは初めてなのですが、大丈夫でしょうか。
+    </div>
+    <div class="answer">
+        施術部位以外はタオルで覆い、施術範囲もお客様のご要望に応じて調整いたします。特にご要望がなければある程度際まで施術いたしますが（肌が見えている範囲まで）、もし不安などありましたら遠慮なくお申し付けください。
+    </div>
+</div>
+
+<div class="salon-info">
+    <div><strong>男性セラピストサロン</strong></div>
+    <div><strong>Therapim（セラピム）</strong></div>
+    <div class="salon-subInfo">
+        <span class="salon-subInfo-label">MAIL</span>
+        <span class="salon-subInfo-label">：</span>
+        <span class="salon-subInfo-label">ryo.therapist@gmail.com(代表Mail)</span>
+        <span class="salon-subInfo-label">受付</span>
+        <span class="salon-subInfo-label">：</span>
+        <span class="salon-subInfo-label">土日祝8:00～22:00</span>
+        <span class="salon-subInfo-label">休日</span>
+        <span class="salon-subInfo-label">：</span>
+        <span class="salon-subInfo-label">不定休</span>
+        <span class="salon-subInfo-label">アクセス</span>
+        <span class="salon-subInfo-label">：</span>
+        <span class="salon-subInfo-label">新宿、渋谷、下北沢、吉祥寺駅近くのレンタルサロン</span>
+    </div>
+</div>
+
+<div class="testback">
+    <div class="testback-a"></div>
+    <div class="testback-a"></div>
+    <div class="testback-a"></div>
+    <div class="testback-b">
+        <div class="testback-c"></div>
+    </div>
+</div>
+
+<div class="testback2">
+    <div class="testback-a"></div>
+    <div class="testback-a"></div>
+    <div class="testback-a"></div>
+    <div class="testback-b">
+        <div class="testback-c"></div>
     </div>
 </div>

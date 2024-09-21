@@ -22,7 +22,7 @@ $primary-btn-color: #a2846b ; // メインカラー
 $secondary-btn-color: #3399cc; // セカンダリーカラー
 $tertiary-btn-color: #007bff; // サードカラー
 $quaternary-btn-color: #2e86c1; // フォースカラー
-$quinary-btn-color: #FFFFFF; // ファイブカラー
+$quinary-btn-color: #ffead9; // ファイブカラー
 
 //文字色カラー
 $primary-color: #000000; // メインカラー（通常）
@@ -39,7 +39,11 @@ $quaternary-border-color: #3498db; // フォースカラー（強調文字色）
 $quinary-border-color: #2ecc71; // ファイブカラー
 
 //フォント
-$font-stack: Arial, sans-serif;
+$font-JP-serif: 'NotoSerifJP';
+$font-EN-serif: 'Cormorant Garamond', serif;
+$font-JP-sanserif: Arial, sans-serif;
+//$font-EN-sanserif: ;
+
 //$font-stack: "Times New Roman", Times, serif;
 //$font-stack: Georgia, serif;
 

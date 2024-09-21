@@ -10,9 +10,24 @@
     margin: 0 auto;
     //overflow-x: hidden; /* 横スクロールを防ぐ */
 }
-.courses-container h2 {
-	text-align:center;
+//.courses-container h2 {
+//	text-align:center;
+//}
+
+//ページタイトル直下の日本語文字
+.page-title:after {
+	content:"コース";
+	font-size: 0.5em;
+	//width: 4em;
+	//background-color:rgba(251, 231, 217, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translateX(-50%);
+	//z-index:15;
 }
+
 
 //コース一覧のコンテナはPC用の最大幅を決めておく
 .course-list {
