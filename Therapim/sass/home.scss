@@ -29,7 +29,7 @@
 
 //上部画像より下は両端を空ける
 .contents-container {
-	padding: 0 3%;
+	padding: 0 13%;
 }
 
 /* お知らせ */
@@ -139,7 +139,7 @@
     text-decoration: none;
     border-radius: 4px;
     color: #fff;
-    background-color: $secondary-btn-color;
+    background-color: $primary-btn-color;
     border: none;
     cursor: pointer;
 }
@@ -340,13 +340,64 @@
 .divider-text {
 	padding: 0.3em;
 	margin: 0.3em;
-	color: #555; /* テキストの色 */
+	color: rgb(38, 18, 4); /* テキストの色 */
 	background: rgba(230,230,230,0.1);
 	//box-shadow: 5px 5px 5px 0.8;
 	box-shadow: 4px 4px 28px rgba(150, 150, 150, 0.1);
-	text-shadow: 2px 2px 2px rgba(150, 150, 240, 0.5);
+	text-shadow: 2px 2px 2px rgb(251, 231, 217);
 	border-radius: 5px;
 }
+
+
+/* よくある質問 */
+.salon-faq {
+	padding: 0 1em 1em 1em;
+}
+
+.question {
+	//font-weight: bold;
+	font-size: 1.1em;
+	padding: 0.5em 0.4em 0.3em 0.4em;
+	border-top: 1px solid rgba(200,210,220,1);
+	border-bottom: 1px solid rgba(200,210,220,1);
+	//border: 1px solid rgba(200,210,220,1);
+	//border-radius: 5px;
+}
+.question:before {
+	content:"[Q]";
+	font-size: 1.2em;
+}
+
+.answer {
+	max-height: 0px;
+	transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+	overflow: hidden;
+	padding: 0 1em;
+	
+	//visibility: hidden;
+		
+}
+
+.answer.open {	
+	max-height: 200px;
+	transition: max-height 0.3s ease-out, padding 0.3s ease-in;
+	padding: 1em;
+	
+}
+
+
+/* サロン情報 */
+.salon-info {
+	padding: 1.5em 1.5em 1em 1.5em;
+	background-color: rgba(220, 230, 240, 1)
+}
+.salon-subInfo {
+	padding: 0.5em 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    font-size: 0.8em;    
+}
+
 
 
 //アニメーション定義
@@ -372,3 +423,79 @@
   70% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+
+
+
+
+
+
+
+.testback {
+	height: 50vh;
+	//background-color:rgba(190,213,232);
+	background-color:rgba(138,111,58);
+	//background-color:rgba(127,161,217);
+	
+}
+
+.testback2 {
+	height: 100vh;
+	background: linear-gradient(0deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%),
+ 		linear-gradient(90deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%);
+	position: relative;
+	overflow: hidden;
+}
+
+
+.testback2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 90% 30%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 30% 70%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 70% 80%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 65% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 20% 90%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 80% 10%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 40% 40%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 60% 60%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 25% 15%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 75% 85%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 95% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 5% 55%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 55% 5%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 45% 95%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%);
+
+	//opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

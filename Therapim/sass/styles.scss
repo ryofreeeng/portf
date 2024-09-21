@@ -11,14 +11,35 @@
 html, body {
     height: 100%;
     margin: 0;
-    background-color:rgba(248, 252, 255, 0.9);
+    //background-color:rgba(248, 252, 255, 0.9);
 }
 
 //フッターを下に固定するためにフレックボックスを利用。縦並びにだけ戻しておく
 body {  
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
+    position: relative;
+	background-image: 
+	    radial-gradient(circle at 10% 20%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 90% 30%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 30% 70%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 70% 80%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 65% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 20% 90%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 80% 10%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 40% 40%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 60% 60%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 25% 15%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 75% 85%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 95% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 5% 55%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 55% 5%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 45% 95%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+		linear-gradient(0deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%),
+		linear-gradient(90deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%);
+ 	background-attachment: fixed; 
 }
+
 //main要素が画面いっぱいに広がることでフッターを最下部に固定する
 main {
 	 flex: 1;
