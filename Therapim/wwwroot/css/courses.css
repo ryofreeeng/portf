@@ -5,8 +5,14 @@
   margin: 0 auto;
 }
 
-.courses-container h2 {
-  text-align: center;
+.page-title:after {
+  content: "コース";
+  font-size: 0.5em;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .course-list {

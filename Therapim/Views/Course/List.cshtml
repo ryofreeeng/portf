@@ -1,7 +1,7 @@
 ﻿@using static Therapim.Helpers.CommonHelper
 @model Therapim.Models.CourseResponseModel
 @{
-    ViewData["Title"] = " コース";
+    ViewData["Title"] = " Course";
 }
 @section CustomStyles {
     <link rel="stylesheet" href="~/css/courses.css" asp-append-version="true" />
@@ -11,7 +11,7 @@
 }
 
 <div class="courses-container">
-    <h2>@ViewData["Title"]</h2>
+    <h2 class="page-title"><span class="english">@ViewData["Title"]</span></h2>
 
     <div class="course-list">        
         @for (int i = 0; i < Model.SqlContent.Count; i++)

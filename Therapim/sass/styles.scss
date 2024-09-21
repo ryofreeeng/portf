@@ -6,12 +6,50 @@
 * {
 	box-sizing: border-box;
 }
+//英語のフォント
+.english {
+	font-family: $font-EN-serif;
+	font-weight: normal;
+    font-style: normal;
+}
+//ページタイトル
+.page-title {
+    //display:inline-block;
+    position: relative;
+    //z-index:20;
+    text-align:center;
+    margin: 1.5em auto 2em auto;
+}
+//ページタイトルの英語は変更を加える
+.page-title .english{
+	font-family: $font-EN-serif;
+	font-weight: bold;
+    font-style: normal;
+    font-size: 1.3em;
+    text-shadow: 0 2px 2px rgb(244, 210, 182);
+}
+//ページタイトルの装飾
+.page-title:before {
+	content:"";
+	height: 0.5em;
+	width: 4em;
+	background-color:rgba(251, 231, 217, 0.3);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+	filter: blur(2px);
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index:-1;
+	
+}
+
 /* 全体構造 */
 //bodyの自動横マージンを解除してヘッダーとフッターを両端まで広げるのと、フッター固定のために画面いっぱいにしておく
 html, body {
     height: 100%;
     margin: 0;
-    //background-color:rgba(248, 252, 255, 0.9);
+    //background-color:rgba(248, 252, 255, 0.9);    
 }
 
 //フッターを下に固定するためにフレックボックスを利用。縦並びにだけ戻しておく
@@ -48,7 +86,7 @@ main {
 /* フォントとカラーのベースを設定 */
 //標準サイズ（スマホを基準）
 body {
-  font-family: $font-stack;
+  font-family: $font-JP-serif;
   font-size: $base-font-size;
   color: $primary-color;
 }
@@ -90,13 +128,16 @@ header {
 //タイトル
 .title-row h1 {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.8em;
     //color: $secondary-color;//効かなくなった
     text-shadow: 2px 2px 4px rgba(100, 100, 250, 0.6);    
 }
 .title-row h1 a {
 	text-decoration: none;
 	color: $primary-color;
+	font-family: $font-EN-serif;
+	font-weight: bold;
+    font-style: normal;
 }
 
 //flexboxで均等間隔配置されているため、ユーザーアイコンを右に寄せる
