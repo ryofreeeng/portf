@@ -49,7 +49,7 @@
                 <div class="course-addInfo">                    
                     <div class="course-addInfo-list">
                         <div class="course-addInfo-list-title">
-                            ＜補足・注意事項＞
+                            <strong>＜補足・注意事項＞</strong>
                         </div>
                         <ul>
                             @if (@Model.SqlContent[i].AddInfo1 != "")
@@ -76,7 +76,7 @@
                     </div>
                     <div class="course-target">
                         <div class="course-target-title">
-                            ＜対象＞
+                        <strong>＜対象＞</strong>
                         </div>
                         <span>@Model.SqlContent[i].Target</span>
                     </div>
@@ -134,18 +134,23 @@
         }
     </div>
 
+    
     <div>
         @if (User.Identity.IsAuthenticated)
         {
+            <!--
             <div class="course-guide">
                 <span class="visited-times">これやめるかも⇒あなたのご来店回数は●回です。</span>
                 <span class="visited-times-navi">※ご来店回数について</span>
             </div>
+            -->
         }else
         {
+            <!--
             <div class="course-guide">
                 <span>初めての方は、以下のコースからお選びいただけます。</span>                
             </div>
+            -->
         }
     </div>
 </div>

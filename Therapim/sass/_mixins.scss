@@ -1,4 +1,7 @@
 // _mixins.scss
+
+@import 'variables';
+
 @mixin border-radius($radius) {
   border-radius: $radius;
 }
@@ -8,20 +11,20 @@
 }
 
 //header用の背景
-@mixin back-ground{
+@mixin back-ground-header{
 	background: linear-gradient(
       to bottom, 
+      rgba(251, 231, 217, 0.5),
+      //rgb(217,237,251),      
+      rgb(209,232,246),
       rgb(182,216,244), 
-      rgb(217,237,251),      
-      rgb(209,232,246),          
       //rgb(217,237,251),
       //rgb(186,221,245),
       //rgb(198,227,247),
       //rgb(194,221,248),      
     );
 }
-
-//ナビゲーションメニュー用の背景
+//ナビゲーションメニュー用の背景（スマホ）
 @mixin back-ground-nav{
 	background: linear-gradient(
       to right, 
@@ -34,4 +37,60 @@
       //rgb(194,221,248),      
     );
 }
-    
+//bodyの背景
+@mixin body-background {
+	background-image: 
+	    radial-gradient(circle at 10% 20%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 90% 30%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 30% 70%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 70% 80%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 65% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 20% 90%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 80% 10%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 40% 40%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 60% 60%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 25% 15%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 75% 85%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 95% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 5% 55%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 55% 5%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+	    radial-gradient(circle at 45% 95%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+		linear-gradient(0deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%),
+		linear-gradient(90deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%);
+	background-attachment: fixed;		
+}
+ 
+//落ち着いた色の淡いボタンのテンプレート
+@mixin calm-btn ($color-box-in,$color-box-middle,$color-box-out,$color-box-shadow,$color-text-shadow) {    
+    background: linear-gradient(0deg, $color-box-out 0%, $color-box-middle 30%, $color-box-in 50%, $color-box-middle 70%, $color-box-out 100%),
+    			linear-gradient(90deg, $color-box-out 0%, $color-box-middle 30%, $color-box-in 50%, $color-box-middle 70%, $color-box-out 100%),
+    			linear-gradient(45deg, $color-box-out 0%, $color-box-middle 30%, $color-box-in 50%, $color-box-middle 70%, $color-box-out 100%);
+    box-shadow: 0 0 6px $color-box-shadow;    
+    border: solid 1px $color-box-shadow;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    color: $secondary-color;
+    text-decoration: none;
+    text-shadow: 0 1px 5px $color-text-shadow;
+    cursor: pointer;
+}
+//落ち着いた茶色のボタン
+@mixin calm-brown-btn {
+	@include calm-btn(
+		rgba(244, 210, 182, 1), 
+		rgba(244, 210, 182, 0.5), 
+		rgba(244, 210, 182, 0.1), 
+		rgba(100, 100, 100, 0.5), 
+		rgba(100,100,100,0.8)
+	);
+}
+//落ち着いた茶色のボタン ホバー時
+@mixin calm-brown-btn-hover {
+	@include calm-btn(
+		rgba(244, 210, 182, 1), 
+		rgba(244, 210, 182, 0.7), 
+		rgba(244, 210, 182, 0.1), 
+		rgba(100, 100, 100, 0.7), 
+		rgba(100,100,100,0.8)
+	);
+}
