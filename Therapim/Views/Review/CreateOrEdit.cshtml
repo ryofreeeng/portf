@@ -1,7 +1,7 @@
 ﻿@model Therapim.Models.ReviewRequestModel
 
 @{
-    ViewData["Title"] = Model.ReviewId == null ? "口コミを投稿する" : "口コミを編集する";
+    ViewData["Title"] = Model.ReviewId == null ? "ReviewPost" : "ReviewEdit";
     var formAction = Model.ReviewId == null ? "Create" : "Edit";
     var buttonText = Model.ReviewId == null ? "投稿する" : "更新する";
 }
@@ -13,7 +13,14 @@
 }
 
 <div class="review-edit-container">
-    <h2>@ViewData["Title"]</h2>
+    @if (Model.ReviewId == null)
+    {
+        <h2 class="page-title review-regist-title"><span class="english">@ViewData["Title"]</span></h2>
+    }
+    else
+    {
+        <h2 class="page-title  review-edit-title"><span class="english">@ViewData["Title"]</span></h2>
+    }
 
     @if (!ViewData.ModelState.IsValid)
     {
@@ -71,7 +78,7 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="Rating" class="control-label">評価</label>
+            <label asp-for="Rating" class="control-label">満足度</label>
             <select asp-for="Rating" class="form-control review-rating">
                 <option value=0 class="star">-</option>
                 <option value=1 class="star">★</option>
@@ -87,8 +94,9 @@
             <button type="submit" class="btn btn-primary">@buttonText</button>
         </div>
     </form>
+    <!--
     <div class="btn-container">
-        <a class="btn btn-secondary" asp-area="" asp-controller="Review" asp-action="List">口コミ一覧に戻る</a>
+        <a class="btn btn-secondary" asp-area="" asp-controller="Review" asp-action="List">口コミ一覧へ</a>
     </div>    
-    
+    -->
 </div>

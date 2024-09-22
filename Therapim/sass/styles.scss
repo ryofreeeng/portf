@@ -23,7 +23,7 @@
 //ページタイトルの英語は変更を加える
 .page-title .english{
 	font-family: $font-EN-serif;
-	font-weight: bold;
+	font-weight: normal;
     font-style: normal;
     font-size: 1.3em;
     text-shadow: 0 2px 2px rgb(244, 210, 182);
@@ -32,17 +32,17 @@
 .page-title:before {
 	content:"";
 	height: 0.5em;
-	width: 4em;
+	width: 6em;
 	background-color:rgba(251, 231, 217, 0.3);
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-	filter: blur(2px);
+	filter: blur(4px);
 	position: absolute;
 	top: 60%;
 	left: 50%;
 	transform: translateX(-50%);
-	z-index:-1;
-	
+	z-index:-1;	
 }
+
 
 /* 全体構造 */
 //bodyの自動横マージンを解除してヘッダーとフッターを両端まで広げるのと、フッター固定のために画面いっぱいにしておく
@@ -57,25 +57,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-	background-image: 
-	    radial-gradient(circle at 10% 20%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 90% 30%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 30% 70%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 70% 80%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 65% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 20% 90%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 80% 10%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 40% 40%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 60% 60%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 25% 15%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 75% 85%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 95% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 5% 55%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 55% 5%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-	    radial-gradient(circle at 45% 95%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
-		linear-gradient(0deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%),
-		linear-gradient(90deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%);
- 	background-attachment: fixed; 
+	@include body-background; 
 }
 
 //main要素が画面いっぱいに広がることでフッターを最下部に固定する
@@ -109,49 +91,42 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    //background-color: $primary-back-color;
-    @include back-ground();
+    @include back-ground-header;
     z-index: 1000;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    height: 55px;
-    opacity: 90%;
+    height: auto;
+    opacity: 80%;
 }
 
 /* タイトル行（タイトルとユーザーアイコン、ハンバーガーメニュー）の配置 */
 .title-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    line-height: 1.2;
+    padding: 8px;
 }
 //タイトル
 .title-row h1 {
-    margin: 0;
-    font-size: 1.8em;
-    //color: $secondary-color;//効かなくなった
-    text-shadow: 2px 2px 4px rgba(100, 100, 250, 0.6);    
+	display: block;
+	width: auto;
+	text-align: center;
+    margin: 0 0 4px 0; //文字が少し下に見えるので底上げしつつ余計なmarginを消す    
 }
 .title-row h1 a {
 	text-decoration: none;
 	color: $primary-color;
 	font-family: $font-EN-serif;
-	font-weight: bold;
-    font-style: normal;
+	font-weight: normal;
+    font-style: normal;    
+    text-shadow: 2px 2px 2px rgba(251, 231, 217, 1);
 }
 
-//flexboxで均等間隔配置されているため、ユーザーアイコンを右に寄せる
+//ユーザーメニューアイコン領域
 .user-menu {
-  margin: 0 5% 0 auto;
-}
-
-/* ユーザーメニューアイコンとドロップダウン */
-//ベースの位置にする
-.user-menu {
-    position: relative;
+	position: absolute;
+	top: 45%;
+	transform: translateY(-50%);
+	right: 15%;
     font-size: 1.8em;
 }
-クリック可能であることを示す
+//ユーザーメニューアイコン
 .user-icon {
     cursor: pointer;
     //なぜかここでフォントサイズの変更ができないため親要素で指定
@@ -174,16 +149,17 @@ header {
     padding: 5px 10px;
     text-decoration: none;
     color: $primary-color;
-    font-size: 0.7em;
+    font-size: 0.5em;
 }
 
-/* ハンバーガーメニューのスタイル */
-//三本線を囲う見えない入れ物
+//ハンバーガーメニューの領域
 .hamburger-menu {
-    cursor: pointer;
-    position: relative;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 5%;
     width: 30px;
-    height: 20px;
+    cursor: pointer;    
 }
 //各線の形と色
 .hamburger,
@@ -204,11 +180,11 @@ header {
 }
 .hamburger::before {
     position: absolute;
-    top: -8px;
+    top: -10px;
 }
 .hamburger::after {
     position: absolute;
-    top: 8px;
+    top: 10px;
 }
 
 /* ハンバーガーメニューの開閉状態 */

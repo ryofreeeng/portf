@@ -9,16 +9,16 @@ namespace Therapim.Models
     /// </summary>
     public class LoginRequestModel
     {
-        [Required(ErrorMessage = "Name is required")]
-        [StringLength(100, ErrorMessage = "Name cannot be longer than 100 characters")]
+        [Required(ErrorMessage = "お名前をご入力ください🍊")]
+        [StringLength(20, ErrorMessage = "お名前は20文字以下でご入力ください🍊")]
         public string FullName { get; set; }
 
-        [Required(ErrorMessage = "Birthday is required")]
-        [StringLength(8, MinimumLength = 8, ErrorMessage = "Telephone number cannot be longer than 8 characters and shorter than 8 characters")]
+        [Required(ErrorMessage = "生年月日をご入力ください🍊")]
+        [StringLength(8, MinimumLength = 8, ErrorMessage = "生年月日は西暦を含めて8桁でご入力ください🍊")]
         public string Birthday { get; set; }
 
-        [Required(ErrorMessage = "Telephone number is required")]
-        [StringLength(12, MinimumLength = 10, ErrorMessage = "Telephone number cannot be longer than 12 characters and shorter than 10 characters")]
+        [Required(ErrorMessage = "お電話番号をご入力ください🍊")]
+        [StringLength(12, MinimumLength = 10, ErrorMessage = "お電話番号は10～12桁でご入力ください🍊")]
         public string PhoneNumber { get; set; }
 
     }

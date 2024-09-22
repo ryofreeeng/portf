@@ -1,28 +1,11 @@
 ﻿
-  document.addEventListener('DOMContentLoaded', function() {
-    // ヘッダー要素を取得
-    var header = document.querySelector('header');
-    
-    // ヘッダーの高さを取得
-    var headerHeight = header.offsetHeight;
-    
-    // ボディのpadding-topを設定
-    document.body.style.paddingTop = headerHeight + 'px';
-  });
-
-// ハンバーガーメニューの開閉
-const hamburger = document.querySelector('.hamburger-menu');
-const navRow = document.querySelector('.nav-row');
-
-hamburger.addEventListener('click', () => {
-    navRow.classList.toggle('active');
-    hamburger.querySelector('.hamburger').classList.toggle('open');
-});
-
-// ユーザーアイコンのポップアップメニュー
-const userIcon = document.querySelector('.user-icon');
-userIcon.addEventListener('click', () => {
-    userIcon.classList.toggle('active');
+document.addEventListener('DOMContentLoaded', function() {
+	// ヘッダー要素を取得
+	var header = document.querySelector('header');
+	// ヘッダーの高さを取得
+	var headerHeight = header.offsetHeight;
+	// ボディのpadding-topを設定
+	document.body.style.paddingTop = headerHeight + 'px';
 });
 
 // スクロールイベントでヘッダーを非表示
@@ -36,6 +19,23 @@ window.addEventListener('scroll', () => {
     }
     lastScrollTop = scrollTop;
 });
+
+// ハンバーガーメニューの開閉
+const hamburger = document.querySelector('.hamburger-menu');
+const navRow = document.querySelector('.nav-row');
+
+hamburger.addEventListener('click', () => {
+    navRow.classList.toggle('active');
+    hamburger.querySelector('.hamburger').classList.toggle('open');
+});
+
+// ユーザーアイコンのポップアップメニュー
+const userIcon = document.querySelector('.user-icon');
+if(userIcon != undefined){
+	userIcon.addEventListener('click', () => {
+	    userIcon.classList.toggle('active');
+	});
+}
 
 // ページの他の部分をクリックしたらメニューを閉じる
 document.addEventListener('click', (event) => {

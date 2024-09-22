@@ -31,7 +31,7 @@
 
 .section-title .english {
   font-family: "Cormorant Garamond", serif;
-  font-weight: bold;
+  font-weight: normal;
   font-style: normal;
   font-size: 1.3em;
   text-shadow: 0 2px 2px rgb(244, 210, 182);
@@ -54,10 +54,10 @@
 .news-title:after {
   content: "お知らせ";
   font-size: 0.5em;
-  background-color: rgba(251, 245, 255, 0.3);
+  background-color: rgba(251, 245, 234, 0.3);
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: 85%;
+  top: 90%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -65,10 +65,10 @@
 .aboutsalon-title:after {
   content: "サロンの特徴";
   font-size: 0.5em;
-  background-color: rgba(251, 245, 255, 0.3);
+  background-color: rgba(251, 245, 234, 0.3);
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: 85%;
+  top: 90%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -76,16 +76,27 @@
 .reserve-title:after {
   content: "ご予約の流れ";
   font-size: 0.5em;
-  background-color: rgba(251, 245, 255, 0.3);
+  background-color: rgba(251, 245, 234, 0.3);
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: 85%;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.faq-title:after {
+  content: "よくある質問";
+  font-size: 0.5em;
+  background-color: rgba(251, 245, 234, 0.3);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 90%;
   left: 50%;
   transform: translateX(-50%);
 }
 
 /* お知らせ */
-.news-section {
+.news-list-container {
   padding: 0 10%;
 }
 
@@ -179,6 +190,7 @@
   font-size: 1.2em;
   margin: 0 10% 1em 10%;
   line-height: 2em;
+  padding-bottom: 0.5em;
   border-bottom: solid 1px rgb(100, 100, 100);
 }
 
@@ -214,6 +226,106 @@
   line-height: 1.8em;
 }
 
+/* よくある質問 */
+.faq-container {
+  padding: 0 10%;
+}
+
+.faq-list {
+  list-style: none;
+  padding: 1em;
+}
+
+.faq-list li {
+  padding: 0 0 1em 0;
+}
+
+.question {
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 0.5em 0.4em 0.3em 0.4em;
+  border-top: 1px solid rgb(200, 210, 220);
+  border-bottom: 1px solid rgb(200, 210, 220);
+}
+
+.question:before {
+  content: "[Q]";
+  font-size: 1.2em;
+}
+
+.answer {
+  max-height: 0px;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  overflow: hidden;
+  padding: 0 1em;
+}
+
+.answer.open {
+  max-height: 200px;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-in;
+  padding: 1em;
+}
+
+/* サロン情報 */
+.salon-info {
+  padding: 1.5em 1.5em 1em 1.5em;
+  background-color: rgb(220, 230, 240);
+}
+
+.salon-info-name {
+  font-weight: bold;
+}
+
+.salon-subInfo {
+  padding: 0.5em 0;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  font-size: 0.8em;
+}
+
+/* アニメーション定義 */
+@keyframes zoomInOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOutIn {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* ここから下は未使用 */
 /* キャンペーン */
 .campaign-section {
   background-color: #ffffff;
@@ -474,90 +586,7 @@
   border-radius: 5px;
 }
 
-/* よくある質問 */
-.salon-faq {
-  padding: 0 1em 1em 1em;
-}
-
-.question {
-  font-size: 1.1em;
-  padding: 0.5em 0.4em 0.3em 0.4em;
-  border-top: 1px solid rgb(200, 210, 220);
-  border-bottom: 1px solid rgb(200, 210, 220);
-}
-
-.question:before {
-  content: "[Q]";
-  font-size: 1.2em;
-}
-
-.answer {
-  max-height: 0px;
-  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-  overflow: hidden;
-  padding: 0 1em;
-}
-
-.answer.open {
-  max-height: 200px;
-  transition: max-height 0.3s ease-out, padding 0.3s ease-in;
-  padding: 1em;
-}
-
-/* サロン情報 */
-.salon-info {
-  padding: 1.5em 1.5em 1em 1.5em;
-  background-color: rgb(220, 230, 240);
-}
-
-.salon-subInfo {
-  padding: 0.5em 0;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  font-size: 0.8em;
-}
-
-@keyframes zoomInOut {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.1);
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadeOutIn {
-  0% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 0;
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
+/* テスト用 */
 .testback {
   height: 50vh;
   background-color: rgb(138, 111, 58);

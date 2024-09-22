@@ -12,13 +12,17 @@
     <header>
         <div class="header-row title-row">
             <h1><a asp-area="" asp-controller="Home" asp-action="Index">Therapim</a></h1>
-            <div class="user-menu">
-                <span class="user-icon">&#x1F34A;</span>
-                <div class="user-menu-dropdown">
-                    <a href="#">予約一覧</a>
-                    <a asp-area="" asp-controller="Login" asp-action="XtLogout">ログアウト</a>
+            <div class="header-spacer"></div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="user-menu">
+                    <span class="user-icon">&#x1F34A;</span>
+                    <div class="user-menu-dropdown">
+                        <!--<a href="#">予約一覧</a>-->
+                        <a asp-area="" asp-controller="Login" asp-action="XtLogout">ログアウト</a>
+                    </div>
                 </div>
-            </div>
+            }
             <div class="hamburger-menu">
                 <div class="hamburger"></div>
             </div>
@@ -27,9 +31,8 @@
             <nav>
                 <ul class="nav-links">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">ホーム</a></li>
-                    <li><a asp-area="" asp-controller="Review" asp-action="List">口コミ</a></li>
                     <li><a asp-area="" asp-controller="Course" asp-action="List">コース</a></li>
-                    <li><a asp-area="" asp-controller="Review" asp-action="Create">口コミ投稿</a></li>
+                    <li><a asp-area="" asp-controller="Review" asp-action="List">お客様の声</a></li>                                        
                     <li><a asp-area="" asp-controller="Login" asp-action="Index">ログイン</a></li>
                 </ul>
             </nav>

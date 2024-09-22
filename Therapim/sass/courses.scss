@@ -6,7 +6,7 @@
 /* スマホベースの基本スタイル */
 //まず大枠を作っておく
 .courses-container {
-    padding: 15px 5%;    
+    padding: 15px 10%;    
     margin: 0 auto;
     //overflow-x: hidden; /* 横スクロールを防ぐ */
 }
@@ -18,14 +18,12 @@
 .page-title:after {
 	content:"コース";
 	font-size: 0.5em;
-	//width: 4em;
-	//background-color:rgba(251, 231, 217, 0.3);
-	text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+	background-color:rgba(251, 245, 234, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 	position: absolute;
-	top: 85%;
+	top: 90%;
 	left: 50%;
 	transform: translateX(-50%);
-	//z-index:15;
 }
 
 
@@ -259,16 +257,11 @@
 }
 //予約ボタン
 .course-reserve .btn {
-    padding: 0.5em 1em;
-    background-color: $primary-btn-color;
-    color: $secondary-color;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-}
+	@include calm-brown-btn;
+}       
 //ホバー時
 .course-reserve .btn:hover {
-    background-color: $quaternary-btn-color;
+    @include calm-brown-btn-hover;
 }
 
 
