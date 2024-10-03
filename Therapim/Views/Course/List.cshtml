@@ -9,6 +9,9 @@
 @section CustomScripts {
     <script src="~/js/courses.js" asp-append-version="true"></script>
 }
+@{
+    var visitedTimes = ViewData["VisitedTimes"];
+}
 
 <div class="courses-container">
     <h2 class="page-title"><span class="english">@ViewData["Title"]</span></h2>
@@ -138,12 +141,12 @@
     <div>
         @if (User.Identity.IsAuthenticated)
         {
-            <!--
+
             <div class="course-guide">
-                <span class="visited-times">これやめるかも⇒あなたのご来店回数は●回です。</span>
+                <span class="visited-times">これやめるかも⇒あなたのご来店回数は @visitedTimes 回です。</span>
                 <span class="visited-times-navi">※ご来店回数について</span>
             </div>
-            -->
+           
         }else
         {
             <!--

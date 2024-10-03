@@ -50,7 +50,7 @@ namespace Therapim.Controllers
                 return RedirectToAction("Error", "Home");
             }
             //一覧画面で、ユーザIDが一致するレビューには編集ボタンを表示するためのパラメータを持たせる
-            ViewData["VisitedTimes"] = 3;
+            ViewData["VisitedTimes"] = _commonService.GetSessionVisitedTimes();
             ViewData["WelcomeMessage"] = "あと1回ご来店いただくとポイントがたまります。";
 
             return View(CourseList);
