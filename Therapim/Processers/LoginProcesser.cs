@@ -13,6 +13,7 @@ using System.Reflection;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 
 namespace Therapim.Processers
 {
@@ -99,6 +100,8 @@ namespace Therapim.Processers
                     new Claim(ClaimTypes.Name,user.FullName),
                     new Claim("Birthday",user.Birthday.ToString()),
                     new Claim("PhoneNumber",user.PhoneNumber),
+                    new Claim("Rank",user.Rank.ToString()),                    
+                    new Claim("VisitedTimes",user.VisitedTimes.ToString()),
                 };
                 //Permissionを一つずつ取り出してクレーム情報リストに追加
                 if (!string.IsNullOrEmpty(user.Permission))
@@ -127,7 +130,12 @@ namespace Therapim.Processers
                 _commonService.HttpContextAccessor.HttpContext.Session.SetString("FullName", user.FullName);
                 _commonService.HttpContextAccessor.HttpContext.Session.SetString("Birthday", user.Birthday.ToString());
                 _commonService.HttpContextAccessor.HttpContext.Session.SetString("PhoneNumber", user.PhoneNumber);
-                _commonService.HttpContextAccessor.HttpContext.Session.SetString("Rank", user.Rank.ToString());
+                _commonService.HttpContextAccessor.HttpContext.Session.SetString("Rank", user.Rank.ToString());                
+                for( int i = 0; i < user.Permission.Split(',').Length;  i++ )
+                {
+                    _commonService.HttpContextAccessor.HttpContext.Session.SetString("Permission" + "_" + i.ToString(), user.Permission.Split(',')[i]);
+                }
+                _commonService.HttpContextAccessor.HttpContext.Session.SetString("VisitedTimes", user.VisitedTimes.ToString());
 
                 loginResult = true;
                 return loginResult;

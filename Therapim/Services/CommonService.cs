@@ -23,6 +23,7 @@ namespace Therapim.Services
 
         public string GetCookieSessionId() => _httpContextAccessor.HttpContext.User.FindFirst("SessionId")?.Value;
 
+        public int GetSessionVisitedTimes() => !int.TryParse(_httpContextAccessor.HttpContext.User.FindFirst("VisitedTimes")?.Value,out int result)? 0: int.Parse(_httpContextAccessor.HttpContext.User.FindFirst("VisitedTimes")?.Value);
         public HttpClient HttpClientFactory => _httpClientFactory.CreateClient();
 
         public IHttpContextAccessor HttpContextAccessor => _httpContextAccessor;
