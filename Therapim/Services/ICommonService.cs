@@ -8,6 +8,7 @@
         string GetCookieUserId();
         string GetCookieSessionId();
         int GetSessionVisitedTimes();
+        string GetCookieFullName();
         HttpClient HttpClientFactory { get; }
         IHttpContextAccessor HttpContextAccessor { get; }
     }
