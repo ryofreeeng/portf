@@ -32,8 +32,15 @@
                 <ul class="nav-links">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">ホーム</a></li>
                     <li><a asp-area="" asp-controller="Course" asp-action="List">コース</a></li>
-                    <li><a asp-area="" asp-controller="Review" asp-action="List">お客様の声</a></li>                                        
-                    <li><a asp-area="" asp-controller="Login" asp-action="Index">ログイン</a></li>
+                    <li><a asp-area="" asp-controller="Review" asp-action="List">お客様の声</a></li>                                                            
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-controller="Login" asp-action="Index">ログイン</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-area="" asp-controller="Login" asp-action="XtLogout">ログアウト</a></li>
+                    }
                 </ul>
             </nav>
         </div>
