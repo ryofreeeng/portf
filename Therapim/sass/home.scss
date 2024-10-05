@@ -151,6 +151,12 @@
 
 
 /* 当サロンについて */
+.aboutsalon-message {
+	width: 80%;
+	margin: 0 auto;
+	line-height: 2em;
+}
+
 .aboutsalon-list {
 	list-style: none;	
 	padding:0 0 1em 0;
@@ -276,26 +282,10 @@
 		
 }
 .answer.open {	
-	max-height: 200px;
+	max-height: 500px;
 	transition: max-height 0.3s ease-out, padding 0.3s ease-in;
 	padding: 1em;
 	
-}
-
-
-/* サロン情報 */
-.salon-info {
-	padding: 1.5em 1.5em 1em 1.5em;
-	background-color: rgba(220, 230, 240, 1)
-}
-.salon-info-name {
-	font-weight: bold;
-}
-.salon-subInfo {
-	padding: 0.5em 0;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    font-size: 0.8em;    
 }
 
 

@@ -316,9 +316,65 @@ header {
 	bottom:0px;
 	height: 40px;
 	padding: 10px 0;
+	margin-top:3em;
+}
+.privacy-policy-container{
 	text-align: center;
+	padding: 0.5em 0;
+}
+/* サロン情報 */
+.salon-info {
+	padding: 1.5em 1.5em 1em 1.5em;
+	background-color: rgba(220, 230, 240, 1);
+}
+.salon-info-name {
+	font-weight: bold;
+}
+.salon-subInfo {
+	padding: 0.5em 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    font-size: 0.8em;
 }
 
+/* フッターの各メニューリンク */
+.footer-links {
+	padding: 1em 1.5em;
+	background-color: rgba(120, 130, 140, 0.5);
+	color: white;
+	display: flex;
+}
+.left-links, .right-links {
+	width: 50%;
+}
+.left-links-ul, .right-links-ul {
+	list-style-type: none;
+	padding:0;
+	margin:0;	
+}
+.footer-links a{
+	color: rgba(255,255,255,0.8);
+	text-decoration: none;
+	font-size: 0.8em;
+}
+
+
+/* フッターのSNSリンク */
+.sns-links {
+	display: flex;
+    flex-wrap: wrap;
+    column-gap:1.5em;
+    row-gap:0.5em;
+    justify-content: center;
+    padding: 0.5em 0 0.3em 0;
+    background-color: rgba(20, 30, 40, 0.5);
+}
+
+.sns-image {
+	width: 25px;
+    height: 25px;
+    object-fit: contains; /* 画像を要素の枠に合わせて拡大または縮小 */
+}
 
 /*
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
