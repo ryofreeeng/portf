@@ -26,6 +26,11 @@
 	transform: translateX(-50%);
 }
 
+//口コミ一覧ページの案内
+.review-list-guide-section {
+	padding-bottom: 2em;
+}
+
 //レビュー一覧のコンテナはPC用の最大幅を決めておく
 .review-list {
 	max-width: 800px;
@@ -99,7 +104,7 @@
 	flex-direction: column;
 	align-items: center;
 	row-gap: 1em;
-	width: 90%;
+	width: 100%;
 	margin: 2em auto;
 }
 //口コミ投稿ボタン
@@ -190,7 +195,7 @@
 	max-width: 500px;
 	height:auto;
 	padding: 1.5em;
-	margin: 10% auto;	
+	margin: 30% auto;	
 	background-color: $primary-back-color;
 }
 

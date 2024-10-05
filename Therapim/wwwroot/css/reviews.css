@@ -20,6 +20,10 @@
   transform: translateX(-50%);
 }
 
+.review-list-guide-section {
+  padding-bottom: 2em;
+}
+
 .review-list {
   max-width: 800px;
   margin: 0 auto;
@@ -105,7 +109,7 @@
   flex-direction: column;
   align-items: center;
   row-gap: 1em;
-  width: 90%;
+  width: 100%;
   margin: 2em auto;
 }
 
@@ -184,7 +188,7 @@
   max-width: 500px;
   height: auto;
   padding: 1.5em;
-  margin: 10% auto;
+  margin: 30% auto;
   background-color: #B0E0E6;
 }
 

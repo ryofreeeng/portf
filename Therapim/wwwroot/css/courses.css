@@ -16,6 +16,16 @@
   transform: translateX(-50%);
 }
 
+/* コース一覧ページの案内 */
+.course-guide-section {
+  padding-bottom: 2em;
+}
+
+.course-guide-section .review-coupon-navi {
+  display: inline-block;
+  padding-top: 0.5em;
+}
+
 .course-list {
   max-width: 800px;
   margin: 0 auto;

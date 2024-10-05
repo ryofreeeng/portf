@@ -26,6 +26,16 @@
 	transform: translateX(-50%);
 }
 
+/* コース一覧ページの案内 */
+//案内文
+.course-guide-section {
+	padding-bottom: 2em;
+}
+//口コミ割引の案内（モーダルの中身はreview.scssを使用）
+.course-guide-section .review-coupon-navi {
+	display:inline-block;
+	padding-top:0.5em;
+}
 
 //コース一覧のコンテナはPC用の最大幅を決めておく
 .course-list {
