@@ -5,16 +5,40 @@
 }
 @section CustomStyles {
     <link rel="stylesheet" href="~/css/courses.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/reviews.css" asp-append-version="true" />
 }
 @section CustomScripts {
     <script src="~/js/courses.js" asp-append-version="true"></script>
+    <script src="~/js/reviews.js" asp-append-version="true"></script>
 }
 @{
     var visitedTimes = ViewData["VisitedTimes"];
+    var fullName = ViewData["FullName"];
 }
 
 <div class="courses-container">
     <h2 class="page-title"><span class="english">@ViewData["Title"]</span></h2>
+
+    <div class="course-guide-section">
+        <div>
+            @if (User.Identity.IsAuthenticated)
+            {
+
+                <div class="course-guide">
+                    <span class="visited-times">@fullName さんのご来店回数は @visitedTimes 回です。</span>
+                    <span>以下のコースがご利用いただけます。</span>
+                    <!--<span class="visited-times-navi">※ご来店回数について</span> -->
+                </div>
+            }
+            else
+            {
+                <div class="course-guide">
+                    <span>初めての方は、以下のコースからお選びいただけます。</span>
+                </div>
+            }
+        </div>
+        <span class="review-coupon-navi"><Strong>※口コミ割引がご利用いただけます</Strong></span>
+    </div>
 
     <div class="course-list">        
         @for (int i = 0; i < Model.SqlContent.Count; i++)
@@ -108,6 +132,7 @@
                             }
                         </div>
                     }
+                    <!--
                     <div class="course-reserve">
                         <form asp-controller="Reserve" asp-action="Regist" method="get">
                             @Html.AntiForgeryToken()
@@ -115,6 +140,7 @@
                             <button type="submit" class="btn btn-primary">予約へ進む</button>
                         </form>                                                                                                                
                     </div>
+                    -->
                 </div>
                 <div class="course-addInfo-navi">詳細を見る <span class="course-addInfo-icon"></span></div>
 
@@ -135,27 +161,7 @@
 
             </section>
         }
-    </div>
-
-    
-    <div>
-        @if (User.Identity.IsAuthenticated)
-        {
-
-            <div class="course-guide">
-                <span class="visited-times">これやめるかも⇒あなたのご来店回数は @visitedTimes 回です。</span>
-                <span class="visited-times-navi">※ご来店回数について</span>
-            </div>
-           
-        }else
-        {
-            <!--
-            <div class="course-guide">
-                <span>初めての方は、以下のコースからお選びいただけます。</span>                
-            </div>
-            -->
-        }
-    </div>
+    </div>  
 </div>
 
 <!--
@@ -166,6 +172,7 @@
 </div>
 -->
 
+
 <div class="course-image-modal-bk" id="modalBack">
     <div class="course-image-modal">
         <div class="modal-content">
@@ -173,5 +180,16 @@
             <button class="prev">&lt;</button>
             <button class="next">&gt;</button>
         </div>
+    </div>
+</div>
+
+
+<div class="review-coupon-guide-modal-bk">
+    <div class="review-coupon-guide-modal">
+        <span>施術後にサロン内にて口コミをお書き頂ける方は、<strong>「¥1000割引」</strong>または<strong>「有料オプション2つ無料」</strong>です</span>
+        <span><strong>ご予約時にお申し付けください</strong></span>
+        <span>※メンズセラピストサロンナビというサイトにアクセスしてそのままお書きいただけます</span>
+        <span><a href="https://mtsnavi.com/ty104/">メンズセラピストサロンナビ（THERAPIMのページ）</a></span><br />
+        <span>ご来店後には、当HPの口コミ投稿が可能となりますので、そちらをお書きいただける場合、<strong>「次回¥1,000割引」</strong>または<strong>「次回有料オプション全て無料」</strong>となります</span>
     </div>
 </div>

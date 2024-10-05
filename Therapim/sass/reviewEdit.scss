@@ -126,7 +126,7 @@
 }
 //戻るボタン
 .review-edit-container .btn-secondary {
-    @include calm-brown-btn;
+    @include return-btn;
     font-size: 1.2em;
 	font-family: $font-JP-serif;
 	width: 180px;
@@ -135,5 +135,5 @@
 }
 //戻るボタン　ホバー時は少し暗く
 .review-edit-container .btn-secondary:hover {
-    @include calm-brown-btn-hover;
+    @include return-btn-hover;
 }

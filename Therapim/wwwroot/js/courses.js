@@ -17,13 +17,13 @@
 			        courseAddInfo.classList.remove('open');
 					setTimeout(() => {
 					    courseAddInfoNavi.innerHTML = '詳細を見る<span class="course-addInfo-icon"></span>';
-					}, 500);
+					}, 300);
 			    // 取得した要素が非表示状態の場合は表示する
 			    } else {
 					courseAddInfo.classList.add('open');
 					setTimeout(() => {
 					    courseAddInfoNavi.innerHTML = '詳細を閉じる<span class="course-addInfo-icon open"></span>';
-					}, 350);
+					}, 200);
 			    }
 			}
 		});

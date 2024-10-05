@@ -26,6 +26,16 @@
 	transform: translateX(-50%);
 }
 
+/* コース一覧ページの案内 */
+//案内文
+.course-guide-section {
+	padding-bottom: 2em;
+}
+//口コミ割引の案内（モーダルの中身はreview.scssを使用）
+.course-guide-section .review-coupon-navi {
+	display:inline-block;
+	padding-top:0.5em;
+}
 
 //コース一覧のコンテナはPC用の最大幅を決めておく
 .course-list {
@@ -66,7 +76,7 @@
 	background: linear-gradient(to right, rgba(76, 175, 80, 0.4), rgba(76, 175, 80, 0.6), rgba(76, 175, 80, 0.5));
 }
 .course-label-a.practice {
-	background: linear-gradient(to right, rgba(33, 150, 243, 0.4), rgba(33, 150, 243, 0.6), rgba(33, 150, 243, 0.5));
+	background: linear-gradient(to right, rgba(63, 81, 181, 0.4), rgba(63, 81, 181, 0.6), rgba(63, 81, 181, 0.5));	
 }
 .course-label-a.limitedTime {
 	background: linear-gradient(to right, rgba(255, 87, 34, 0.4), rgba(255, 87, 34, 0.6), rgba(255, 87, 34, 0.5));
@@ -78,7 +88,7 @@
 	background: linear-gradient(to right, rgba(156, 39, 176, 0.4), rgba(156, 39, 176, 0.6), rgba(156, 39, 176, 0.5));
 }
 .course-label-a.limitedCustomer {
-	background: linear-gradient(to right, rgba(63, 81, 181, 0.4), rgba(63, 81, 181, 0.6), rgba(63, 81, 181, 0.5));
+	background: linear-gradient(to right, rgba(33, 150, 243, 0.4), rgba(33, 150, 243, 0.6), rgba(33, 150, 243, 0.5));
 }
 .course-label-a.original {
 	background: linear-gradient(to right, rgba(233, 30, 99, 0.4), rgba(233, 30, 99, 0.6), rgba(233, 30, 99, 0.5));
@@ -129,7 +139,7 @@
 .course-addInfo {
 	max-height: 0;
 	overflow: hidden;
-	transition: max-height 0.5s linear;
+	transition: max-height 0.3s linear;
 	border-top: 1px solid #ddd;
 	padding-top: 0.5em;
 	//display: none;

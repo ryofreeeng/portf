@@ -26,6 +26,11 @@
 	transform: translateX(-50%);
 }
 
+//口コミ一覧ページの案内
+.review-list-guide-section {
+	padding-bottom: 2em;
+}
+
 //レビュー一覧のコンテナはPC用の最大幅を決めておく
 .review-list {
 	max-width: 800px;
@@ -99,7 +104,7 @@
 	flex-direction: column;
 	align-items: center;
 	row-gap: 1em;
-	width: 90%;
+	width: 100%;
 	margin: 2em auto;
 }
 //口コミ投稿ボタン
@@ -190,8 +195,15 @@
 	max-width: 500px;
 	height:auto;
 	padding: 1.5em;
-	margin: 10% auto;	
-	background-color: $primary-back-color;
+	margin: 30% auto;	
+	//background-color: $primary-back-color;
+
+	background:linear-gradient(135deg, rgba(134, 100, 82, 1) 0%, rgba(214, 180, 152, 1) 5%, rgba(244, 210, 182, 1) 10%, rgba(244, 210, 182, 1) 35%, rgba(214, 180, 152, 1) 45%, rgba(134, 100, 82, 1) 77%, rgba(134, 100, 82, 1) 80%, rgba(214, 180, 152, 1) 95%, rgba(244, 210, 182, 1) 100%);    
+    border: solid 1px rgba(100, 100, 100, 0.5);
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    color: $primary-color;
+    text-shadow: 1px 1px 3px rgba(240, 240, 240, 1);
 }
 
 

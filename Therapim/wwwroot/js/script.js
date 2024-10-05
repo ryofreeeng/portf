@@ -1,4 +1,13 @@
 ﻿
+document.addEventListener("DOMContentLoaded", function() {
+    // スマホのユーザーエージェントを判定する正規表現
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (!isMobile) {
+        alert("このHPはスマホを対象に作られているため、PCでは正常に表示されない部分があります。");
+    }
+});
+        
+        
 document.addEventListener('DOMContentLoaded', function() {
 	// ヘッダー要素を取得
 	var header = document.querySelector('header');
