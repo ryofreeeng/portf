@@ -9,7 +9,7 @@
         /// GasAPIのURL
         /// </summary>
         public const string GAS_API_URL =
-            "https://script.google.com/macros/s/AKfycbxMkSe5Mc5EcaJCNjVdlSAKeBXzZJhcqLbaaZ4r9gCQa2i_KUn5TjvEtgYZYRdXr4ii/exec";
+            "https://script.google.com/macros/s/AKfycbzpX2J0k9CeQazK1wmjmKp2sjBgyKOFB2iG-Yq_75JUJWmaiv7uoA4PHnr2Cn9Hga7I/exec";
 
         
         /// <summary>

@@ -37,7 +37,7 @@ namespace Therapim.Processers
         {
             //リクエスト文字列を作成
             CourseRequestModel model = new CourseRequestModel();
-            model.UserId = _commonService.GetSessionUserId();
+            model.UserId = _commonService.GetCookieUserId();
 
             var conditionJson = new
             {

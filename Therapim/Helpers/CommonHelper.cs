@@ -46,12 +46,15 @@ namespace Therapim.Helpers
                         case "モニター":
                             labelClassString = "monitor";
                             break;
-                        case "秘密":
-                            labelClassString = "secret";
-                            break;
+                        case "リピーター限定":
+                            labelClassString = "limitedRepeater";
+                            break;                        
                         case "お客様限定":
                             labelClassString = "limitedCustomer";
                             break;
+                        case "秘密":
+                            labelClassString = "secret";
+                            break;                        
                         case "オリジナル":
                             labelClassString = "original";
                             break;
