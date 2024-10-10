@@ -64,7 +64,7 @@
                         </div>
                         <!--金額補足-->
                         <div class="course-priceAddInfo">
-                            @Model.SqlContent[i].PriceAddInfo
+                            @Html.Raw(Model.SqlContent[i].PriceAddInfo)
                         </div>                    
                     </div>
                 </div>
@@ -105,8 +105,9 @@
                         <div class="course-target-title">
                         <strong>＜対象＞</strong>
                         </div>
-                        <span>@Model.SqlContent[i].Target</span>
-                    </div>
+                        <span>@Model.SqlContent[i].Target</span><br />
+                        <span>@Model.SqlContent[i].Level</span>
+                    </div>                    
                     @if (@Model.SqlContent[i].CourseImagePath1 != "")
                     {
                         <div class="course-image-other" id="thumbnails">

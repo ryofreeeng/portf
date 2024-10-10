@@ -77,7 +77,7 @@
 }
 
 .course-label-a.limitedCustomer {
-  background: linear-gradient(to right, rgba(73, 190, 253, 0.4), rgba(73, 190, 253, 0.6), rgba(73, 190, 253, 0.5));
+  background: linear-gradient(to right, rgba(93, 210, 253, 0.4), rgba(93, 210, 253, 0.6), rgba(93, 210, 253, 0.5));
 }
 
 .course-label-a.secret {
@@ -118,6 +118,10 @@
 
 .course-name {
   padding-bottom: 0.3em;
+}
+
+.course-priceAddInfo {
+  font-size: 0.7em;
 }
 
 .course-description {
