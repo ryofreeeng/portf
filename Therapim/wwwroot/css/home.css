@@ -63,7 +63,7 @@
 }
 
 .aboutsalon-title:after {
-  content: "サロンの特徴";
+  content: "当サロンについて";
   font-size: 0.5em;
   background-color: rgba(251, 245, 234, 0.3);
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
