@@ -111,16 +111,16 @@
     width: 100px;
     height: 100px;
     overflow: hidden; /* はみ出した部分を表示しない */
-    display: flex;
-    align-items: center; /* 中央揃え */
-    justify-content: center; /* 中央揃え */
+    //display: flex;
+    //align-items: center; /* 中央揃え */
+    //justify-content: center; /* 中央揃え */
     //border: 1px solid #ccc; /* 枠線を確認するため */
 }
 //コースのイメージ画像
 .course-image .course-image-a {
     max-width: 100%;
     max-height: 100%;
-    object-fit: cover; /* 画像を要素の枠に合わせて拡大または縮小 */
+    //object-fit: cover; /* 画像を要素の枠に合わせて拡大または縮小 */
 }
 //コース名や金額などのセクション
 .course-display {

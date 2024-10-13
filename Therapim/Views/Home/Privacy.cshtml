@@ -1,11 +1,57 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
+@section CustomStyles {
+    <link rel="stylesheet" href="~/css/privacy.css" asp-append-version="true" />
+}
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="privacy-container">
+    <h2 class="page-title"><span class="english">@ViewData["Title"]</span></h2>
 
-<!-- いったんここに置くが、あとでナビゲーションバーなどにログアウトボタンを追加 -->
-<form asp-controller="Login" asp-action="XtLogout" method="post" asp-controller="Account">
-    <button type="submit" class="btn btn-danger">Logout</button>
-</form>
+    <p>
+        男性セラピストサロン「Therapim」（以下「当サロン」）は、当サロンが提供するオイルトリートメント等によるリラクゼーションサービス（以下「本サービス」）における個人情報の取り扱いについて、以下の通りプライバシーポリシーを定めます。
+
+        <br /><br />1. 個人情報の定義
+        <br />個人情報とは、特定の個人を識別できる情報を指します。具体的には、氏名、電話番号、メールアドレス、生年月日などが含まれます。
+
+        <br /><br />2. 個人情報の収集
+        <br />当サロンは、本サービスの提供に必要な範囲で、以下の個人情報を収集します。
+
+        <br /><br />氏名
+        <br />電話番号
+        <br />メールアドレス
+        <br />生年月日
+        <br />出張の場合の住所
+        <br />カウンセリング事項（お体の状態、生活習慣など）
+
+        <br /><br />3. 個人情報の利用目的
+        <br />収集した個人情報は、以下の目的で利用します。
+
+        <br /><br />サービスの提供及び管理
+        <br />お問い合わせへの対応
+        <br />サービスに関する情報の提供
+        <br />個別のカウンセリングやアドバイスの提供
+        <br />法令遵守及び不正行為の防止
+
+        <br /><br />4. 個人情報の第三者提供
+        <br />当サロンは、法令に基づく場合を除き、ユーザーの同意なしに個人情報を第三者に提供することはありません。
+
+        <br /><br />5. 個人情報の管理
+        <br />当サロンは、個人情報の漏えいや改ざん、紛失等を防ぐため、適切な安全管理措置を講じます。
+
+        <br /><br />6. 個人情報の開示・訂正・削除
+        <br />ユーザーは、自己の個人情報の開示、訂正、削除を求める権利があります。具体的な手続きについては、下記のお問い合わせ先までご連絡ください。
+
+        <br /><br />7. プライバシーポリシーの改定
+        <br />当サロンは、本プライバシーポリシーを適宜見直し、改定することがあります。改定後は、当サロンのウェブサイト上でお知らせします。
+
+        <br /><br />8. お問い合わせ
+        <br />本プライバシーポリシーに関するお問い合わせは、以下の連絡先までご連絡ください。
+
+        <br /><br />男性セラピストサロン「Therapim」
+        <br />ryo.therapist@gmail.com(代表mail)
+
+    </p>
+
+
+</div>
