@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         alert("このHPはスマホを対象に作られているため、PCでは正常に表示されない部分があります。");
     }
 });
-        
-        
+	    
 document.addEventListener('DOMContentLoaded', function() {
 	// ヘッダー要素を取得
 	var header = document.querySelector('header');
@@ -20,12 +19,27 @@ document.addEventListener('DOMContentLoaded', function() {
 // スクロールイベントでヘッダーを非表示
 let lastScrollTop = 0;
 window.addEventListener('scroll', () => {
+	// ヘッダー要素を取得
+	var header = document.querySelector('header');	
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop) {
-        document.querySelector('header').style.top = '-100px'; // ヘッダーを上に隠す
-    } else {
-        document.querySelector('header').style.top = '0'; // ヘッダーを表示する
+    const delta = scrollTop - lastScrollTop;
+
+    // スクロールの変化が一定以上のときだけ実行
+    if (Math.abs(delta) > 40) {
+        if (delta > 0) {
+            // 下にスクロール
+            header.style.top = `-${header.offsetHeight}px`; // ヘッダーを上に隠す
+        } else {
+            // 上にスクロール
+            header.style.top = '0'; // ヘッダーを表示する
+        }
     }
+    
+    //一番上にきたときは必ず表示
+    if(scrollTop == 0){
+    	header.style.top = '0'; // ヘッダーを表示する
+    }
+    
     lastScrollTop = scrollTop;
 });
 

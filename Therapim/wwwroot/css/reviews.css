@@ -197,6 +197,11 @@
   text-shadow: 1px 1px 3px rgb(240, 240, 240);
 }
 
+.review-coupon-guide-modal a {
+  text-decoration: none;
+  color: rgb(100, 100, 200);
+}
+
 @keyframes fadeIn {
   from {
     background-color: rgba(0, 0, 0, 0);

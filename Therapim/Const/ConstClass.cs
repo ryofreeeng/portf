@@ -6,12 +6,14 @@
     public static class ConstClass
     {
         /// <summary>
-        /// GasAPIのURL
+        /// GasAPIのURL（本番用）
         /// </summary>
-        public const string GAS_API_URL =
-            "https://script.google.com/macros/s/AKfycbzpX2J0k9CeQazK1wmjmKp2sjBgyKOFB2iG-Yq_75JUJWmaiv7uoA4PHnr2Cn9Hga7I/exec";
+        //public const string GAS_API_URL = "https://script.google.com/macros/s/AKfycbyxOuMze4Nw9jEIyOc8pHuMfJ8ShnoAIxFOcV1P9_BJJtpeVXsHnWa8mSo317ScyJbs/exec";
+        /// <summary>
+        /// GasAPIのURL（テスト用）
+        /// </summary>
+        public const string GAS_API_URL = "https://script.google.com/macros/s/AKfycbzpX2J0k9CeQazK1wmjmKp2sjBgyKOFB2iG-Yq_75JUJWmaiv7uoA4PHnr2Cn9Hga7I/exec";
 
-        
         /// <summary>
         /// LINEログイン時に使用するチャネルID
         /// </summary>
