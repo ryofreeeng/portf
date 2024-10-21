@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+ï»¿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Text.Json;
 using System.Text;
@@ -16,14 +16,14 @@ using Newtonsoft.Json;
 namespace Therapim.Controllers
 {
     /// <summary>
-    /// ƒƒOƒCƒ“ŠÖ˜Aˆ——pƒRƒ“ƒgƒ[ƒ‰[ƒNƒ‰ƒX
+    /// ãƒ­ã‚°ã‚¤ãƒ³é–¢é€£å‡¦ç†ç”¨ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼ã‚¯ãƒ©ã‚¹
     /// </summary>
     public class LoginController : Controller
     {
         private readonly ILogger<LoginController> _logger;
         private readonly ICommonService _commonService;
 
-        //DIƒRƒ“ƒeƒi‚æ‚èæ“¾‚µ‚½‹@”\‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ‰Šú‰»‚µ‚Ä‚¨‚­
+        //DIã‚³ãƒ³ãƒ†ãƒŠã‚ˆã‚Šå–å¾—ã—ãŸæ©Ÿèƒ½ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’åˆæœŸåŒ–ã—ã¦ãŠã
         public LoginController(
             ILogger<LoginController> logger,
             ICommonService commonService)
@@ -33,74 +33,74 @@ namespace Therapim.Controllers
         }
 
         /// <summary>
-        /// ƒƒOƒCƒ“‰æ–Ê•\¦
+        /// ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢è¡¨ç¤º
         /// </summary>
-        /// <returns>ƒƒOƒCƒ“‰æ–Ê</returns>
+        /// <returns>ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢</returns>
         [HttpGet]
         public IActionResult Index()
         {
-            //ŠJnƒƒOo—Í
-            _logger.LogInformation($"š{ControllerContext.ActionDescriptor.ControllerName}/{ControllerContext.ActionDescriptor.ActionName}@ŠJn");
+            //é–‹å§‹ãƒ­ã‚°å‡ºåŠ›
+            _logger.LogInformation($"â˜…{ControllerContext.ActionDescriptor.ControllerName}/{ControllerContext.ActionDescriptor.ActionName}ã€€é–‹å§‹");
 
-            //ƒZƒbƒVƒ‡ƒ“EƒNƒbƒL[î•ñ‚ÌƒƒOo—Í         
-            _logger.LogInformation($"ššSessionIdInSession : {_commonService.GetSessionSessionId()}");
-            _logger.LogInformation($"ššSessionIdInCookie : {_commonService.GetCookieSessionId()}");
-            _logger.LogInformation($"ššUserIdInSession : {_commonService.GetSessionUserId()}");
-            _logger.LogInformation($"ššUserIdInCookie : {_commonService.GetCookieUserId()}");
+            //ã‚»ãƒƒã‚·ãƒ§ãƒ³ãƒ»ã‚¯ãƒƒã‚­ãƒ¼æƒ…å ±ã®ãƒ­ã‚°å‡ºåŠ›         
+            _logger.LogInformation($"â˜…â˜…SessionIdInSession : {_commonService.GetSessionSessionId()}");
+            _logger.LogInformation($"â˜…â˜…SessionIdInCookie : {_commonService.GetCookieSessionId()}");
+            _logger.LogInformation($"â˜…â˜…UserIdInSession : {_commonService.GetSessionUserId()}");
+            _logger.LogInformation($"â˜…â˜…UserIdInCookie : {_commonService.GetCookieUserId()}");
 
-            //ƒNƒbƒL[‚Éƒ†[ƒUID‚ª‘¶İ‚·‚éê‡‚ÍTOP‚ÖƒŠƒ_ƒCƒŒƒNƒg
+            //ã‚¯ãƒƒã‚­ãƒ¼ã«ãƒ¦ãƒ¼ã‚¶IDãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯TOPã¸ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆ
             if (_commonService.GetCookieUserId() != null)
             {
-                _logger.LogInformation($"šššuserIdInCookie‚ª‘¶İ‚·‚é‚½‚ßƒƒOƒCƒ“‚Ì•K—v‚Í‚ ‚è‚Ü‚¹‚ñ");
-                _logger.LogInformation($"š{ControllerContext.ActionDescriptor.ControllerName}/{ControllerContext.ActionDescriptor.ActionName}@I—¹");
+                _logger.LogInformation($"â˜…â˜…â˜…userIdInCookieãŒå­˜åœ¨ã™ã‚‹ãŸã‚ãƒ­ã‚°ã‚¤ãƒ³ã®å¿…è¦ã¯ã‚ã‚Šã¾ã›ã‚“");
+                _logger.LogInformation($"â˜…{ControllerContext.ActionDescriptor.ControllerName}/{ControllerContext.ActionDescriptor.ActionName}ã€€çµ‚äº†");
                 return RedirectToAction("Index", "Home");
             }
 
-            _logger.LogWarning("šššuserIdInSession == null‚Ì‚½‚ßƒƒOƒCƒ“‰æ–Ê‚Ö‘JˆÚ‚µ‚Ü‚·");
-            _logger.LogInformation($"š{ControllerContext.ActionDescriptor.ControllerName}/{ControllerContext.ActionDescriptor.ActionName}@I—¹");
+            _logger.LogWarning("â˜…â˜…â˜…userIdInSession == nullã®ãŸã‚ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢ã¸é·ç§»ã—ã¾ã™");
+            _logger.LogInformation($"â˜…{ControllerContext.ActionDescriptor.ControllerName}/{ControllerContext.ActionDescriptor.ActionName}ã€€çµ‚äº†");
             return View();
         }
 
         /// <summary>
-        /// ƒƒOƒCƒ“ˆ—
+        /// ãƒ­ã‚°ã‚¤ãƒ³å‡¦ç†
         /// </summary>
-        /// <param name="model">ƒƒOƒCƒ“—pƒŠƒNƒGƒXƒgî•ñ</  >
-        /// <returns>ƒƒOƒCƒ“¬Œ÷Fƒz[ƒ€‰æ–ÊAƒƒOƒCƒ“¸”sFƒƒOƒCƒ“‰æ–Ê</returns>
+        /// <param name="model">ãƒ­ã‚°ã‚¤ãƒ³ç”¨ãƒªã‚¯ã‚¨ã‚¹ãƒˆæƒ…å ±</  >
+        /// <returns>ãƒ­ã‚°ã‚¤ãƒ³æˆåŠŸæ™‚ï¼šãƒ›ãƒ¼ãƒ ç”»é¢ã€ãƒ­ã‚°ã‚¤ãƒ³å¤±æ•—æ™‚ï¼šãƒ­ã‚°ã‚¤ãƒ³ç”»é¢</returns>
         [HttpPost]
         public async Task<IActionResult> XtLogin(LoginRequestModel model)
         {
-            //ŠJnƒƒOo—Í
-            _logger.LogInformation($"š{ControllerContext.ActionDescriptor.ControllerName}/{ControllerContext.ActionDescriptor.ActionName}@ŠJn");
+            //é–‹å§‹ãƒ­ã‚°å‡ºåŠ›
+            _logger.LogInformation($"â˜…{ControllerContext.ActionDescriptor.ControllerName}/{ControllerContext.ActionDescriptor.ActionName}ã€€é–‹å§‹");
 
-            // ƒoƒŠƒf[ƒVƒ‡ƒ“ƒGƒ‰[‚ª‚ ‚éê‡‚Í“ü—Í‰æ–Ê‚ğÄ•\¦
+            // ãƒãƒªãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã¯å…¥åŠ›ç”»é¢ã‚’å†è¡¨ç¤º
             if (!ModelState.IsValid)
             {
                 return View("Index", model);
             }
 
-            //ŒÚ‹qî•ñæ“¾
+            //é¡§å®¢æƒ…å ±å–å¾—
             LoginProccesser loginProccesser = new LoginProccesser(_logger, _commonService);
             LoginResponseModel users = await loginProccesser.getOneCustomer(model);
 
-            //ƒŒƒXƒ|ƒ“ƒX‚ª‹ó‚Ìê‡‚ÍƒGƒ‰[‰æ–Ê‚Ö‘JˆÚ
+            //ãƒ¬ã‚¹ãƒãƒ³ã‚¹ãŒç©ºã®å ´åˆã¯ã‚¨ãƒ©ãƒ¼ç”»é¢ã¸é·ç§»
             if (users == null)
             {
-                // TempData ‚ÉƒGƒ‰[ƒƒbƒZ[ƒW‚ğİ’è
-                TempData["ErrorMessage"] = "ƒƒOƒCƒ“î•ñæ“¾‚Ì’ÊM‚É¸”s‚µ‚Ü‚µ‚½BÄ“x‚¨‚µ‚¢‚½‚¾‚¢‚Ä‚à‰ğŒˆ‚µ‚È‚¢ê‡‚Í“X•Ü‚Ü‚Å‚¨–â‚¢‡‚í‚¹‚­‚¾‚³‚¢B";
-                // ƒGƒ‰[‰æ–Ê‚ÉƒŠƒ_ƒCƒŒƒNƒg
+                // TempData ã«ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¨­å®š
+                TempData["ErrorMessage"] = "ãƒ­ã‚°ã‚¤ãƒ³æƒ…å ±å–å¾—ã®é€šä¿¡ã«å¤±æ•—ã—ã¾ã—ãŸã€‚å†åº¦ãŠè©¦ã—ã„ãŸã ã„ã¦ã‚‚è§£æ±ºã—ãªã„å ´åˆã¯åº—èˆ—ã¾ã§ãŠå•ã„åˆã‚ã›ãã ã•ã„ã€‚";
+                // ã‚¨ãƒ©ãƒ¼ç”»é¢ã«ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆ
                 return RedirectToAction("Error", "Home");
             }
 
-            //ƒƒOƒCƒ“Às
+            //ãƒ­ã‚°ã‚¤ãƒ³å®Ÿè¡Œ
             if(await loginProccesser.executeLogin(users))
             {
-                //ƒƒOƒCƒ“ˆ—¬Œ÷Œã‚Íƒz[ƒ€‰æ–Ê‚Ö £‚ ‚Æ‚ÅƒŠƒ_ƒCƒŒƒNƒg‹@”\‚à’Ç‰Á
+                //ãƒ­ã‚°ã‚¤ãƒ³å‡¦ç†æˆåŠŸå¾Œã¯ãƒ›ãƒ¼ãƒ ç”»é¢ã¸ â–²ã‚ã¨ã§ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆæ©Ÿèƒ½ã‚‚è¿½åŠ 
                 return RedirectToAction("Index", "Home");
             }
             else 
             {
-                //ŒÚ‹qî•ñ‚ª0Œ‚¾‚Á‚½ê‡
-                ModelState.AddModelError(string.Empty, "ƒƒOƒCƒ“î•ñ‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½");
+                //é¡§å®¢æƒ…å ±ãŒ0ä»¶ã ã£ãŸå ´åˆ
+                ModelState.AddModelError(string.Empty, "ãƒ­ã‚°ã‚¤ãƒ³æƒ…å ±ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚å…¥åŠ›æƒ…å ±ãŒä¸æ˜ãªå ´åˆã¯ãŠå•ã„åˆã‚ã›ãã ã•ã„ğŸŠ");
                 return View("Index", model);
             }                
         }            
@@ -110,16 +110,16 @@ namespace Therapim.Controllers
         
 
         /// <summary>
-        /// ƒƒOƒAƒEƒgˆ—
+        /// ãƒ­ã‚°ã‚¢ã‚¦ãƒˆå‡¦ç†
         /// </summary>
-        /// <returns>ƒƒOƒCƒ“‰æ–Ê‚ÖƒŠƒ_ƒCƒŒƒNƒg</returns>
+        /// <returns>ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢ã¸ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆ</returns>
         /*
         [HttpPost]
         public IActionResult XtLogout()
         {
-            //ƒZƒbƒVƒ‡ƒ“î•ñíœ
+            //ã‚»ãƒƒã‚·ãƒ§ãƒ³æƒ…å ±å‰Šé™¤
             HttpContext.Session.Clear();
-            //ƒNƒbƒL[‚©‚çƒZƒbƒVƒ‡ƒ“IDíœ
+            //ã‚¯ãƒƒã‚­ãƒ¼ã‹ã‚‰ã‚»ãƒƒã‚·ãƒ§ãƒ³IDå‰Šé™¤
             HttpContext.Response.Cookies.Delete("SessionId");
             return RedirectToAction("Index","Login");
         }
@@ -130,7 +130,7 @@ namespace Therapim.Controllers
         public async Task<IActionResult> XtLogout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            HttpContext.Session.Clear(); // ƒZƒbƒVƒ‡ƒ“î•ñ‚ğƒNƒŠƒA
+            HttpContext.Session.Clear(); // ã‚»ãƒƒã‚·ãƒ§ãƒ³æƒ…å ±ã‚’ã‚¯ãƒªã‚¢
             return RedirectToAction("Index", "Login");
         }
 

@@ -133,21 +133,21 @@
     }
 	//★のサイズと横の要素との間隔
     .review-rating {
-        font-size: 2em; /* 星のサイズをPC向けに大きく */
+        font-size: 1.4em; /* 星のサイズをPC向けに大きく */
         margin-right: 1em; /* PCでは星と他の要素を少し離す */
     }
 	//投稿者、年齢、性別の文字サイズ
     .review-author, .review-age, .review-gender {
-        font-size: 1.3em;
+        font-size: 1em;
     }
 	//タイトルの文字サイズと下との間隔
     .review-title {
-        font-size: 1.5em;
+        font-size: 1.1em;
         margin-bottom: 0.3em;
     }
 	//レビュー内容の文字サイズと下との間隔
     .review-content {
-        font-size: 1.2em;
+        font-size: 1em;
         margin-bottom: 1em;
     }
 	//投稿日の文字サイズ
@@ -158,6 +158,11 @@
     .review-edit .btn {
         padding: 0.75em 1.5em;
     }
+    
+	// ページ説明文の位置
+	.review-list-guide-section {
+		text-align: center;
+	}    
 }
 
 
@@ -197,7 +202,6 @@
 	padding: 1.5em;
 	margin: 30% auto;	
 	//background-color: $primary-back-color;
-
 	background:linear-gradient(135deg, rgba(134, 100, 82, 1) 0%, rgba(214, 180, 152, 1) 5%, rgba(244, 210, 182, 1) 10%, rgba(244, 210, 182, 1) 35%, rgba(214, 180, 152, 1) 45%, rgba(134, 100, 82, 1) 77%, rgba(134, 100, 82, 1) 80%, rgba(214, 180, 152, 1) 95%, rgba(244, 210, 182, 1) 100%);    
     border: solid 1px rgba(100, 100, 100, 0.5);
     border-radius: 4px;
@@ -205,7 +209,10 @@
     color: $primary-color;
     text-shadow: 1px 1px 3px rgba(240, 240, 240, 1);
 }
-
+.review-coupon-guide-modal a{
+	text-decoration:none;
+	color: rgba(100,100,200,1);
+}
 
 
 
@@ -221,3 +228,8 @@
 
 
 
+/* PC用スタイル */
+@media (min-width: 769px) {
+	
+
+}

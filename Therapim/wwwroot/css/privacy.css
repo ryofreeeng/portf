@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/* スマホベースの基本スタイル */
+.privacy-container {
+  padding: 15px 10%;
+  margin: 0 auto;
+}
+
+.page-title:after {
+  content: "プライバシーポリシー";
+  font-size: 0.5em;
+  background-color: rgba(251, 245, 234, 0.3);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+}

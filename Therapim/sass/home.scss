@@ -12,9 +12,26 @@
 .hero-image {
 	display: block;
 	width:100%;
-	height:auto;
+	aspect-ratio: 1 / 1;	
 	animation: fadeOutIn 7s;
+	background-image: url('https://lh3.googleusercontent.com/d/1wefNo2eMQmJg26Cb-e2ytiXSSp4kjtxo');
+    background-size: cover;
+    background-position: center;	
 }
+
+
+/* PCスタイルのオーバーライド */
+@media (min-width: $breakpoint-md) {
+	.hero-image {
+		//min-height:60vh;
+		//max-height:100vh;
+		aspect-ratio: 1.65/1;
+		background-image: url('https://lh3.googleusercontent.com/d/1mWi0-eG_7y8mBJq76Z7e_4f-SzK10Q61');
+	    background-size: cover;
+	    background-position: center;	
+	}
+}
+
 //上部画像上の文字
 .hero-title {
   position: absolute;
@@ -109,7 +126,18 @@
 	transform: translateX(-50%);
 	//color: rgba(83,83,83,1);
 }
-
+//セクションタイトル直下の日本語文字（NOTE）
+.note-title:after {
+	content:"注意事項";
+	font-size: 0.5em;
+	background-color:rgba(251, 245, 234, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	transform: translateX(-50%);
+	//color: rgba(83,83,83,1);
+}
 
 
 /* お知らせ */
@@ -181,7 +209,7 @@
 	box-shadow: 15px 0 40px rgba(255,255,255,1);
 	top:0%;
 	left: -10%;
-	z-index: 1000;
+	z-index: 100;
 	transform: rotate(-30deg);
 	transform-origin: 0% 50%;
 }
@@ -279,9 +307,56 @@
 	overflow: hidden;
 	padding: 0 1em;	
 	//visibility: hidden;
+	line-height:1.7em;
 		
 }
 .answer.open {	
+	max-height: 500px;
+	transition: max-height 0.3s ease-out, padding 0.3s ease-in;
+	padding: 1em;
+	
+}
+
+
+
+/* 注意事項 */
+.note-container {
+	padding: 0 10%;
+	background-color: rgba(255,255,238,0.6);
+	margin: 0 10%;
+	padding: 1em;
+}
+.note-list {
+	list-style: none;
+	padding: 0em;
+}
+.note-list li {
+	padding: 0 0 1em 0;
+}
+
+.note-subtitle {
+	font-weight: bold;
+	//font-size: 1.1em;
+	padding: 0.5em 0.4em 0.3em 0.4em;
+	//border-top: 1px solid rgba(200,210,220,1);
+	//border-bottom: 1px solid rgba(200,210,220,1);
+	//border: 1px solid rgba(200,210,220,1);
+	//border-radius: 5px;
+}
+.note-subtitle:before {
+	content:"◆";
+	//font-size: 1.2em;
+}
+.note-subcontent {
+	//max-height: 0px;
+	//transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+	//overflow: hidden;
+	padding: 0.5em;
+	//visibility: hidden;
+	line-height:1.7em;
+		
+}
+note-subcontent.open {
 	max-height: 500px;
 	transition: max-height 0.3s ease-out, padding 0.3s ease-in;
 	padding: 1em;

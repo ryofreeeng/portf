@@ -22,7 +22,7 @@ namespace Therapim.Models
 
         // 性別 (必須、文字列長最大10)
         [Required(ErrorMessage = "性別をご入力ください🍊")]
-        [StringLength(10, ErrorMessage = "性別は10文字以内で入力してください🍊")]
+        [RegularExpression("^(女性)$", ErrorMessage = "性別は「女性」のみ選択できます。")]
         public string Gender { get; set; }
 
         // 年齢 (必須、範囲1〜80)
@@ -45,7 +45,7 @@ namespace Therapim.Models
 
         // 満足度 (必須、範囲1〜5)
         //[Required(ErrorMessage = "満足度は必須項目です🍊")]
-        [Range(1, 5, ErrorMessage = "満足度をご選択ください🍊")]
+        [Range(1, 5, ErrorMessage = "満足度を★～★★★★★からご選択ください🍊")]
         public int Rating { get; set; }
 
         // コース番号 (任意)
