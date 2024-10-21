@@ -1,4 +1,5 @@
 ﻿
+/*
 document.addEventListener("DOMContentLoaded", function() {
     // スマホのユーザーエージェントを判定する正規表現
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
@@ -6,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         alert("このHPはスマホを対象に作られているため、PCでは正常に表示されない部分があります。");
     }
 });
+*/
 	    
 document.addEventListener('DOMContentLoaded', function() {
 	// ヘッダー要素を取得
@@ -70,4 +72,10 @@ document.addEventListener('click', (event) => {
         navRow.classList.remove('active');
         hamburger.querySelector('.hamburger').classList.remove('open');
     }
+});
+
+document.querySelectorAll('.clickLoadingDisp').forEach(function(element) {
+    element.addEventListener('click', function() {
+        document.getElementById('loader').style.display = 'block'; // スピナーを表示
+    });
 });
