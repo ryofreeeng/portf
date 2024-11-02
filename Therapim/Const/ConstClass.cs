@@ -12,7 +12,7 @@
         /// <summary>
         /// GasAPIのURL（テスト用）
         /// </summary>
-        public const string GAS_API_URL = "https://script.google.com/macros/s/AKfycbyhVrTVe8OsXEBVXOny18vxDC8v4Taiu8FIGCU_xm113HBVg7q1aXiQkYhxNfR6cBev/exec";
+        public const string GAS_API_URL = "https://script.google.com/macros/s/AKfycbyQIcT3BYpbb5RmUCBQo2ZYILFiZIQB5balYRYS-OG4a65NyKsOT64QALl9vYW752yF/exec";
 
         /// <summary>
         /// LINEログイン時に使用するチャネルID
