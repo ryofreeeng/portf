@@ -57,6 +57,14 @@ namespace Therapim.Controllers
             }
 
             _logger.LogWarning("★★★userIdInSession == nullのためログイン画面へ遷移します");
+
+            // リクエスト元のURLを取得
+            var referrer = Request.Headers["Referer"].ToString();
+
+            // リファラーが空でない場合は、リファラーをViewBagに格納
+            ViewData["ReturnUrl"] = !string.IsNullOrEmpty(referrer) ? referrer : Url.Action("Index", "Home");
+
+
             _logger.LogInformation($"★{ControllerContext.ActionDescriptor.ControllerName}/{ControllerContext.ActionDescriptor.ActionName}　終了");
             return View();
         }
@@ -95,12 +103,13 @@ namespace Therapim.Controllers
             if(await loginProccesser.executeLogin(users))
             {
                 //ログイン処理成功後はホーム画面へ ▲あとでリダイレクト機能も追加
-                return RedirectToAction("Index", "Home");
+                return Redirect(model.ReturnUrl ?? Url.Action("Index", "Home"));
             }
             else 
             {
                 //顧客情報が0件だった場合
                 ModelState.AddModelError(string.Empty, "ログイン情報が見つかりませんでした。入力情報が不明な場合はお問い合わせください🍊");
+                ViewData["ReturnUrl"] = !string.IsNullOrEmpty(model.ReturnUrl) ? model.ReturnUrl : Url.Action("Index", "Home");
                 return View("Index", model);
             }                
         }            

@@ -21,6 +21,10 @@ namespace Therapim.Models
         [StringLength(12, MinimumLength = 10, ErrorMessage = "お電話番号は10～12桁でご入力ください🍊")]
         public string PhoneNumber { get; set; }
 
+        // リダイレクトURL
+        [Required(ErrorMessage = "不正な遷移です🍊")]
+        public string ReturnUrl { get; set; }
+
     }
 
 }
