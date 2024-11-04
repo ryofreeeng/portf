@@ -47,6 +47,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">ホーム</a></li>
                     <li><a asp-area="" asp-controller="Course" asp-action="List" class="clickLoadingDisp">コース・料金</a></li>
                     <li><a asp-area="" asp-controller="Review" asp-action="List" class="clickLoadingDisp">口コミ</a></li>
+                    <li><a asp-area="" asp-controller="Reservation" asp-action="Create" class="clickLoadingDisp">ご予約</a></li>
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <li><a asp-area="" asp-controller="Login" asp-action="Index">ログイン</a></li>
@@ -94,6 +95,7 @@
                         <li><a asp-area="" asp-controller="Home" asp-action="Index">ホーム</a></li>
                         <li><a asp-area="" asp-controller="Course" asp-action="List" class="clickLoadingDisp">コース・料金</a></li>
                         <li><a asp-area="" asp-controller="Review" asp-action="List" class="clickLoadingDisp">口コミ</a></li>
+                        <li><a asp-area="" asp-controller="Reservation" asp-action="Create" class="clickLoadingDisp">ご予約</a></li>
                     </ul>
                 </nav>
                 <nav class="right-links">                

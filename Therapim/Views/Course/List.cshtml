@@ -131,15 +131,11 @@
                             }
                         </div>
                     }
-                    <!--
+                    
                     <div class="course-reserve">
-                        <form asp-controller="Reserve" asp-action="Regist" method="get">
-                            @Html.AntiForgeryToken()
-                            <input asp-for="SqlContent[i].MenuId" class="form-control" readonly type="hidden" />
-                            <button type="submit" class="btn btn-primary">予約へ進む</button>
-                        </form>                                                                                                                
+                        <a href="/Reservation/Create?MenuId=@Model.SqlContent[i].MenuId" class="btn btn-primary">このコースで予約</a>
                     </div>
-                    -->
+                    
                 </div>
                 <div class="course-addInfo-navi">詳細を見る <span class="course-addInfo-icon"></span></div>
 

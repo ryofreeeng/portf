@@ -1,0 +1,226 @@
+@charset "UTF-8";
+/* スマホベースの基本スタイル */
+.reviews-container {
+  padding: 15px 10%;
+  margin: 0 auto;
+}
+
+.reviews-container h2 {
+  text-align: center;
+}
+
+.page-title:after {
+  content: "お客様の声";
+  font-size: 0.5em;
+  background-color: rgba(251, 245, 234, 0.3);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.review-list-guide-section {
+  padding-bottom: 2em;
+}
+
+.review-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.review-item {
+  margin: 1em 0;
+  padding: 1em 1em 1.5em 1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.review-header {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1em;
+  row-gap: 0.5em;
+  margin-bottom: 0.5em;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.review-rating {
+  font-size: 1.3em;
+  color: #ffcc00; /* 星の色 */
+}
+
+.review-author, .review-age, .review-gender {
+  margin-right: 0.5em;
+}
+
+.review-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+
+.review-content {
+  font-size: 1em;
+  margin-bottom: 0.6em;
+}
+
+.review-posted-at {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 0.3em;
+  text-align: right;
+}
+
+.review-edit {
+  text-align: center;
+  padding-top: 1em;
+}
+
+.btn {
+  background: linear-gradient(0deg, rgba(244, 210, 182, 0.1) 0%, rgba(244, 210, 182, 0.5) 30%, rgb(244, 210, 182) 50%, rgba(244, 210, 182, 0.5) 70%, rgba(244, 210, 182, 0.1) 100%), linear-gradient(90deg, rgba(244, 210, 182, 0.1) 0%, rgba(244, 210, 182, 0.5) 30%, rgb(244, 210, 182) 50%, rgba(244, 210, 182, 0.5) 70%, rgba(244, 210, 182, 0.1) 100%), linear-gradient(45deg, rgba(244, 210, 182, 0.1) 0%, rgba(244, 210, 182, 0.5) 30%, rgb(244, 210, 182) 50%, rgba(244, 210, 182, 0.5) 70%, rgba(244, 210, 182, 0.1) 100%);
+  box-shadow: 0 0 6px rgba(100, 100, 100, 0.5);
+  border: solid 1px rgba(100, 100, 100, 0.5);
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-shadow: 0 1px 5px rgba(100, 100, 100, 0.8);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(0deg, rgba(244, 210, 182, 0.1) 0%, rgba(244, 210, 182, 0.7) 30%, rgb(244, 210, 182) 50%, rgba(244, 210, 182, 0.7) 70%, rgba(244, 210, 182, 0.1) 100%), linear-gradient(90deg, rgba(244, 210, 182, 0.1) 0%, rgba(244, 210, 182, 0.7) 30%, rgb(244, 210, 182) 50%, rgba(244, 210, 182, 0.7) 70%, rgba(244, 210, 182, 0.1) 100%), linear-gradient(45deg, rgba(244, 210, 182, 0.1) 0%, rgba(244, 210, 182, 0.7) 30%, rgb(244, 210, 182) 50%, rgba(244, 210, 182, 0.7) 70%, rgba(244, 210, 182, 0.1) 100%);
+  box-shadow: 0 0 6px rgba(100, 100, 100, 0.7);
+  border: solid 1px rgba(100, 100, 100, 0.7);
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-shadow: 0 1px 5px rgba(100, 100, 100, 0.8);
+  cursor: pointer;
+}
+
+/* 下部の口コミ投稿に関する案内とボタン */
+.revirew-create-guide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1em;
+  width: 100%;
+  margin: 2em auto;
+}
+
+.revirew-create-guide .btn {
+  padding: 0.7em 1.2em;
+}
+
+.review-coupon-navi {
+  border-bottom: solid 1px rgba(101, 88, 88, 0.8);
+  color: rgba(101, 88, 88, 0.8);
+  font-weight: bold;
+}
+
+/* PCスタイルのオーバーライド */
+@media (min-width: 768px) {
+  .review-item {
+    padding: 1.5em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  .review-header {
+    flex-direction: row;
+    align-items: center;
+  }
+  .review-rating {
+    font-size: 1.4em; /* 星のサイズをPC向けに大きく */
+    margin-right: 1em; /* PCでは星と他の要素を少し離す */
+  }
+  .review-author, .review-age, .review-gender {
+    font-size: 1em;
+  }
+  .review-title {
+    font-size: 1.1em;
+    margin-bottom: 0.3em;
+  }
+  .review-content {
+    font-size: 1em;
+    margin-bottom: 1em;
+  }
+  .review-posted-at {
+    font-size: 1.1em;
+  }
+  .review-edit .btn {
+    padding: 0.75em 1.5em;
+  }
+  .review-list-guide-section {
+    text-align: center;
+  }
+}
+/* 口コミ割引の案内モーダル */
+.review-coupon-guide-modal-bk {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s ease, opacity 0.5s ease;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.review-coupon-guide-modal-bk.open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.review-coupon-guide-modal-bk.close {
+  opacity: 0;
+}
+
+.review-coupon-guide-modal {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  padding: 1.5em;
+  margin: 30% auto;
+  background: linear-gradient(135deg, rgb(134, 100, 82) 0%, rgb(214, 180, 152) 5%, rgb(244, 210, 182) 10%, rgb(244, 210, 182) 35%, rgb(214, 180, 152) 45%, rgb(134, 100, 82) 77%, rgb(134, 100, 82) 80%, rgb(214, 180, 152) 95%, rgb(244, 210, 182) 100%);
+  border: solid 1px rgba(100, 100, 100, 0.5);
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  color: #000000;
+  text-shadow: 1px 1px 3px rgb(240, 240, 240);
+}
+
+.review-coupon-guide-modal a {
+  text-decoration: none;
+  color: rgb(100, 100, 200);
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/* PC用スタイル */
+
+/*# sourceMappingURL=reservation.css.map */
