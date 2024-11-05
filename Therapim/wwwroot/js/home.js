@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	newsList.innerHTML = "お知らせ取得中...";
 	
 	/* お知らせを取得 */
-	const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxc1XkXEhSXawl6IjqmqcmDq_Cgj7PY7Usl6HKsOhdrnq8ANFz1P8gVv3tJ5C49ZM81/exec";
-
 	const params = new URLSearchParams();
 	params.append("input", "");
 	params.append("sqlCond", "");

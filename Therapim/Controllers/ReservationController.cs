@@ -58,6 +58,36 @@ namespace Therapim.Controllers
             return View("Create", reservation);
         }
 
+
+        /// <summary>
+        /// 予約登録画面(POSTBACK時)
+        /// </summary>
+        /// <returns>予約登録画面(POSTBACK時)</returns>        
+        [HttpPost]
+        public async Task<IActionResult> Create(ReservationRequestModel model)
+        {
+            // 選択サロンの値だけ変換が必要
+            //string[] salonList = model.DesiredSalon.Split(",");
+
+
+            // コース情報取得処理
+            var CourseProcesser = new CourseProccesser(_logger, _commonService);
+            var CourseList = await CourseProcesser.getCourseList();
+
+            if (CourseList == null)
+            {
+                // TempData にエラーメッセージを設定
+                TempData["ErrorMessage"] = "戻る際にコース情報取得の通信に失敗しました。再度お試しいただいても解決しない場合は店舗までお問い合わせください。";
+                // エラー画面にリダイレクト
+                return RedirectToAction("Error", "Home");
+            }
+
+            ViewData["CourseList"] = CourseList;
+
+            return View("Create", model);
+        }
+
+
         /// <summary>
         /// 予約登録確認画面
         /// </summary>

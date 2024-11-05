@@ -161,7 +161,7 @@
         </div>
 
         <!-- 希望サロン（IsVisitにチェックありの場合表示） -->
-        <div id="salonSection" style="display:none;">
+        <div id="salonSection">
             <div class="form-group">
                 <label class="control-label">希望サロン<span class="text-danger">*</span></label>
                 <div class="checkbox-group">
@@ -296,5 +296,93 @@
     <div class="form-group">
         <button onclick="window.history.back();" class="btn btn-secondary">戻る</button>
     </div>
+
+
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+
+        <!-- ユーザーID -->
+        <input asp-for="UserId" class="form-control" />
+        <!-- お客様情報セクション -->        
+        <input asp-for="FullName" class="form-control" placeholder="（例）施術受子" />
+        <!-- 電話番号 -->        
+        <input asp-for="PhoneNumber" class="form-control" placeholder="（例）0312345678" />        
+        <!-- 生年月日 -->
+        <input asp-for="Birthday" class="form-control" placeholder="（例）20000101" />        
+        <!-- メールアドレス -->
+        <input asp-for="MailAddress" class="form-control" type="email" placeholder="（例）therapy@gmail.com" />        
+        <!-- 性別 -->
+        <select asp-for="Gender" class="form-control">
+            <option value="女性" selected>女性</option>
+        </select>            
+        <!-- SNS名 -->        
+        <input asp-for="SnsName" class="form-control" placeholder="（メールでのやり取り希望の方は入力は不要です）" />        
+        <!-- コース選択セクション -->        
+        <!-- コース -->        
+        <input asp-for="MenuId" class="form-control" />
+        <input asp-for="CourseNameDisp" class="form-control" />        
+        <!-- コースオプション -->        
+        <input asp-for="CourseOptionId" class="form-control" />
+        <input asp-for="CourseOption" class="form-control" />        
+        <!-- オプション選択セクション -->        
+        <!-- ペーパーブラ選択 -->
+        <select asp-for="PaperBraSelect" class="form-control">
+            <option value="">選択してください</option>
+            <option value="あり">あり</option>
+            <option value="なし">なし</option>
+            <option value="水着等持参">水着等持参</option>
+        </select>
+        <!-- ペーパーパンツ選択 -->
+        <select asp-for="PaperPantsSelect" class="form-control">
+            <option value="">選択してください</option>
+            <option value="通常">通常のショーツタイプ</option>
+            <option value="Tバック">Tバックタイプ</option>
+            <option value="水着等持参">水着等持参</option>
+        </select>        
+        <!-- アロマオイル選択 -->
+        <select asp-for="AromaOilSelect" class="form-control">
+            <option value="">選択してください</option>
+            <option value="なし">なし</option>
+            <option value="オレンジ">オレンジ</option>
+        </select>        
+        <!-- 来店・出張選択セクション -->        
+        <!-- 来店形態 -->        
+        <input asp-for="IsVisit" type="checkbox" class="form-check-input" />        
+        <!-- 出張関連情報（IsVisitにチェックありの場合表示） -->        
+        <input asp-for="DesiredVisitPlace" class="form-control" placeholder="（例）新宿駅近くのホテル、渋谷駅から徒歩15分の自宅など" />        
+        <input asp-for="Address" class="form-control" placeholder="（例）東京都新宿区●●●"/>        
+        <!-- 希望サロン（IsVisitにチェックなしの場合表示） -->
+        <!-- 実際の送信用の隠しフィールド -->
+        <input asp-for="DesiredSalon" id="DesiredSalon" />
+        <!-- 希望日時セクション -->
+        <!-- 第1希望日時 -->
+        <input asp-for="DesiredDateTimeStart1" type="datetime-local" class="form-control datetime-start" data-pair="DesiredDateTimeEnd1" step="600" />        
+        <input asp-for="DesiredDateTimeEnd1" type="datetime-local" class="form-control" step="600" />                    
+        <!-- 第2希望日時 -->
+        <input asp-for="DesiredDateTimeStart2" type="datetime-local" class="form-control datetime-start" data-pair="DesiredDateTimeEnd2" step="600" />
+        <input asp-for="DesiredDateTimeEnd2" type="datetime-local" class="form-control" step="600" />                    
+        <!-- 第3希望日時 -->
+        <input asp-for="DesiredDateTimeStart3" type="datetime-local" class="form-control datetime-start" data-pair="DesiredDateTimeEnd3" step="600" />
+        <input asp-for="DesiredDateTimeEnd3" type="datetime-local" class="form-control" step="600" />        
+        <!-- その他要望セクション -->        
+        <!-- 会話希望 -->        
+        <select asp-for="Conversation" class="form-control">
+            <option value="">選択してください</option>
+            <option value="とにかく静かに受けたい">とにかく静かに受けたい</option>
+            <option value="強さや気温の確認程度のみでよい">強さや気温の確認程度のみでよい</option>
+            <option value="通常の会話くらいはOK">通常の会話くらいはOK</option>
+            <option value="いろいろ話を聞きたい">いろいろ話を聞きたい</option>                
+        </select>
+        <!-- 施術NGな部位 -->        
+        <textarea asp-for="NotTouchParts" class="form-control" rows="3"></textarea>
+        <!-- ご要望 -->        
+        <textarea asp-for="OtherRequest" class="form-control" rows="3"></textarea>        
+        <!-- その他補足事項 -->        
+        <textarea asp-for="OtherThings" class="form-control" rows="3"></textarea>        
+        <!-- 送信ボタン -->        
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">postback</button>
+        </div>
+    </form>
 
 </div>

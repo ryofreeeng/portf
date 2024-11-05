@@ -1,4 +1,7 @@
-﻿
+﻿/* 定数定義 */
+const GAS_API_URL = "https://script.google.com/macros/s/AKfycbx9WkDd68Cg4kOX5w8EM61McqAGK_H1nz6VjnR3JcFUzxKI1xlD5iuS1lftzZBEJFya/exec";
+
+
 /*
 document.addEventListener("DOMContentLoaded", function() {
     // スマホのユーザーエージェントを判定する正規表現
