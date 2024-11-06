@@ -1,22 +1,33 @@
-// reviews.scss
+// reservation.scss
 @import 'variables';
 @import 'mixins';
 
-
-/* スマホベースの基本スタイル */
-//まず大枠を作っておく
-.reviews-container {
-    padding: 15px 10%;    
+/* 予約入力画面用のスタイル */
+.reservation-create-container {
+    padding: 1em 10%;
+    background-color: rgba(255, 255, 248, 0.6);
+    border-radius: 8px;
+    max-width: 600px;
     margin: 0 auto;
-    //overflow-x: hidden; /* 横スクロールを防ぐ */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
-.reviews-container h2 {
-	text-align:center;
+//PCでのレイアウト微調整
+@media (min-width: $breakpoint-md) {
+	.reservation-create-container {
+	    padding: 15px 3%;	    
+	    border-radius: 15px;
+	    margin: 40px auto;
+	}
+}
+
+//タイトルは中央に
+.reservation-create-container h2 {
+    text-align: center;
 }
 
 //ページタイトル直下の日本語文字
-.page-title:after {
-	content:"お客様の声";
+.reservation-regist-title:after {
+content:"ご予約";
 	font-size: 0.5em;
 	background-color:rgba(251, 245, 234, 0.3);
 	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -25,211 +36,105 @@
 	left: 50%;
 	transform: translateX(-50%);
 }
-
-//口コミ一覧ページの案内
-.review-list-guide-section {
-	padding-bottom: 2em;
+.reservation-regist-title.repeat:after {
+	content:"ご予約（2回目以降）";
 }
 
-//レビュー一覧のコンテナはPC用の最大幅を決めておく
-.review-list {
-	max-width: 800px;
-	margin: 0 auto;
-}
-//1レビューのコンテナサイズ等
-.review-item {
-    margin: 1em 0;
-    padding: 1em 1em 1.5em 1em;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-}
-//★と投稿者情報のまとまりの並び方を定義
-.review-header {
-    display: flex;
-    flex-wrap: wrap;    
-    column-gap: 1em;
-    row-gap: 0.5em;      
-    margin-bottom: 0.5em;
-    flex-direction: column;
-    align-items: flex-start;
+/* フォーム領域 */
+// 必須項目は＊を付与
+.required-field:after{
+	content: " *";
+	color: red;
 }
 
-//★の大きさと色
-.review-rating {
-    font-size: 1.3em;
-    color: #ffcc00; /* 星の色 */
+//各項目のまとまりの間を空ける
+.reservation-create-container .section-group {
+    padding-top: 0.5em;
 }
-//名前、性別、年齢の間のスペースはここで定義
-.review-author, .review-age, .review-gender {
-    margin-right: 0.5em;    
+
+//各項目の間を空ける
+.reservation-create-container .form-group {
+    margin-bottom: 1.2em;
 }
-//タイトル
-.review-title {
-    font-size: 1.2em;
+//ラベルは下を少し空ける
+.reservation-create-container .form-group label {
     font-weight: bold;
-    margin-bottom: 0.2em;
-}
-//レビュー内容
-.review-content {
-    font-size: 1em;
-    margin-bottom: 0.6em;
-}
-//投稿日
-.review-posted-at {
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 0.3em;
-    text-align: right;
-}
-//編集ボタンの位置
-.review-edit {
-    text-align: center;
-    padding-top: 1em;
-}
-//ボタン自体の装飾
-.btn {
-	@include calm-brown-btn;
-}
-//ホバー時
-.btn:hover {
-    @include calm-brown-btn-hover;
+    margin-bottom: 0.5em;
+    display: block;
 }
 
-
-/* 下部の口コミ投稿に関する案内とボタン */
-//口コミ投稿の案内
-.revirew-create-guide {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	row-gap: 1em;
-	width: 100%;
-	margin: 2em auto;
-}
-//口コミ投稿ボタン
-.revirew-create-guide .btn {
-	padding: 0.7em 1.2em;
-}
-.review-coupon-navi {
-	border-bottom: solid 1px rgba(101, 88, 88, 0.8);
-	color: rgba(101, 88, 88, 0.8);
-	font-weight: bold;
-}
-
-/* PCスタイルのオーバーライド */
-@media (min-width: $breakpoint-md) {
-	//各レビューのコンテナ調整
-	.review-item {
-	    padding: 1.5em;
-	    border: 1px solid #ddd;
-	    border-radius: 4px;
-	    background-color: #f9f9f9;
-	}
-	//大きな画面幅では★と投稿者情報を横並びにする
-    .review-header {
-        flex-direction: row;
-        align-items: center;
-    }
-	//★のサイズと横の要素との間隔
-    .review-rating {
-        font-size: 1.4em; /* 星のサイズをPC向けに大きく */
-        margin-right: 1em; /* PCでは星と他の要素を少し離す */
-    }
-	//投稿者、年齢、性別の文字サイズ
-    .review-author, .review-age, .review-gender {
-        font-size: 1em;
-    }
-	//タイトルの文字サイズと下との間隔
-    .review-title {
-        font-size: 1.1em;
-        margin-bottom: 0.3em;
-    }
-	//レビュー内容の文字サイズと下との間隔
-    .review-content {
-        font-size: 1em;
-        margin-bottom: 1em;
-    }
-	//投稿日の文字サイズ
-    .review-posted-at {
-        font-size: 1.1em;
-    }
-	//ボタンのサイズ
-    .review-edit .btn {
-        padding: 0.75em 1.5em;
-    }
-    
-	// ページ説明文の位置
-	.review-list-guide-section {
-		text-align: center;
-	}    
-}
-
-
-/* 口コミ割引の案内モーダル */
-//初期状態では背景ごと非表示
-.review-coupon-guide-modal-bk {
-	width:100%;
-	height:100vh;
-	position:fixed;
-	top: 0;
-	left: 0;
-	//display: none; //アニメーションをつけるためにvisibilityにした	
-	visibility: hidden;
-	opacity: 0;
-	transition: visibility 0.5s ease,opacity 0.5s ease; //この二つでスムーズな視覚化
-	background-color: rgba(0, 0, 0, 0.8);
-}
-//背景の表示状態の設定
-.review-coupon-guide-modal-bk.open {	
-	//animation: fadeIn 2s forwards;
-	visibility: visible;
-	opacity: 1;
-	transition: opacity 0.5s ease;
-}
-//背景を閉じるときの設定
-.review-coupon-guide-modal-bk.close {
-	opacity: 0;
-}
-//モーダルの中身の設定
-.review-coupon-guide-modal {
-	display: flex;
-	flex-direction: column;
-	row-gap: 0.5em;
-	width:80%;
-	max-width: 500px;
-	height:auto;
-	padding: 1.5em;
-	margin: 30% auto;	
-	//background-color: $primary-back-color;
-	background:linear-gradient(135deg, rgba(134, 100, 82, 1) 0%, rgba(214, 180, 152, 1) 5%, rgba(244, 210, 182, 1) 10%, rgba(244, 210, 182, 1) 35%, rgba(214, 180, 152, 1) 45%, rgba(134, 100, 82, 1) 77%, rgba(134, 100, 82, 1) 80%, rgba(214, 180, 152, 1) 95%, rgba(244, 210, 182, 1) 100%);    
-    border: solid 1px rgba(100, 100, 100, 0.5);
+//入力欄は文字サイズ等の調整
+.reservation-create-container .form-group input,
+.reservation-create-container .form-group textarea,
+.reservation-create-container .form-group select {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid $primary-border-color;
     border-radius: 4px;
-    padding: 0.5em 1em;
-    color: $primary-color;
-    text-shadow: 1px 1px 3px rgba(240, 240, 240, 1);
+    font-size: 1em;
 }
-.review-coupon-guide-modal a{
-	text-decoration:none;
-	color: rgba(100,100,200,1);
+//テキストエリアの高さは少し広めに
+.reservation-create-container .form-group textarea {
+	height: 8em;
+}
+// 日時の開始と終了の間の「～」
+.col-auto{
+	text-align: center;
+}
+// チェックボックス項目の位置調整
+.form-check{
+	display: flex;
+}
+.form-check-input{
+	flex:1;
+	transform: scale(0.9);
+}
+div.form-check .form-check-label{ // 項目名のlabelにあてたcssに上書きされるので細かく指定
+	flex:8;
+	font-weight: normal;
+	margin-bottom:1%;
 }
 
 
-
-@keyframes fadeIn {
-  from { background-color: rgba(0, 0, 0, 0); }
-  to { background-color: rgba(0, 0, 0, 0.8); }
+//バリデーションメッセージ
+.reservation-create-container .form-group .text-danger {
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: 0.25em;
+    display: block;
 }
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+//上部のバリデーションも色を設定
+.alert {
+	color: #dc3545;
 }
 
-
-
-
-/* PC用スタイル */
-@media (min-width: 769px) {
-	
-
+//確認ボタン
+.reservation-create-container .btn-primary {
+    @include calm-brown-btn;
+	font-size: 1.2em;
+	font-family: $font-JP-serif;
+	width: 180px;
+	display: block;
+    margin: 2em auto;
+}
+//確認ボタン　ホバー時は少し暗く
+.reservation-create-container .btn-primary:hover {
+	@include calm-brown-btn-hover;
+}
+//戻るボタンの配置用
+.btn-container {
+	text-align:center;
+}
+//戻るボタン
+.reservation-create-container .btn-secondary {
+    @include return-btn;
+    font-size: 1.2em;
+	font-family: $font-JP-serif;
+	width: 180px;
+	display: block;
+    margin: 2em auto;
+}
+//戻るボタン　ホバー時は少し暗く
+.reservation-create-container .btn-secondary:hover {
+    @include return-btn-hover;
 }
