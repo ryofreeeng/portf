@@ -31,6 +31,7 @@ namespace Therapim.Services
         public string GetCookieBirthday() => _httpContextAccessor.HttpContext.User.FindFirst("Birthday")?.Value;
         //電話番号
         public string GetCookiePhoneNumber() => _httpContextAccessor.HttpContext.User.FindFirst("PhoneNumber")?.Value;
+        public string GetCookieMailAddress() => _httpContextAccessor.HttpContext.User.FindFirst("MailAddress")?.Value;
         public HttpClient HttpClientFactory => _httpClientFactory.CreateClient();
 
         public IHttpContextAccessor HttpContextAccessor => _httpContextAccessor;

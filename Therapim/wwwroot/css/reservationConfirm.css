@@ -55,6 +55,10 @@
   display: block;
 }
 
+.confirmDisplay {
+  padding-left: 1em;
+}
+
 .reservation-create-confirm-container .form-group input,
 .reservation-create-confirm-container .form-group textarea,
 .reservation-create-confirm-container .form-group select {

@@ -44,21 +44,21 @@
 
             <!-- お名前 -->
             <div class="form-group">
-                <label asp-for="FullName" class="control-label required-field" required>お名前</label>
+                <label asp-for="FullName" class="control-label required-field" required>お名前</label>                
                 <input asp-for="FullName" class="form-control" placeholder="（例）施術受子" />
                 <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
 
             <!-- 電話番号 -->
             <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label required-field">電話番号</label>
+                <label asp-for="PhoneNumber" class="control-label required-field">電話番号（ハイフンなし）</label>
                 <input asp-for="PhoneNumber" class="form-control" placeholder="（例）0312345678" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
 
             <!-- 生年月日 -->
             <div class="form-group">
-                <label asp-for="Birthday" class="control-label required-field">生年月日</label>
+                <label asp-for="Birthday" class="control-label required-field">生年月日（西暦から８桁）</label>
                 <input asp-for="Birthday" class="form-control" placeholder="（例）20000101" />
                 <span asp-validation-for="Birthday" class="text-danger"></span>
             </div>
@@ -82,7 +82,8 @@
             <!-- SNS名 -->
             <div class="form-group">
                 <label asp-for="SnsName" class="control-label">LINEやSNSでの表示名</label>
-                <input asp-for="SnsName" class="form-control" placeholder="（メールでのやり取り希望の方は入力は不要です）" />
+                <label class="control-label-support">※メール・SMSでのご連絡希望の方は不要</label>
+                <input asp-for="SnsName" class="form-control" placeholder="アロマ子（LINE）" />
                 <span asp-validation-for="SnsName" class="text-danger"></span>
             </div>
         </div>
@@ -97,6 +98,7 @@
             <!-- コース -->
             <div class="form-group">
                 <label asp-for="MenuId" class="control-label required-field">コース</label>
+                <label class="control-label-support">※出張希望の場合は下部のご要望の入力欄に希望時間をご入力ください</label>
                 <select asp-for="MenuId" class="form-control" id="courseSelect">
                     @for (int i = 0; i < courseList.Count; i++)
                     {
@@ -184,15 +186,16 @@
             </div>
 
             <!-- 出張関連情報（IsVisitにチェックなしの場合表示） -->
-            <div id="visitSection" style="display:none;">
+            <div id="visitSection">
                 <div class="form-group">
                     <label asp-for="DesiredVisitPlace" class="control-label required-field">出張場所概要</label>
-                    <input asp-for="DesiredVisitPlace" class="form-control" placeholder="（例）新宿駅近くのホテル、渋谷駅から徒歩15分の自宅など"/>
+                    <input asp-for="DesiredVisitPlace" class="form-control" placeholder="（例）渋谷駅から徒歩15分の自宅"/>
                     <span asp-validation-for="DesiredVisitPlace" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="Address" class="control-label">出張先住所</label>
+                    <label class="control-label-support">※こちらは予約確定後でも大丈夫です</label>
                     <input asp-for="Address" class="form-control" placeholder="（例）東京都新宿区●●●"/>
                     <span asp-validation-for="Address" class="text-danger"></span>
                 </div>
@@ -201,7 +204,8 @@
             <!-- 希望サロン（IsVisitにチェックありの場合表示） -->
             <div id="salonSection">
                 <div class="form-group">
-                    <label class="control-label required-field">希望サロン</label>
+                    <label class="control-label required-field">ご来店可能サロン</label>
+                    <label class="control-label-support">※空いているレンタルサロンにてご案内いたします。多い方がご案内がしやすくなります</label>
                     <div class="checkbox-group">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input salon-checkbox" id="salon-shinjuku" value="新宿" />
@@ -216,8 +220,8 @@
                             <label class="form-check-label" for="salon-shimokita">下北沢</label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input salon-checkbox" id="salon-shimokita" value="吉祥寺" />
-                            <label class="form-check-label" for="salon-shimokita">吉祥寺</label>
+                            <input type="checkbox" class="form-check-input salon-checkbox" id="salon-kichijoji" value="吉祥寺" />
+                            <label class="form-check-label" for="salon-kichijoji">吉祥寺</label>
                         </div>
                     </div>
                     <!-- 実際の送信用の隠しフィールド -->
@@ -231,6 +235,7 @@
             <!-- 希望時間帯セクション -->
             <div class="section-title mb-4 mt-5">
                 <h3>＜希望時間帯＞</h3>
+                <label class="control-label-support">※広くご指定いただいた方がご案内がしやすくなります。コース時間＋40分程度でお見積りください。</label>
             </div>
 
             <!-- 第1希望時間帯 -->
@@ -310,14 +315,16 @@
 
             <!-- 施術NGな部位 -->
             <div class="form-group">
-                <label asp-for="NotTouchParts" class="control-label">お怪我等で施術NGな部位があればお書きください</label>
+                <label asp-for="NotTouchParts" class="control-label">NG部位</label>
+                <label class="control-label-support">※お怪我等で施術NGな部位があればお書きください</label>
                 <textarea asp-for="NotTouchParts" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="NotTouchParts" class="text-danger"></span>
             </div>
 
             <!-- ご要望 -->
             <div class="form-group">
-                <label asp-for="OtherRequest" class="control-label">何かご要望があればお書きください</label>
+                <label asp-for="OtherRequest" class="control-label">ご要望</label>
+                <label class="control-label-support">※出張のコース時間のご希望などはこちらにお書きください。</label>
                 <textarea asp-for="OtherRequest" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="OtherRequest" class="text-danger"></span>
             </div>

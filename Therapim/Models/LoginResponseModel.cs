@@ -22,6 +22,7 @@ namespace Therapim.Models
         public string FullName { get; set; }
         public string Birthday { get; set; }
         public string PhoneNumber { get; set; }
+        public string MailAddress { get; set; }
         public int? Rank { get; set; }
         public string? Permission { get; set; }        
         public int VisitedTimes { get; set; }

@@ -37,6 +37,7 @@ namespace Therapim.Controllers
             reservation.FullName = _commonService.GetCookieFullName();
             reservation.Birthday = _commonService.GetCookieBirthday();
             reservation.PhoneNumber = _commonService.GetCookiePhoneNumber();
+            reservation.MailAddress = _commonService.GetCookieMailAddress();
 
             // コース情報取得処理
             var CourseProcesser = new CourseProccesser(_logger, _commonService);
@@ -154,8 +155,8 @@ namespace Therapim.Controllers
                 return RedirectToAction("Error", "Home");
             }
 
-            // 成功時は一覧画面へリダイレクト
-            return RedirectToAction("List");
+            // 成功時は完了画面を表示
+            return View("CreateComplete", model);
         }
 
     }

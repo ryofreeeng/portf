@@ -1,0 +1,34 @@
+﻿@model Therapim.Models.ReservationRequestModel
+
+@section CustomStyles {
+    <link rel="stylesheet" href="~/css/reservation.css" asp-append-version="true" />
+}
+@section CustomScripts {
+    <script src="~/js/reservation.js" asp-append-version="true"></script>
+}
+
+<div class="reservation-create-complete-container">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h2 class="page-title reservation-regist-complete-title repeat"><span class="english">Reservation</span></h2>
+    }
+    else
+    {
+        <h2 class="page-title reservation-regist-complete-title"><span class="english">Reservation</span></h2>
+    }
+
+        
+    <div class="section-title">
+        <h3>仮予約が完了しました。</h3>
+    </div>
+
+    <div class="reservation-complete-message">
+        <div>いただいた内容を確認し、ご連絡いたします。しばらくお待ちください。</div>
+        <div>予約履歴を閲覧するページはございませんのでご了承ください。</div>
+    </div>
+
+    <div class="returnArea">
+        <a href="/Home/Index" class="btn btn-primary">TOP画面へ</a>
+    </div>
+
+</div>

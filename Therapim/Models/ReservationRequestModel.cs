@@ -82,8 +82,7 @@ namespace Therapim.Models
         public string? DesiredVisitPlace { get; set; }
 
         // 出張先住所 (必須、最大200文字)
-        [Display(Name = "出張先住所")]
-        [RequiredIfTrue("IsVisit")]
+        [Display(Name = "出張先住所")]        
         [StringLength(200, ErrorMessage = "出張先の住所は200文字以内で入力してください🍊")]
         public string? Address { get; set; }
 

@@ -17,99 +17,106 @@
         <h2 class="page-title reservation-regist-confirm-title"><span class="english">Reservation</span></h2>
     }
     
+    <div class="section-group">
         <!-- お客様情報セクション -->
         <div class="section-title mb-4">
-            <h4>お客様情報</h4>
+            <h3>＜お客様情報＞</h3>
         </div>
 
         <!-- お名前 -->
         <div class="form-group">
-            <label asp-for="FullName" class="control-label">お名前</label>            
-            <div>@Model.FullName</div>
+            <label asp-for="FullName" class="control-label required-field">お名前</label>
+            <div class="confirmDisplay">@Model.FullName</div>
             <span asp-validation-for="FullName" class="text-danger"></span>
         </div>
 
         <!-- 電話番号 -->
         <div class="form-group">
-            <label asp-for="PhoneNumber" class="control-label">電話番号</label>
-            <div>@Model.PhoneNumber</div>
+            <label asp-for="PhoneNumber" class="control-label required-field">電話番号</label>
+            <div class="confirmDisplay">@Model.PhoneNumber</div>
             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
         </div>
 
         <!-- 生年月日 -->
         <div class="form-group">
-            <label asp-for="Birthday" class="control-label">生年月日</label>
-            <div>@Model.Birthday</div>            
+            <label asp-for="Birthday" class="control-label required-field">生年月日</label>
+            <div class="confirmDisplay">@Model.Birthday</div>            
             <span asp-validation-for="Birthday" class="text-danger"></span>
         </div>
 
         <!-- メールアドレス -->
         <div class="form-group">
-            <label asp-for="MailAddress" class="control-label">メールアドレス</label>
-            <div>@Model.MailAddress</div>
+            <label asp-for="MailAddress" class="control-label required-field">メールアドレス</label>
+            <div class="confirmDisplay">@Model.MailAddress</div>
             <span asp-validation-for="MailAddress" class="text-danger"></span>
         </div>
 
         <!-- 性別 -->
         <div class="form-group">
-            <label asp-for="Gender" class="control-label">性別</label>            
-            <div>@Model.Gender</div>
+            <label asp-for="Gender" class="control-label required-field">性別</label>
+            <div class="confirmDisplay">@Model.Gender</div>
             <span asp-validation-for="Gender" class="text-danger"></span>
         </div>
 
         <!-- SNS名 -->
         <div class="form-group">
             <label asp-for="SnsName" class="control-label">LINEやSNSでの表示名</label>            
-            <div>@Model.SnsName</div>
+            <div class="confirmDisplay">@(@Model.SnsName?? "(未回答)")</div>
             <span asp-validation-for="SnsName" class="text-danger"></span>
         </div>
+    </div>
 
+    <div class="section-group">
         <!-- コース選択セクション -->
         <div class="section-title mb-4 mt-5">
-            <h4>コース選択</h4>
+            <h3>＜コース選択＞</h3>
         </div>            
 
         <!-- コース -->
         <div class="form-group">
-            <label asp-for="CourseNameDisp" class="control-label">コース</label>
-            <div>@Model.CourseNameDisp</div>
+            <label asp-for="CourseNameDisp" class="control-label required-field">コース</label>
+            <div class="confirmDisplay">@Model.CourseNameDisp</div>
         </div>
 
         <!-- コースオプション -->
         <div class="form-group">        
-            <label asp-for="CourseOption" class="control-label">コースオプション</label>
-        <div>@Model.CourseOption</div>
+            <label asp-for="CourseOption" class="control-label required-field">コースオプション</label>
+        <div class="confirmDisplay">@Model.CourseOption</div>
         </div>
+    </div>
 
+    <div class="section-group">
         <!-- オプション選択セクション -->
         <div class="section-title mb-4 mt-5">
-            <h4>アメニティ選択</h4>
+            <h3>＜アメニティ選択＞</h3>
         </div>
 
         <!-- ペーパーブラ選択 -->
         <div class="form-group">
-            <label asp-for="PaperBraSelect" class="control-label">ペーパーブラ</label>
-        <div>@Model.PaperBraSelect</div>
+            <label asp-for="PaperBraSelect" class="control-label required-field">ペーパーブラ</label>
+        <div class="confirmDisplay">@Model.PaperBraSelect</div>
             <span asp-validation-for="PaperBraSelect" class="text-danger"></span>
         </div>
 
         <!-- ペーパーパンツ選択 -->
         <div class="form-group">
-            <label asp-for="PaperPantsSelect" class="control-label">ペーパーパンツ</label>
-        <div>@Model.PaperPantsSelect</div>
+            <label asp-for="PaperPantsSelect" class="control-label required-field">ペーパーパンツ</label>
+        <div class="confirmDisplay">@Model.PaperPantsSelect</div>
             <span asp-validation-for="PaperPantsSelect" class="text-danger"></span>
         </div>
 
         <!-- アロマオイル選択 -->
         <div class="form-group">
-            <label asp-for="AromaOilSelect" class="control-label">アロマオイル</label>            
-            <div>@Model.AromaOilSelect</div>
+            <label asp-for="AromaOilSelect" class="control-label required-field">アロマオイル</label>
+            <div class="confirmDisplay">@Model.AromaOilSelect</div>
             <span asp-validation-for="AromaOilSelect" class="text-danger"></span>
         </div>
+    </div>
 
+    <div class="section-group">
         <!-- 来店・出張選択セクション -->
         <div class="section-title mb-4 mt-5">
-            <h4>来店・出張選択</h4>
+            <h3>＜来店・出張選択＞</h3>
         </div>
 
         <!-- 来店形態 -->
@@ -117,58 +124,64 @@
             <div class="form-check">
             @if (Model.IsVisit)
             {
-                <div>出張希望</div>
+                <div>出張希望です</div>
             }
             else
             {
-                <div>出張希望でない</div>
-            }
-            <label asp-for="IsVisit" class="form-check-label">出張希望の方はチェックしてください</label>
-                <span asp-validation-for="IsVisit" class="text-danger"></span>
+                <div>出張希望ではありません</div>
+            }            
+            <span asp-validation-for="IsVisit" class="text-danger"></span>
             </div>
         </div>
 
-        <!-- 出張関連情報（IsVisitにチェックなしの場合表示） -->
-        <div id="visitSection" style="display:none;">
-            <div class="form-group">
-                <label asp-for="DesiredVisitPlace" class="control-label">希望出張場所</label>
-            <div>@Model.DesiredVisitPlace</div>
-                <span asp-validation-for="DesiredVisitPlace" class="text-danger"></span>
-            </div>
+        @if (Model.IsVisit)
+        {
+            <!-- 出張関連情報（IsVisitにチェックなしの場合表示） -->
+            <div id="visitSection">
+                <div class="form-group">
+                    <label asp-for="DesiredVisitPlace" class="control-label required-field">希望出張場所</label>
+                    <div class="confirmDisplay">@Model.DesiredVisitPlace</div>
+                    <span asp-validation-for="DesiredVisitPlace" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="Address" class="control-label">出張先住所</label>
-            <div>@Model.Address</div>
-                <span asp-validation-for="Address" class="text-danger"></span>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label">出張先住所</label>
+                    <div class="confirmDisplay">@(@Model.Address ?? "(未回答)")</div>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
             </div>
-        </div>
-
-        <!-- 希望サロン（IsVisitにチェックありの場合表示） -->
-        <div id="salonSection">
-            <div class="form-group">
-                <label class="control-label">希望サロン</label>                
-                <!-- 実際の送信用の隠しフィールド -->
-            <div>@Model.DesiredSalon</div>
-                <span asp-validation-for="DesiredSalon" class="text-danger"></span>
+        }
+        else
+        {
+            <!-- 希望サロン（IsVisitにチェックありの場合表示） -->
+            <div id="salonSection">
+                <div class="form-group">
+                    <label class="control-label required-field">希望サロン</label>
+                    <!-- 実際の送信用の隠しフィールド -->
+                <div class="confirmDisplay">@Model.DesiredSalon</div>
+                    <span asp-validation-for="DesiredSalon" class="text-danger"></span>
+                </div>
             </div>
-        </div>
+        }
+    </div>
 
+    <div class="section-group">
         <!-- 希望日時セクション -->
         <div class="section-title mb-4 mt-5">
-            <h4>希望日時</h4>
+            <h3>＜希望日時＞</h3>
         </div>
 
         <!-- 第1希望日時 -->
         <div class="form-group">
-            <label class="control-label">第1希望日時</label>
+            <label class="control-label required-field">第1希望日時</label>
             <div class="row">
                 <div class="col">
-                <div>@Model.DesiredDateTimeStart1</div>
+                <div class="confirmDisplay">@Model.DesiredDateTimeStart1</div>
                     <span asp-validation-for="DesiredDateTimeStart1" class="text-danger"></span>
                 </div>
                 <div class="col-auto">～</div>
                 <div class="col">
-                <div>@Model.DesiredDateTimeEnd1</div>
+                <div class="confirmDisplay">@Model.DesiredDateTimeEnd1</div>
                     <span asp-validation-for="DesiredDateTimeEnd1" class="text-danger"></span>
                 </div>
             </div>
@@ -179,12 +192,12 @@
             <label class="control-label">第2希望日時</label>
             <div class="row">
                 <div class="col">
-                <div>@Model.DesiredDateTimeStart2</div>
+                <div class="confirmDisplay">@Model.DesiredDateTimeStart2</div>
                     <span asp-validation-for="DesiredDateTimeStart2" class="text-danger"></span>
                 </div>
                 <div class="col-auto">～</div>
                 <div class="col">
-                <div>@Model.DesiredDateTimeEnd2</div>
+                <div class="confirmDisplay">@Model.DesiredDateTimeEnd2</div>
                     <span asp-validation-for="DesiredDateTimeEnd2" class="text-danger"></span>
                 </div>
             </div>
@@ -195,26 +208,28 @@
             <label class="control-label">第3希望日時</label>
             <div class="row">
                 <div class="col">
-                <div>@Model.DesiredDateTimeStart3</div>
+                <div class="confirmDisplay">@Model.DesiredDateTimeStart3</div>
                     <span asp-validation-for="DesiredDateTimeStart3" class="text-danger"></span>
                 </div>
                 <div class="col-auto">～</div>
                 <div class="col">
-                <div>@Model.DesiredDateTimeEnd3</div>
+                <div class="confirmDisplay">@Model.DesiredDateTimeEnd3</div>
                     <span asp-validation-for="DesiredDateTimeEnd3" class="text-danger"></span>
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="section-group">
         <!-- その他要望セクション -->
         <div class="section-title mb-4 mt-5">
-            <h4>その他ご要望</h4>
+            <h3>＜その他ご要望＞</h3>
         </div>
 
         <!-- 会話希望 -->
         <div class="form-group">
             <label asp-for="Conversation" class="control-label">施術中の会話について</label>
-        <div>@Model.Conversation</div>
+        <div class="confirmDisplay">@Model.Conversation</div>
             <span asp-validation-for="Conversation" class="text-danger"></span>
         </div>
 
@@ -222,24 +237,24 @@
         <!-- 施術NGな部位 -->
         <div class="form-group">
             <label asp-for="NotTouchParts" class="control-label">お怪我等で施術NGな部位があればお書きください</label>
-            <div>@Model.NotTouchParts</div>
+            <div class="confirmDisplay">@(@Model.NotTouchParts ?? "(未回答)")</div>
             <span asp-validation-for="NotTouchParts" class="text-danger"></span>
         </div>
 
         <!-- ご要望 -->
         <div class="form-group">
             <label asp-for="OtherRequest" class="control-label">何かご要望があればお書きください</label>            
-            <div>@Model.OtherRequest</div>
+            <div class="confirmDisplay">@(@Model.OtherRequest ?? "(未回答)")</div>
             <span asp-validation-for="OtherRequest" class="text-danger"></span>
         </div>
 
         <!-- その他補足事項 -->
         <div class="form-group">
             <label asp-for="OtherThings" class="control-label">その他お伝えしておきたいことがあればお書きください</label>
-        <div>@Model.OtherThings</div>
+            <div class="confirmDisplay">@(@Model.OtherThings ?? "(未回答)")</div>
             <span asp-validation-for="OtherThings" class="text-danger"></span>
         </div>
-
+    </div>
 
     <form asp-action="XtCreate" method="post">
         @Html.AntiForgeryToken()
@@ -251,7 +266,7 @@
 
             <!-- お客様情報セクション -->
             <div class="section-title mb-4">
-                <h4>お客様情報</h4>
+                <h3>＜お客様情報＞</h3>
             </div>
 
             <!-- お名前 -->
@@ -300,7 +315,7 @@
 
             <!-- コース選択セクション -->
             <div class="section-title mb-4 mt-5">
-                <h4>コース選択</h4>
+                <h3>＜コース選択＞</h3>
             </div>
 
             <!-- コース -->
@@ -319,7 +334,7 @@
 
             <!-- オプション選択セクション -->
             <div class="section-title mb-4 mt-5">
-                <h4>アメニティ選択</h4>
+                <h3>＜アメニティ選択＞</h3>
             </div>
 
             <!-- ペーパーブラ選択 -->
@@ -359,7 +374,7 @@
 
             <!-- 来店・出張選択セクション -->
             <div class="section-title mb-4 mt-5">
-                <h4>来店・出張選択</h4>
+                <h3>＜来店・出張選択＞</h3>
             </div>
 
             <!-- 来店形態 -->
@@ -416,7 +431,7 @@
 
             <!-- 希望日時セクション -->
             <div class="section-title mb-4 mt-5">
-                <h4>希望日時</h4>
+                <h3>＜希望日時＞</h3>
             </div>
 
             <!-- 第1希望日時 -->
@@ -475,7 +490,7 @@
 
             <!-- その他要望セクション -->
             <div class="section-title mb-4 mt-5">
-                <h4>その他ご要望</h4>
+                <h3>＜その他ご要望＞</h3>
             </div>
 
             <!-- 会話希望 -->
