@@ -113,7 +113,7 @@
                     }                
                 </select>
                 <span asp-validation-for="MenuId" class="text-danger"></span>
-                <input asp-for="CourseNameDisp" class="form-control" type="hidden" id="courseNameDisp" readonly />
+                <input asp-for="CourseNameDisp" class="form-control" id="courseNameDisp" readonly />
             </div>
 
             <!-- コースオプション -->
@@ -127,7 +127,7 @@
                     <option value="4">鼠経リンパ流し</option>
                 </select>
                 <span asp-validation-for="CourseOptionId" class="text-danger"></span>
-                <input asp-for="CourseOption" class="form-control" type="hidden" id="CourseOption" readonly />
+                <input asp-for="CourseOption" class="form-control" id="CourseOption" readonly />
             </div>
         </div>
 
@@ -225,7 +225,7 @@
                         </div>
                     </div>
                     <!-- 実際の送信用の隠しフィールド -->
-                    <input type="hidden" asp-for="DesiredSalon" id="DesiredSalon" />
+                    <input asp-for="DesiredSalon" id="DesiredSalon" />
                     <span asp-validation-for="DesiredSalon" class="text-danger"></span>
                 </div>
             </div>
