@@ -103,58 +103,107 @@ function updateSelectedSalons() {
     }
 }
 
-// 希望の開始時刻が入力されたらそれに応じた終了時刻を自動入力する関数
-function setEndTimeFromStartTime(startTimeElement){
-	const hourSpan = 3; //この時間後に設定する
-	const endFieldId = startTimeElement.getAttribute('data-pair');
-	const endField = document.getElementById(endFieldId);
+// 希望の開始日時が入力されたらそれに応じた終了日時を自動入力する関数
+function setEndTimeFromStartTime(startField){
 
-	if (startTimeElement.value) {
-	    // 開始時刻から3時間後の時刻を計算
-	    const startDate = new Date(startTimeElement.value);
-	    const endDate = new Date(startDate.getTime() + (hourSpan * 60 * 60 * 1000));
+	// 現在日時より前を選択したときはアラートを出して終了
+	const initResult = initStartDateTime(startField);
+	if(initResult == 1){
+		alert("現在日時より後の日時をご選択ください");
+	}
+	
+	const hourSpan = 3; //この時間後に設定する
+	const endFieldId = startField.getAttribute('data-pair');
+	const endField = document.getElementById(endFieldId);
+	if (startField.value) {
+	    // 終了日時は開始日時から3時間後の日時を計算
+	    const startDateTime = new Date(startField.value);
+	    const endDateTime = new Date(startDateTime.getTime() + (hourSpan * 60 * 60 * 1000));
 	    
 	    // 10分単位に丸める
-	    endDate.setMinutes(Math.ceil(endDate.getMinutes() / 10) * 10);
+	    startDateTime.setMinutes(Math.ceil(startDateTime.getMinutes() / 10) * 10);
+	    endDateTime.setMinutes(Math.ceil(endDateTime.getMinutes() / 10) * 10);
 	    
 	    // YYYY-MM-DDThh:mm 形式に変換
-	    const endDateString = endDate.getFullYear() + '-' +
-	        String(endDate.getMonth() + 1).padStart(2, '0') + '-' +
-	        String(endDate.getDate()).padStart(2, '0') + 'T' +
-	        String(endDate.getHours()).padStart(2, '0') + ':' +
-	        String(endDate.getMinutes()).padStart(2, '0');
-	    
+	    const startDateString = startDateTime.getFullYear() + '-' +
+	        String(startDateTime.getMonth() + 1).padStart(2, '0') + '-' +
+	        String(startDateTime.getDate()).padStart(2, '0') + 'T' +
+	        String(startDateTime.getHours()).padStart(2, '0') + ':' +
+	        String(startDateTime.getMinutes()).padStart(2, '0');
+	    const endDateString = endDateTime.getFullYear() + '-' +
+	        String(endDateTime.getMonth() + 1).padStart(2, '0') + '-' +
+	        String(endDateTime.getDate()).padStart(2, '0') + 'T' +
+	        String(endDateTime.getHours()).padStart(2, '0') + ':' +
+	        String(endDateTime.getMinutes()).padStart(2, '0');
+	    startField.value = startDateString;
 	    endField.value = endDateString;
 	} else {
 	    endField.value = '';
 	}
 }
 
-// 初期表示時点で第一希望の開始時刻と終了時刻を自動入力する関数
+// 初期表示時点で第一希望の開始日時と終了日時を自動入力する関数
 function setStartTimeAndEndTime(){
-	// 開始時刻の要素を取得
+	// 開始日時の要素を取得
     const startField = document.querySelectorAll('.datetime-start')[0];
-    // 現状の開始時刻の西暦を見て、2024より小さければ初期化する
-    let startDate = new Date(startField.value);
-    const startYear = startDate.getFullYear();
-    if(startYear < 2024){
-	    // 現在時刻とその３時間後を取得
-	    startDate = new Date();	
-	    // 10分単位に丸める
-	    startDate.setMinutes(Math.ceil(startDate.getMinutes() / 10) * 10)
-	    // YYYY-MM-DDThh:mm 形式に変換
-	    const startDateString = startDate.getFullYear() + '-' +
-	        String(startDate.getMonth() + 1).padStart(2, '0') + '-' +
-	        String(startDate.getDate()).padStart(2, '0') + 'T' +
-	        String(startDate.getHours()).padStart(2, '0') + ':' +
-	        String(startDate.getMinutes()).padStart(2, '0');
-	    // 値をセット
-	    startField.value = startDateString;
-	    // 終了時刻も入力
+    // 開始日時の初期化処理
+    const initResult = initStartDateTime(startField);
+	if(initResult >= 0){
+	    // 開始日時を10分刻みに変換して、終了日時を自動入力する
 	    setEndTimeFromStartTime(startField)
-	    
 	}
 }
+
+// 受け取った要素の入力値が正しく日付に変換でき、現在日時より前の場合は現在日時に修正する
+function initStartDateTime(startField){
+	// 初期表示のときは実行だけして0を返す
+    if(startField.value == ""){
+		// 現在日時の1分後を取得(現在日時だと、11:19:59に実行した場合、11:20:00がセットされて、この後の比較で11:20:01などよりも前の判定になってしまうため)
+		let startDateTime = new Date();
+		startDateTime.setMinutes(startDateTime.getMinutes() + 1);
+		
+	    // 10分単位に丸める
+	    startDateTime.setMinutes(Math.ceil(startDateTime.getMinutes() / 10) * 10);   
+	    	    
+	    // YYYY-MM-DDThh:mm 形式に変換
+	    let startDateString = startDateTime.getFullYear() + '-' +
+	        String(startDateTime.getMonth() + 1).padStart(2, '0') + '-' +
+	        String(startDateTime.getDate()).padStart(2, '0') + 'T' +
+	        String(startDateTime.getHours()).padStart(2, '0') + ':' +
+	        String(startDateTime.getMinutes()).padStart(2, '0');
+	        
+	    // 現在日時で開始日時を上書きする
+	    startField.value = startDateString;
+		
+		return 0;
+    }
+    // 古い日時がある場合は実行して１を返す
+    if(new Date(startField.value) < new Date()){
+		// 現在日時の1分後を取得(現在日時だと、11:19:59に実行した場合、11:20:00がセットされて、この後の比較で11:20:01などよりも前の判定になってしまうため)
+		let startDateTime = new Date();
+		startDateTime.setMinutes(startDateTime.getMinutes() + 1);
+
+		// 10分単位に丸める
+		startDateTime.setMinutes(Math.ceil(startDateTime.getMinutes() / 10) * 10);	    
+			    
+		// YYYY-MM-DDThh:mm 形式に変換
+		let startDateString = startDateTime.getFullYear() + '-' +
+		    String(startDateTime.getMonth() + 1).padStart(2, '0') + '-' +
+		    String(startDateTime.getDate()).padStart(2, '0') + 'T' +
+		    String(startDateTime.getHours()).padStart(2, '0') + ':' +
+	        String(startDateTime.getMinutes()).padStart(2, '0');
+		    
+		// 現在日時で開始日時を上書きする
+		startField.value = startDateString;
+
+		return 1;
+    }
+
+	// それ以外の場合は何もしないで-1を返す
+	return -1;
+}
+
+
 
 // サロンの文字列があれば、チェックボックスをチェックしておく関数(POSTBACK考慮)
 function recoverSelectedSalons() {

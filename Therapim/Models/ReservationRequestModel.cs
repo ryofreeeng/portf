@@ -82,7 +82,7 @@ namespace Therapim.Models
         public string? DesiredVisitPlace { get; set; }
 
         // 出張先住所 (必須、最大200文字)
-        [Display(Name = "出張先住所")]        
+        [Display(Name = "出張先住所")]
         [StringLength(200, ErrorMessage = "出張先の住所は200文字以内で入力してください🍊")]
         public string? Address { get; set; }
 
@@ -92,10 +92,13 @@ namespace Therapim.Models
         public string? DesiredSalon { get; set; }
 
         // 第1希望日時 開始・終了 (必須)
-        [Required(ErrorMessage = "第1希望の開始時刻をご選択ください🍊")]
-        public DateTime DesiredDateTimeStart1 { get; set; }
+        [Display(Name = "第1希望の開始日時")]
+        [Required(ErrorMessage = "第1希望の開始日時をご選択ください🍊")]
+        public DateTime? DesiredDateTimeStart1 { get; set; }
+        
+        [Display(Name = "第1希望の終了日時")]
         [Required(ErrorMessage = "第1希望の終了時刻をご選択ください🍊")]
-        public DateTime DesiredDateTimeEnd1 { get; set; }
+        public DateTime? DesiredDateTimeEnd1 { get; set; }
 
         // 第2希望日時 開始・終了 (任意)
         public DateTime? DesiredDateTimeStart2 { get; set; }
