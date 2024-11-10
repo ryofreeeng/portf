@@ -8,9 +8,6 @@
 @section CustomStyles {
     <link rel="stylesheet" href="~/css/reviewEdit.css" asp-append-version="true" />
 }
-@section CustomScripts {
-    <script src="~/js/reviews.js" asp-append-version="true"></script>
-}
 
 <div class="review-edit-container">
     @if (Model.ReviewId == null)
@@ -91,7 +88,7 @@
         </div>        
 
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">@buttonText</button>
+            <button type="submit" class="btn btn-primary clickSendingDisp">@buttonText</button>
         </div>
     </form>
 
@@ -99,9 +96,8 @@
         <button onclick="window.history.back();" class="btn btn-secondary">戻る</button>
     </div>
 
-    <!--
-    <div class="btn-container">
-        <a class="btn btn-secondary" asp-area="" asp-controller="Review" asp-action="List">口コミ一覧へ</a>
-    </div>    
-    -->
 </div>
+
+@section CustomScripts {
+    <script src="~/js/reviews.js" asp-append-version="true"></script>
+}

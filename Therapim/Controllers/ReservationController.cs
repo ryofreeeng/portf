@@ -150,18 +150,35 @@ namespace Therapim.Controllers
             }
         }
 
-
         /// <summary>
-        /// 予約登録処理
+        /// 予約登録確認画面
         /// </summary>
-        /// <returns>予約登録処理後の遷移画面</returns>
-        [HttpPost]
+        /// <returns>予約登録確認画面</returns>        
+        [HttpGet]
+        public async Task<IActionResult> CreateConfirm()
+        {
+            // TempData にエラーメッセージを設定
+            TempData["ErrorMessage"] = "ログイン後に入力中の画面に戻ることはできません。お手数ですが入力を再度お願いいたします。";
+            // エラー画面にリダイレクト
+            return RedirectToAction("Error", "Home");
+        }
+            /// <summary>
+            /// 予約登録処理
+            /// </summary>
+            /// <returns>予約登録処理後の遷移画面</returns>
+            [HttpPost]
         public async Task<IActionResult> XtCreate(ReservationRequestModel model)
         {
             try
             {
                 //userIdは画面になく、nullになっているためセッションのuserIdで上書き(必須ではないのでnullでもよい)
                 model.UserId = _commonService.GetSessionUserId();
+
+                // セッションのユーザIDがない場合は、クッキーのユーザIDを格納しておく
+                if(String.IsNullOrEmpty(model.UserId))
+                {
+                    model.UserId = _commonService.GetCookieUserId();
+                }
 
                 // 再度バリデーションを実行してModelStateを更新する
                 TryValidateModel(model);

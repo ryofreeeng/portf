@@ -73,36 +73,104 @@ content:"ご予約";
     display:block;
 }
 
-//入力欄は文字サイズ等の調整
-.reservation-create-container .form-group input,
-.reservation-create-container .form-group textarea,
-.reservation-create-container .form-group select {
+
+//入力欄は一度ブラウザのデフォルト設定をリセット
+input, textarea, select {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: white;
+}
+// textinputの基本デザイン
+input{
     width: 100%;
     padding: 0.75em;
     border: 1px solid $primary-border-color;
     border-radius: 4px;
     font-size: 1em;
 }
-//テキストエリアの高さは少し広めに
-.reservation-create-container .form-group textarea {
-	height: 8em;
+
+// セレクトボックスの基本デザイン
+.select-wrapper {
+    position: relative;
+    width: 100%;
 }
-// 日時の開始と終了の間の「～」
-.col-auto{
-	text-align: center;
+.select-wrapper select {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid $primary-border-color;
+    border-radius: 4px;
+    font-size: 1em;    
 }
-// チェックボックス項目の位置調整
-.form-check{
-	display: flex;
+.select-wrapper::after {
+    position: absolute;
+	content: '▼';  /* または別の矢印文字 */
+    font-size: 1em;
+	color: $primary-btn-color;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* 矢印がクリックを妨げないように */
 }
-.form-check-input{
-	flex:1;
-	transform: scale(0.9);
+
+// チェックボックスの基本デザイン
+// ラベルとボックスのレイアウト調整用
+.form-check {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 0.5em;
+    //width: 100%;
 }
-div.form-check .form-check-label{ // 項目名のlabelにあてたcssに上書きされるので細かく指定
-	flex:8;
-	font-weight: normal;
-	margin-bottom:1%;
+// チェックボックス自体のデザイン
+.form-check-input {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    border: 2px solid rgba(100,100,100,1);
+    width: 25px;
+    height: 25px;
+    //border-radius: 4px;
+    //cursor: pointer;
+    
+    // チェックマークを疑似要素で作成
+    &:checked::after {
+        content: "✔";
+        position: absolute;        
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: $primary-btn-color;;
+        font-size: 1.2em;
+    }
+    // チェック時は枠線色を変更
+    &:checked {
+        //background-color: #2196F3;
+        border-color: #2196F3;
+    }
+}
+// チェックボックス横のラベルの位置微調整
+.checkbox-group .form-check .form-check-label,
+.form-group .form-check .form-check-label {
+    margin: 0 0 0.2em 0;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+// テキストボックスの基本デザイン
+textarea {
+	width: 100%;
+    padding: 0.75em;
+    border: 1px solid $primary-border-color;
+    border-radius: 4px;
+    font-size: 1em;
+	height: 6em;
+}
+
+
+.text-danger {
+    grid-column: 1 / -1;
+    margin-top: 4px;
 }
 
 
@@ -154,20 +222,12 @@ div.form-check .form-check-label{ // 項目名のlabelにあてたcssに上書�
 
 /* 予約完了画面 */
 .reservation-create-complete-container{
-    padding: 1em 10% 5em 10%;
+    padding: 1em 10% 4em 10%;
     background-color: rgba(255, 255, 248, 0.6);
     border-radius: 8px;
     max-width: 600px;
     margin: 0 auto;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-}
-//PCでのレイアウト微調整
-@media (min-width: $breakpoint-md) {
-	.reservation-create-container {
-	    padding: 15px 3%;	    
-	    border-radius: 15px;
-	    margin: 40px auto;
-	}
 }
 
 //タイトルは中央に
@@ -192,7 +252,7 @@ content:"ご予約完了";
 
 // ご予約完了のメッセージ
 .reservation-complete-message{
-	padding-bottom:2em;
+	padding-bottom:3em;
 }
 .returnArea{
 	text-align: center;
@@ -205,4 +265,13 @@ content:"ご予約完了";
 //ホバー時
 .btn:hover {
     @include calm-brown-btn-hover;
+}
+
+//PCでのレイアウト微調整
+@media (min-width: $breakpoint-md) {
+	.reservation-create-complete-container{
+	    padding: 1em 3% 4em 3%;
+	    border-radius: 15px;
+	    margin: 40px auto;
+	}
 }

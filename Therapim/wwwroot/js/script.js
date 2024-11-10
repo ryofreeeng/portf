@@ -1,5 +1,5 @@
 ﻿/* 定数定義 */
-const GAS_API_URL = "https://script.google.com/macros/s/AKfycbx9WkDd68Cg4kOX5w8EM61McqAGK_H1nz6VjnR3JcFUzxKI1xlD5iuS1lftzZBEJFya/exec";
+const GAS_API_URL = "https://script.google.com/macros/s/AKfycbywQnTZDjtJ9SMJ9I1IYkEo893iLaN-tve0m4BQfy0irkCnjsKqez7u-DHXqt41X1uK/exec";
 
 
 /*
@@ -77,8 +77,19 @@ document.addEventListener('click', (event) => {
     }
 });
 
+
+/* ページロード中の表示 */
 document.querySelectorAll('.clickLoadingDisp').forEach(function(element) {
     element.addEventListener('click', function() {
-        document.getElementById('loader').style.display = 'block'; // スピナーを表示
+        let loader = document.getElementById('loader')
+        loader.innerHTML = "読み込み中です..."; // テキストを上書き
+        loader.style.display = 'block'; // 表示
+    });
+});
+document.querySelectorAll('.clickSendingDisp').forEach(function(element) {
+    element.addEventListener('click', function() {
+        let loader = document.getElementById('loader')
+        loader.innerHTML = "送信中です..."; // テキストを上書き
+        loader.style.display = 'block'; // 表示
     });
 });

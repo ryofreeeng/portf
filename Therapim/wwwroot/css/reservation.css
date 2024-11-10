@@ -64,9 +64,13 @@
   display: block;
 }
 
-.reservation-create-container .form-group input,
-.reservation-create-container .form-group textarea,
-.reservation-create-container .form-group select {
+input, textarea, select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+}
+
+input {
   width: 100%;
   padding: 0.75em;
   border: 1px solid #cccccc;
@@ -74,27 +78,78 @@
   font-size: 1em;
 }
 
-.reservation-create-container .form-group textarea {
-  height: 8em;
+.select-wrapper {
+  position: relative;
+  width: 100%;
 }
 
-.col-auto {
-  text-align: center;
+.select-wrapper select {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.select-wrapper::after {
+  position: absolute;
+  content: "▼"; /* または別の矢印文字 */
+  font-size: 1em;
+  color: #a2846b;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* 矢印がクリックを妨げないように */
 }
 
 .form-check {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .form-check-input {
-  flex: 1;
-  transform: scale(0.9);
+  margin: 0;
+  padding: 0;
+  position: relative;
+  border: 2px solid rgb(100, 100, 100);
+  width: 25px;
+  height: 25px;
+}
+.form-check-input:checked::after {
+  content: "✔";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #a2846b;
+  font-size: 1.2em;
+}
+.form-check-input:checked {
+  border-color: #2196F3;
 }
 
-div.form-check .form-check-label {
-  flex: 8;
+.checkbox-group .form-check .form-check-label,
+.form-group .form-check .form-check-label {
+  margin: 0 0 0.2em 0;
+  cursor: pointer;
   font-weight: normal;
-  margin-bottom: 1%;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 1em;
+  height: 6em;
+}
+
+.text-danger {
+  grid-column: 1/-1;
+  margin-top: 4px;
 }
 
 .reservation-create-container .form-group .text-danger {
@@ -172,7 +227,7 @@ div.form-check .form-check-label {
 
 /* 予約完了画面 */
 .reservation-create-complete-container {
-  padding: 1em 10% 5em 10%;
+  padding: 1em 10% 4em 10%;
   background-color: rgba(255, 255, 248, 0.6);
   border-radius: 8px;
   max-width: 600px;
@@ -180,13 +235,6 @@ div.form-check .form-check-label {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 768px) {
-  .reservation-create-container {
-    padding: 15px 3%;
-    border-radius: 15px;
-    margin: 40px auto;
-  }
-}
 .reservation-create-complete-container h2 {
   text-align: center;
 }
@@ -207,7 +255,7 @@ div.form-check .form-check-label {
 }
 
 .reservation-complete-message {
-  padding-bottom: 2em;
+  padding-bottom: 3em;
 }
 
 .returnArea {
@@ -236,6 +284,14 @@ div.form-check .form-check-label {
   text-decoration: none;
   text-shadow: 0 1px 5px rgba(100, 100, 100, 0.8);
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .reservation-create-complete-container {
+    padding: 1em 3% 4em 3%;
+    border-radius: 15px;
+    margin: 40px auto;
+  }
 }
 
 /*# sourceMappingURL=reservation.css.map */

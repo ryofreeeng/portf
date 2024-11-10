@@ -7,9 +7,6 @@
 @section CustomStyles {
     <link rel="stylesheet" href="~/css/reservation.css" asp-append-version="true" />
 }
-@section CustomScripts {
-    <script src="~/js/reservation.js" asp-append-version="true"></script>
-}
 
 <div class="reservation-create-container">
     @if (User.Identity.IsAuthenticated)
@@ -20,6 +17,15 @@
     {
         <h2 class="page-title reservation-regist-title"><span class="english">Reservation</span></h2>
     }
+
+    <div class="reservation-create-guide-section">
+        <span>
+            過去にご来店済のお客様は、お先に<a asp-area="" asp-controller="Login" asp-action="Index">こちら</a>よりログインいただくことができます。</br>
+            <a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="noteSection" target="blank">注意事項</a>をよくご確認いただき、
+            ご同意の上でお申し込みください。
+        </span>
+    </div>
+
 
     @if (!ViewData.ModelState.IsValid)
     {
@@ -58,7 +64,7 @@
 
             <!-- 生年月日 -->
             <div class="form-group">
-                <label asp-for="Birthday" class="control-label required-field">生年月日（西暦から８桁）</label>
+                <label asp-for="Birthday" class="control-label required-field">生年月日（西暦含めて８桁）</label>
                 <input asp-for="Birthday" class="form-control" placeholder="（例）20000101" />
                 <span asp-validation-for="Birthday" class="text-danger"></span>
             </div>
@@ -73,9 +79,11 @@
             <!-- 性別 -->
             <div class="form-group">
                 <label asp-for="Gender" class="control-label required-field">性別</label>
-                <select asp-for="Gender" class="form-control">
-                    <option value="女性" selected>女性</option>
-                </select>
+                <div class="select-wrapper">
+                    <select asp-for="Gender" class="form-control">
+                        <option value="女性" selected>女性</option>
+                    </select>
+                </div>
                 <span asp-validation-for="Gender" class="text-danger"></span>
             </div>
 
@@ -98,36 +106,40 @@
             <!-- コース -->
             <div class="form-group">
                 <label asp-for="MenuId" class="control-label required-field">コース</label>
-                <label class="control-label-support">※出張希望の場合は下部のご要望の入力欄に希望時間をご入力ください</label>
-                <select asp-for="MenuId" class="form-control" id="courseSelect">
-                    @for (int i = 0; i < courseList.Count; i++)
-                    {
-                        @if (courseList[i].MenuId == menuId)
+                <label class="control-label-support">※時間指定がないコースは下部のご要望の入力欄に希望時間をご入力ください</label>
+                <div class="select-wrapper">
+                    <select asp-for="MenuId" class="form-control" id="courseSelect">
+                        @for (int i = 0; i < courseList.Count; i++)
                         {
-                            <option value="@courseList[i].MenuId" selected>@courseList[i].CourseNameDisp</option>
-                        }
-                        else
-                        {
-                            <option value="@courseList[i].MenuId">@courseList[i].CourseNameDisp</option>                        
-                        }
-                    }                
-                </select>
+                            @if (courseList[i].MenuId == menuId)
+                            {
+                                <option value="@courseList[i].MenuId" selected>@courseList[i].CourseNameDisp</option>
+                            }
+                            else
+                            {
+                                <option value="@courseList[i].MenuId">@courseList[i].CourseNameDisp</option>                        
+                            }
+                        }                
+                    </select>
+                </div>
                 <span asp-validation-for="MenuId" class="text-danger"></span>
-                <input asp-for="CourseNameDisp" class="form-control" id="courseNameDisp" readonly />
+                <input asp-for="CourseNameDisp" class="form-control" id="courseNameDisp" type="hidden" readonly />
             </div>
 
             <!-- コースオプション -->
             <div class="form-group">
                 <label asp-for="CourseOptionId" class="control-label required-field">オプション</label>
-                <select asp-for="CourseOptionId" class="form-control" id="CourseOptionId">
-                    <option value="0">なし</option>
-                    <option value="1">バストマッサージ（ニップレスあり）</option>
-                    <option value="2">バストマッサージ（ニップレスなし）</option>
-                    <option value="3">ヒップマッサージ</option>
-                    <option value="4">鼠経リンパ流し</option>
-                </select>
+                <div class="select-wrapper">
+                    <select asp-for="CourseOptionId" class="form-control" id="CourseOptionId">
+                        <option value="0">なし</option>
+                        <option value="1">バストマッサージ（ニップレスあり）</option>
+                        <option value="2">バストマッサージ（ニップレスなし）</option>
+                        <option value="3">ヒップマッサージ</option>
+                        <option value="4">鼠経リンパ流し</option>
+                    </select>
+                </duv>
                 <span asp-validation-for="CourseOptionId" class="text-danger"></span>
-                <input asp-for="CourseOption" class="form-control" id="CourseOption" readonly />
+                <input asp-for="CourseOption" class="form-control" id="CourseOption" type="hidden" readonly />
             </div>
         </div>
 
@@ -140,32 +152,39 @@
             <!-- ペーパーブラ選択 -->
             <div class="form-group">
                 <label asp-for="PaperBraSelect" class="control-label required-field">紙ブラジャー</label>
-                <select asp-for="PaperBraSelect" class="form-control">
-                    <option value="あり">あり</option>
-                    <option value="なし">なし</option>
-                    <option value="水着等持参">水着等持参</option>
-                </select>
+                <div class="select-wrapper">
+                    <select asp-for="PaperBraSelect" class="form-control">
+                        <option value="あり">あり</option>
+                        <option value="なし">なし</option>
+                        <option value="水着等持参">水着等持参</option>
+                    </select>
+                </div>
                 <span asp-validation-for="PaperBraSelect" class="text-danger"></span>
             </div>
 
             <!-- ペーパーパンツ選択 -->
             <div class="form-group">
                 <label asp-for="PaperPantsSelect" class="control-label required-field">紙パンツ</label>
-                <select asp-for="PaperPantsSelect" class="form-control">
-                    <option value="通常">通常のショーツタイプ</option>
-                    <option value="Tバック">Tバックタイプ</option>
-                    <option value="水着等持参">水着等持参</option>
-                </select>
+                <div class="select-wrapper">
+                    <select asp-for="PaperPantsSelect" class="form-control">
+                        <option value="通常">通常のショーツタイプ</option>
+                        <option value="Tバック">Tバックタイプ</option>
+                        <option value="水着等持参">水着等持参</option>
+                    </select>
+                </div>
                 <span asp-validation-for="PaperPantsSelect" class="text-danger"></span>
             </div>
 
             <!-- アロマオイル選択 -->
             <div class="form-group">
                 <label asp-for="AromaOilSelect" class="control-label required-field">アロマオイル</label>
-                <select asp-for="AromaOilSelect" class="form-control">
-                    <option value="なし">なし</option>
-                    <option value="オレンジ">オレンジ</option>
-                </select>
+                <label class="control-label-support">※現在、トリートメントオイルに配合できるのはオレンジオイルのみです。</label>
+                <div class="select-wrapper">
+                    <select asp-for="AromaOilSelect" class="form-control">
+                        <option value="なし">なし</option>
+                        <option value="オレンジ">オレンジ</option>
+                    </select>
+                </div>
                 <span asp-validation-for="AromaOilSelect" class="text-danger"></span>
             </div>
         </div>
@@ -179,7 +198,7 @@
             <!-- 来店形態 -->
             <div class="form-group">
                 <div class="form-check">
-                    <input asp-for="IsVisit" type="checkbox" class="form-check-input" />
+                    <input asp-for="IsVisit" type="checkbox" class="form-check-input" />                    
                     <label asp-for="IsVisit" class="form-check-label">出張希望の方はチェックしてください</label>
                     <span asp-validation-for="IsVisit" class="text-danger"></span>
                 </div>
@@ -189,6 +208,7 @@
             <div id="visitSection">
                 <div class="form-group">
                     <label asp-for="DesiredVisitPlace" class="control-label required-field">出張場所概要</label>
+                    <label class="control-label-support">※最寄り駅とそこからの距離、自宅やホテルなど場所の概要をお書きください。</label>
                     <input asp-for="DesiredVisitPlace" class="form-control" placeholder="（例）渋谷駅から徒歩15分の自宅"/>
                     <span asp-validation-for="DesiredVisitPlace" class="text-danger"></span>
                 </div>
@@ -224,8 +244,8 @@
                             <label class="form-check-label" for="salon-kichijoji">吉祥寺</label>
                         </div>
                     </div>
-                    <!-- 実際の送信用の隠しフィールド -->
-                    <input asp-for="DesiredSalon" id="DesiredSalon" />
+                    <!-- 実際の送信用フィールド -->
+                    <input asp-for="DesiredSalon" id="DesiredSalon" type="hidden" />
                     <span asp-validation-for="DesiredSalon" class="text-danger"></span>
                 </div>
             </div>
@@ -236,6 +256,8 @@
             <div class="section-title mb-4 mt-5">
                 <h3>＜希望時間帯＞</h3>
                 <label class="control-label-support">※広くご指定いただいた方がご案内がしやすくなります。コース時間＋40分程度でお見積りください。</label>
+                <label class="control-label-support">※終了時刻は自動で開始時刻の3時間後がセットされますが、適宜ご調整ください。</label>
+                <label class="control-label-support">※10分以下の時間は自動で切り上げされます。</label>
             </div>
 
             <!-- 第1希望時間帯 -->
@@ -249,8 +271,7 @@
                     </div>
                     <div class="col-auto">～</div>
                     <div class="col">
-                        <input asp-for="DesiredDateTimeEnd1" type="datetime-local" class="form-control"
-                               />
+                        <input asp-for="DesiredDateTimeEnd1" type="datetime-local" class="form-control datetime-end" />
                         <span asp-validation-for="DesiredDateTimeEnd1" class="text-danger"></span>
                     </div>
                 </div>
@@ -267,8 +288,7 @@
                     </div>
                     <div class="col-auto">～</div>
                     <div class="col">
-                        <input asp-for="DesiredDateTimeEnd2" type="datetime-local" class="form-control"
-                               />
+                        <input asp-for="DesiredDateTimeEnd2" type="datetime-local" class="form-control datetime-end" />
                         <span asp-validation-for="DesiredDateTimeEnd2" class="text-danger"></span>
                     </div>
                 </div>
@@ -285,8 +305,7 @@
                     </div>
                     <div class="col-auto">～</div>
                     <div class="col">
-                        <input asp-for="DesiredDateTimeEnd3" type="datetime-local" class="form-control"
-                               />
+                        <input asp-for="DesiredDateTimeEnd3" type="datetime-local" class="form-control datetime-end" />
                         <span asp-validation-for="DesiredDateTimeEnd3" class="text-danger"></span>
                     </div>
                 </div>
@@ -302,13 +321,15 @@
             <!-- 会話希望 -->
             <div class="form-group">
                 <label asp-for="Conversation" class="control-label">施術中の会話について</label>
-                <select asp-for="Conversation" class="form-control">
-                    <option value="希望なし">特に希望なし</option>
-                    <option value="とにかく静かに受けたい">とにかく静かに受けたい</option>
-                    <option value="強さや気温の確認程度のみでよい">強さや気温の確認程度のみでよい</option>
-                    <option value="通常の会話くらいはOK">通常の会話くらいはOK</option>
-                    <option value="いろいろ話を聞きたい">いろいろ話を聞きたい</option>                
-                </select>
+                <div class="select-wrapper">
+                    <select asp-for="Conversation" class="form-control">
+                        <option value="希望なし">特に希望なし</option>
+                        <option value="とにかく静かに受けたい">とにかく静かに受けたい</option>
+                        <option value="強さや気温の確認程度のみでよい">強さや気温の確認程度のみでよい</option>
+                        <option value="通常の会話くらいはOK">通常の会話くらいはOK</option>
+                        <option value="いろいろ話を聞きたい">いろいろ話を聞きたい</option>                
+                    </select>
+                </div>
                 <span asp-validation-for="Conversation" class="text-danger"></span>
             </div>
 
@@ -324,7 +345,7 @@
             <!-- ご要望 -->
             <div class="form-group">
                 <label asp-for="OtherRequest" class="control-label">ご要望</label>
-                <label class="control-label-support">※出張のコース時間のご希望などはこちらにお書きください。</label>
+                <label class="control-label-support">※出張などのコース時間のご希望などはこちらにお書きください。</label>
                 <textarea asp-for="OtherRequest" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="OtherRequest" class="text-danger"></span>
             </div>
@@ -339,7 +360,7 @@
 
         <!-- 送信ボタン -->        
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">確認画面へ</button>
+            <button type="submit" class="btn btn-primary clickLoadingDisp">確認画面へ</button>
         </div>
     </form>
 
@@ -348,3 +369,7 @@
     </div>
 
 </div>
+
+@section CustomScripts {
+    <script src="~/js/reservation.js" asp-append-version="true"></script>
+}

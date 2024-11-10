@@ -65,33 +65,13 @@ content:"ご予約確認";
 .confirmDisplay{
 	padding-left: 1em;
 }
-//入力欄は文字サイズ等の調整
-.reservation-create-confirm-container .form-group input,
-.reservation-create-confirm-container .form-group textarea,
-.reservation-create-confirm-container .form-group select {
+// デバッグ用
+input,textarea,select {
     width: 100%;
     padding: 0.75em;
     border: 1px solid $primary-border-color;
     border-radius: 4px;
-    font-size: 1em;
-
-  border: none;
-  outline: none;
-  background: transparent;
-  
-  appearance: none;        /* プルダウン矢印を消す */
-  -webkit-appearance: none; /* Webkit系ブラウザ用 */
-  -moz-appearance: none;   
-  
-}
-
-input[type="datetime-local"] {
-  -webkit-appearance: none;   /* Chrome, Safari, Edge */
-  -moz-appearance: none;      /* Firefox */
-  appearance: none;           /* 他のブラウザ */
-  background: transparent;    /* 背景を透明に */
-  border: 1px solid #ccc;     /* 必要に応じてボーダー */
-  padding: 10px;              /* パディング調整 */
+    font-size: 1em;  
 }
 
 //テキストエリアの高さは少し広めに

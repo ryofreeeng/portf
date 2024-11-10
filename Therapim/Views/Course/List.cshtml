@@ -6,10 +6,6 @@
 @section CustomStyles {
     <link rel="stylesheet" href="~/css/courses.css" asp-append-version="true" />    
 }
-@section CustomScripts {
-    <script src="~/js/courses.js" asp-append-version="true"></script>
-    <script src="~/js/reviews.js" asp-append-version="true"></script>
-}
 @{
     var visitedTimes = ViewData["VisitedTimes"];
     var fullName = ViewData["FullName"];
@@ -133,7 +129,7 @@
                     }
                     
                     <div class="course-reserve">
-                        <a href="/Reservation/Create?MenuId=@Model.SqlContent[i].MenuId" class="btn btn-primary">このコースで予約</a>
+                        <a href="/Reservation/Create?MenuId=@Model.SqlContent[i].MenuId" class="btn btn-primary clickLoadingDisp">このコースで予約</a>
                     </div>
                     
                 </div>
@@ -188,3 +184,8 @@
         <span>ご来店後には、当HPの口コミ投稿が可能となりますので、そちらをお書きいただける場合、<strong>「次回¥1,000割引」</strong>または<strong>「次回有料オプション全て無料」</strong>となります</span>
     </div>
 </div>
+
+@section CustomScripts {
+    <script src="~/js/courses.js" asp-append-version="true"></script>
+    <script src="~/js/reviews.js" asp-append-version="true"></script>
+}
