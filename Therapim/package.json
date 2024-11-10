@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build-css": "sass sass/styles.scss:wwwroot/css/styles.css sass/reviews.scss:wwwroot/css/reviews.css sass/reviewEdit.scss:wwwroot/css/reviewEdit.css sass/login.scss:wwwroot/css/login.css sass/home.scss:wwwroot/css/home.css sass/courses.scss:wwwroot/css/courses.css sass/privacy.scss:wwwroot/css/privacy.css",
-    "watch-css": "sass --watch sass/styles.scss:wwwroot/css/styles.css sass/reviews.scss:wwwroot/css/reviews.css sass/reviewEdit.scss:wwwroot/css/reviewEdit.css sass/login.scss:wwwroot/css/login.css sass/home.scss:wwwroot/css/home.css sass/courses.scss:wwwroot/css/courses.css sass/privacy.scss:wwwroot/css/privacy.css"
+    "build-css": "sass sass/styles.scss:wwwroot/css/styles.css sass/reviews.scss:wwwroot/css/reviews.css sass/reviewEdit.scss:wwwroot/css/reviewEdit.css sass/login.scss:wwwroot/css/login.css sass/home.scss:wwwroot/css/home.css sass/courses.scss:wwwroot/css/courses.css sass/privacy.scss:wwwroot/css/privacy.css sass/reservation.scss:wwwroot/css/reservation.css sass/reservationConfirm.scss:wwwroot/css/reservationConfirm.css",
+    "watch-css": "sass --watch sass/styles.scss:wwwroot/css/styles.css sass/reviews.scss:wwwroot/css/reviews.css sass/reviewEdit.scss:wwwroot/css/reviewEdit.css sass/login.scss:wwwroot/css/login.css sass/home.scss:wwwroot/css/home.css sass/courses.scss:wwwroot/css/courses.css sass/privacy.scss:wwwroot/css/privacy.css sass/reservation.scss:wwwroot/css/reservation.css sass/reservationConfirm.scss:wwwroot/css/reservationConfirm.css"
   },
   "devDependencies": {
     "sass": "^1.77.8"

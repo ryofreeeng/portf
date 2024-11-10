@@ -102,6 +102,7 @@ namespace Therapim.Controllers
             //ログイン実行
             if(await loginProccesser.executeLogin(users))
             {
+                _logger.LogInformation($"★リダイレクトURLは「{model.ReturnUrl}」");
                 //ログイン処理成功後はホーム画面へ ▲あとでリダイレクト機能も追加
                 return Redirect(model.ReturnUrl ?? Url.Action("Index", "Home"));
             }

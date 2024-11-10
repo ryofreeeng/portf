@@ -1,0 +1,129 @@
+// reservation.scss
+@import 'variables';
+@import 'mixins';
+
+/* 予約入力画面用のスタイル */
+.reservation-create-confirm-container {
+    padding: 1em 10%;
+    background-color: rgba(255, 255, 248, 0.6);
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+//PCでのレイアウト微調整
+@media (min-width: $breakpoint-md) {
+	.reservation-create-confirm-container {
+	    padding: 15px 3%;	    
+	    border-radius: 15px;
+	    margin: 40px auto;
+	}
+}
+
+//タイトルは中央に
+.reservation-create-confirm-container h2 {
+    text-align: center;
+}
+
+//ページタイトル直下の日本語文字
+.reservation-regist-confirm-title:after {
+content:"ご予約確認";
+	font-size: 0.5em;
+	background-color:rgba(251, 245, 234, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.reservation-regist-confirm-title.repeat:after {
+	content:"ご予約確認（2回目以降）";
+}
+
+/* フォーム領域 */
+// 必須項目は＊を付与
+.required-field:after{
+	content: " *";
+	color: red;
+}
+
+//各項目のまとまりの間を空ける
+.reservation-create-confirm-container .section-group {
+    padding-top: 0.5em;
+}
+
+//各項目の間を空ける
+.reservation-create-confirm-container .form-group {
+    margin-bottom: 1.2em;
+}
+//ラベルは下を少し空ける
+.reservation-create-confirm-container .form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    display: block;
+}
+.confirmDisplay{
+	padding-left: 1em;
+}
+// デバッグ用
+input,textarea,select {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid $primary-border-color;
+    border-radius: 4px;
+    font-size: 1em;  
+}
+
+//テキストエリアの高さは少し広めに
+.reservation-create-confirm-container .form-group textarea {
+	height: 8em;
+}
+// 日時の開始と終了の間の「～」
+.col-auto{
+	//text-align: center;
+	margin-left:1em;
+}
+
+
+//バリデーションメッセージ
+.reservation-create-confirm-container .form-group .text-danger {
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: 0.25em;
+    display: block;
+}
+//上部のバリデーションも色を設定
+.alert {
+	color: #dc3545;
+}
+
+//確認ボタン
+.reservation-create-confirm-container .btn-primary {
+    @include calm-brown-btn;
+	font-size: 1.2em;
+	font-family: $font-JP-serif;
+	width: 180px;
+	display: block;
+    margin: 2em auto;
+}
+//確認ボタン　ホバー時は少し暗く
+.reservation-create-confirm-container .btn-primary:hover {
+	@include calm-brown-btn-hover;
+}
+//戻るボタンの配置用
+.btn-container {
+	text-align:center;
+}
+//戻るボタン
+.reservation-create-confirm-container .btn-secondary {
+    @include return-btn;
+    font-size: 1.2em;
+	font-family: $font-JP-serif;
+	width: 180px;
+	display: block;
+    margin: 2em auto;
+}
+//戻るボタン　ホバー時は少し暗く
+.reservation-create-confirm-container .btn-secondary:hover {
+    @include return-btn-hover;
+}

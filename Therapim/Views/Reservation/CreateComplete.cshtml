@@ -1,0 +1,38 @@
+﻿@model Therapim.Models.ReservationRequestModel
+
+@section CustomStyles {
+    <link rel="stylesheet" href="~/css/reservation.css" asp-append-version="true" />
+}
+
+<div class="reservation-create-complete-container">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h2 class="page-title reservation-regist-complete-title repeat"><span class="english">Reservation</span></h2>
+    }
+    else
+    {
+        <h2 class="page-title reservation-regist-complete-title"><span class="english">Reservation</span></h2>
+    }
+
+        
+    <div class="section-title">
+        <h3>仮予約が完了しました。</h3>
+    </div>
+
+    <div class="reservation-complete-message">
+        <div>お申し込み内容の控えをメールにてお送りいたしました。</div>
+        <div>もしメールが届かない場合は、ryo.therapist@gail.comまでお問い合わせください。</div>
+        <br />
+        <div>いただいた内容を確認しご連絡いたしますので、しばらくお待ちください。</div>
+        <div>※HP内に予約履歴を閲覧するページはございませんのでご了承ください。</div>
+    </div>
+
+    <div class="returnArea">
+        <a href="/Home/Index" class="btn btn-primary">TOP画面へ</a>
+    </div>
+
+</div>
+
+@section CustomScripts {
+    <script src="~/js/reservation.js" asp-append-version="true"></script>
+}

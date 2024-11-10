@@ -100,6 +100,7 @@ namespace Therapim.Processers
                     new Claim(ClaimTypes.Name,user.FullName),
                     new Claim("Birthday",user.Birthday.ToString()),
                     new Claim("PhoneNumber",user.PhoneNumber),
+                    new Claim("MailAddress",user.MailAddress),
                     new Claim("Rank",user.Rank.ToString()),                    
                     new Claim("VisitedTimes",user.VisitedTimes.ToString()),
                 };

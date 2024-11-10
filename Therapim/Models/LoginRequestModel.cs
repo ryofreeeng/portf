@@ -17,8 +17,8 @@ namespace Therapim.Models
         [StringLength(8, MinimumLength = 8, ErrorMessage = "生年月日は西暦を含めて8桁でご入力ください🍊")]
         public string Birthday { get; set; }
 
-        [Required(ErrorMessage = "お電話番号をご入力ください🍊")]
-        [StringLength(12, MinimumLength = 10, ErrorMessage = "お電話番号は10～12桁でご入力ください🍊")]
+        [Required(ErrorMessage = "電話番号をご入力ください🍊")]
+        [StringLength(12, MinimumLength = 10, ErrorMessage = "電話番号は10～12桁でご入力ください🍊")]
         public string PhoneNumber { get; set; }
 
         // リダイレクトURL
