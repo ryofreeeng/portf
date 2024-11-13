@@ -48,7 +48,7 @@ namespace Therapim.Controllers
                 if (CourseList == null)
                 {
                     // TempData にエラーメッセージを設定
-                    TempData["ErrorMessage"] = "コース情報取得の通信に失敗しました。再度お試しいただいても解決しない場合は店舗までお問い合わせください。";
+                    TempData["ErrorMessage"] = "メニュー情報取得の通信に失敗しました。再度お試しいただいても解決しない場合は店舗までお問い合わせください。";
                     // エラー画面にリダイレクト
                     return RedirectToAction("Error", "Home");
                 }
@@ -86,7 +86,7 @@ namespace Therapim.Controllers
                 if (CourseList == null)
                 {
                     // TempData にエラーメッセージを設定
-                    TempData["ErrorMessage"] = "戻る際にコース情報取得の通信に失敗しました。再度お試しいただいても解決しない場合は店舗までお問い合わせください。";
+                    TempData["ErrorMessage"] = "戻る際にメニュー情報取得の通信に失敗しました。再度お試しいただいても解決しない場合は店舗までお問い合わせください。";
                     // エラー画面にリダイレクト
                     return RedirectToAction("Error", "Home");
                 }
@@ -129,7 +129,7 @@ namespace Therapim.Controllers
                     if (CourseList == null)
                     {
                         // TempData にエラーメッセージを設定
-                        TempData["ErrorMessage"] = "コース情報取得の通信に失敗しました。再度お試しいただいても解決しない場合は店舗までお問い合わせください。";
+                        TempData["ErrorMessage"] = "メニュー情報取得の通信に失敗しました。再度お試しいただいても解決しない場合は店舗までお問い合わせください。";
                         // エラー画面にリダイレクト
                         return RedirectToAction("Error", "Home");
                     }

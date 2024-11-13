@@ -34,29 +34,29 @@ namespace Therapim.Helpers
                     string labelClassString = "";
                     switch (labelList[i])
                     {
-                        case "学割":
-                            labelClassString = "student";
+                        case "ラベル名1":
+                            labelClassString = "label1";
                             break;
-                        case "練習":
-                            labelClassString = "practice";
+                        case "ラベル名2":
+                            labelClassString = "label2";
                             break;
-                        case "期間限定":
-                            labelClassString = "limitedTime";
+                        case "ラベル名3":
+                            labelClassString = "label3";
                             break;
-                        case "モニター":
-                            labelClassString = "monitor";
+                        case "ラベル名4":
+                            labelClassString = "label4";
                             break;
-                        case "リピーター限定":
-                            labelClassString = "limitedRepeater";
+                        case "ラベル名5":
+                            labelClassString = "label5";
                             break;                        
-                        case "お客様限定":
-                            labelClassString = "limitedCustomer";
+                        case "ラベル名6":
+                            labelClassString = "label6";
                             break;
-                        case "秘密":
-                            labelClassString = "secret";
+                        case "ラベル名7":
+                            labelClassString = "label7";
                             break;                        
-                        case "オリジナル":
-                            labelClassString = "original";
+                        case "ラベル名8":
+                            labelClassString = "label8";
                             break;
                     }
 

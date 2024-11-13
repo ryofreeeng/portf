@@ -22,7 +22,6 @@ namespace Therapim.Models
 
         // 性別 (必須、文字列長最大10)
         [Required(ErrorMessage = "性別をご入力ください🍊")]
-        [RegularExpression("^(女性)$", ErrorMessage = "性別は「女性」のみ選択できます。")]
         public string Gender { get; set; }
 
         // 年齢 (必須、範囲1〜80)

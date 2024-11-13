@@ -90,9 +90,9 @@
 	transform: translateX(-50%);
 	//color: rgba(83,83,83,1);
 }
-//セクションタイトル直下の日本語文字（当サロンについて）
+//セクションタイトル直下の日本語文字（当店について）
 .aboutsalon-title:after {
-	content:"当サロンについて";
+	content:"当店について";
 	font-size: 0.5em;
 	background-color:rgba(251, 245, 234, 0.3);
 	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -178,7 +178,7 @@
 }
 
 
-/* 当サロンについて */
+/* 当店について */
 .aboutsalon-message {
 	width: 80%;
 	margin: 0 auto;

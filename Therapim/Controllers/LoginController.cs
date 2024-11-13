@@ -109,7 +109,7 @@ namespace Therapim.Controllers
             else 
             {
                 //顧客情報が0件だった場合
-                ModelState.AddModelError(string.Empty, "ログイン情報が見つかりませんでした。入力情報が不明な場合はお問い合わせください🍊");
+                ModelState.AddModelError(string.Empty, "ログイン情報が見つかりませんでした。入力情報が不明な場合はお問い合わせください☆");
                 ViewData["ReturnUrl"] = !string.IsNullOrEmpty(model.ReturnUrl) ? model.ReturnUrl : Url.Action("Index", "Home");
                 return View("Index", model);
             }                

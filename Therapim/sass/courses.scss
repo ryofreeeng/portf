@@ -16,7 +16,7 @@
 
 //ページタイトル直下の日本語文字
 .page-title:after {
-	content:"コース";
+	content:"メニュー";
 	font-size: 0.5em;
 	background-color:rgba(251, 245, 234, 0.3);
 	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -26,7 +26,7 @@
 	transform: translateX(-50%);
 }
 
-/* コース一覧ページの案内 */
+/* メニュー一覧ページの案内 */
 //案内文
 .course-guide-section {
 	padding-bottom: 2em;
@@ -37,12 +37,12 @@
 	padding-top:0.5em;
 }
 
-//コース一覧のコンテナはPC用の最大幅を決めておく
+//メニュー一覧のコンテナはPC用の最大幅を決めておく
 .course-list {
 	max-width: 800px;
 	margin: 0 auto;
 }
-//1コースのコンテナサイズ等
+//1メニューのコンテナサイズ等
 .course-item {
     margin: 1em 0;
     padding: 1em 1em 0.5em 1em;
@@ -53,7 +53,7 @@
 
 
 
-//コースラベルは間をあけて横並び
+//メニューラベルは間をあけて横並び
 .course-label {
 	padding-bottom:0.3em;
 	display: flex;
@@ -99,14 +99,14 @@
 
 
 
-/* コース内容の初期表示箇所 */
+/* メニュー内容の初期表示箇所 */
 .course-overview {
 	display: flex;
 	justify-content: space-between;
 	column-gap: 0.5em;
 	padding-bottom: 0.5em;
 }
-//コースのイメージ画像の枠
+//メニューのイメージ画像の枠
 .course-image {
     width: 100px;
     height: 100px;
@@ -116,27 +116,27 @@
     //justify-content: center; /* 中央揃え */
     //border: 1px solid #ccc; /* 枠線を確認するため */
 }
-//コースのイメージ画像
+//メニューのイメージ画像
 .course-image .course-image-a {
     max-width: 100%;
     max-height: 100%;
     //object-fit: cover; /* 画像を要素の枠に合わせて拡大または縮小 */
 }
-//コース名や金額などのセクション
+//メニュー名や金額などのセクション
 .course-display {
 	width: 70%;
 	text-align: right;
 }
-//コース名
+//メニュー名
 .course-name {
 	padding-bottom:0.3em;
 }
-//コース料金補足
+//メニュー料金補足
 .course-priceAddInfo {
 	font-size:0.7em;
 }
 
-//コース説明
+//メニュー説明
 .course-description {
 	padding-bottom: 0.5em;
 }
@@ -260,7 +260,7 @@
     padding: 0.5em 0;
     //margin-bottom: 1em;
 }
-//コースの追加イメージ画像
+//メニューの追加イメージ画像
 .course-image-other .course-image-a {
     width: 50px;
     height: 50px;
@@ -268,7 +268,7 @@
     //max-height: 100%;
     object-fit: cover; /* 画像を要素の枠に合わせて拡大または縮小 */
 }
-//コースの予約セクション
+//メニューの予約セクション
 .course-reserve {
 	text-align: center;
 	padding:1em 0;
@@ -283,7 +283,7 @@
 }
 
 
-/* コース画像のモーダル */
+/* メニュー画像のモーダル */
 //モーダルの位置設定
 .course-image-modal-bk {
     display: none;
@@ -409,16 +409,16 @@
 	.review-coupon-guide-modal {
 		margin: 15% auto;
 	}
-	// コース一覧の横幅
+	// メニュー一覧の横幅
 	.course-list {
 		max-width: 550px;
 	}
-	// コース画像サイズ
+	// メニュー画像サイズ
 	.course-image {
 	    width: 150px;
 	    height: 150px;	    
 	}
-	// コース画像のその他画像サイズ
+	// メニュー画像のその他画像サイズ
 	.course-image-other .course-image-a {
 	    width: 80px;
 	    height: 80px;	    
