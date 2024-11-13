@@ -1,0 +1,45 @@
+﻿@model Therapim.Models.LoginRequestModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+@section CustomStyles {
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+}
+
+<div class="login-container">
+    <h2 class="page-title"><span class="english">@ViewData["Title"]</span></h2>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
+    }
+
+    <form asp-controller="Login" asp-action="XtLogin" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label asp-for="FullName" class="control-label">お名前</label>
+            <input asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Birthday" class="control-label">生年月日（8桁）</label>
+            <input asp-for="Birthday" class="form-control" />
+            <span asp-validation-for="Birthday" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="control-label">電話番号（ハイフンなし）</label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        
+        <input asp-for="ReturnUrl" type="hidden" value="@ViewData["ReturnUrl"]" />
+        
+        <button type="submit" class="btn btn-primary clickLoadingDisp">ログイン</button>
+    </form>
+</div>

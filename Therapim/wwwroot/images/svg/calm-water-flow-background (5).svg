@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0F7FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B2EBF2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4DD0E1;stop-opacity:0.6" />
+      <stop offset="50%" style="stop-color:#26C6DA;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#00BCD4;stop-opacity:0.6" />
+    </linearGradient>
+    <mask id="textAreaMask">
+      <rect width="800" height="200" fill="white" />
+      <rect x="400" y="0" width="400" height="200" fill="black" opacity="0.7" />
+      <rect x="0" y="100" width="800" height="100" fill="black" opacity="0.7" />
+    </mask>
+  </defs>
+  
+  <rect width="800" height="200" fill="url(#bgGradient)" />
+  
+  <g mask="url(#textAreaMask)">
+    <path d="M0 80 C 100 60, 200 100, 300 80 S 400 60, 500 80 T 800 100 V 200 H 0 Z" fill="url(#waveGradient)" />
+    <path d="M0 100 C 100 80, 200 120, 300 100 S 400 80, 500 100 T 800 120 V 200 H 0 Z" fill="url(#waveGradient)" opacity="0.7" />
+    
+    <circle cx="150" cy="50" r="30" fill="#FFD54F" opacity="0.8">
+      <animate attributeName="r" values="28;32;28" dur="4s" repeatCount="indefinite" />
+    </circle>
+    
+    <g opacity="0.6">
+      <circle cx="50" cy="30" r="2" fill="#FFFFFF">
+        <animate attributeName="cy" values="30;28;30" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="80" cy="50" r="1.5" fill="#FFFFFF">
+        <animate attributeName="cy" values="50;48;50" dur="3s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="110" cy="20" r="2" fill="#FFFFFF">
+        <animate attributeName="cy" values="20;18;20" dur="2.5s" repeatCount="indefinite" />
+      </circle>
+    </g>
+    
+    <path d="M20,60 Q 70,20 120,60 T 220,60" fill="none" stroke="#80DEEA" stroke-width="1">
+      <animate attributeName="d" 
+               values="M20,60 Q 70,20 120,60 T 220,60;
+                       M20,60 Q 70,40 120,60 T 220,60;
+                       M20,60 Q 70,20 120,60 T 220,60" 
+               dur="10s" repeatCount="indefinite" />
+    </path>
+  </g>
+</svg>

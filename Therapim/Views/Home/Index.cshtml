@@ -1,0 +1,363 @@
+﻿@{
+    ViewData["Title"] = "ホーム";
+}
+@section CustomStyles {
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+}
+
+<div class="home-container">
+    <section class="hero-section">
+        <div class="hero-image"></div>
+        <h1 class="hero-title">心と身体の癒し空間</h1>        
+    </section>
+    <section class="contents-container">
+        
+        <section class="news-section">
+            <h2 class="section-title news-title"><span class="english">Information</span></h2>
+            <div class="news-list-container">
+                <ul class="news-list">
+                    <!--
+                    <li>
+                        <span class="english"></span><br />
+                        <strong></strong><br />
+                        <span></span>
+                    </li>
+                    <li>
+                        <span class="english"></span><br />
+                        <strong></strong><br />
+                        <span></span>
+                    </li>
+                    <li>
+                        <span class="english"></span><br />
+                        <strong></strong><br />
+                        <span></span>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </section>
+
+        <section class="aboutsalon-section">
+            <h2 class="section-title aboutsalon-title"><span class="english">AboutSalon</span></h2>
+            <div class="aboutsalon-container">
+                <div class="aboutsalon-message">
+                    <span>
+                        日々の生活の中で、人はたくさんのストレスにさらされます。<br />
+                        自分でも気づかないうちに脳や身体が疲れていることも多いです。<br />
+                        そういった方々の心と身体を癒したいと思い始めたのがこのサロンです。<br />
+                        当サロンで過ごす時間は、日常を忘れて、ご自分のご褒美の時間にしていただけたらと思います。<br />
+                    </span>
+                </div>
+                <ul class="aboutsalon-list">
+                    <li>
+                        <div class="aboutsalon-image">
+                            <img src="~/images/home/treatment.jpg" />
+                        </div>
+                        <div class="aboutsalon-subtitle">                            
+                            オイルトリートメントによるリラクゼーション
+                        </div>
+                        <div class="aboutsalon-description">
+                            当サロンの主なサービスは、オイルトリートメントによるリラクゼーションです。
+                            <br />身体だけでなく、心も休めるお時間にしていただけるよう努めております。
+                            <br />リンパドレナージュによる深い癒しとリラックスをご堪能ください。
+                        </div>
+                    </li>
+                    <li>
+                        <div class="aboutsalon-image">
+                            <img src="~/images/home/therapist.jpg" />
+                        </div>
+                        <div class="aboutsalon-subtitle">                            
+                            兼業セラピスト
+                        </div>
+                        <div class="aboutsalon-description">
+                            セラピストは、普段は別の仕事をしながら、その傍らで個人セラピストをしています。
+                            <br />そのため、お客様の癒しを第一にゆったりと活動をしております。
+                            <br />一般的なチェーン店よりその方が安心できるというお客様からは特にご支持をいただいております。
+                        </div>
+                    </li>
+                    <li>
+                        <div class="aboutsalon-image">
+                            <img src="~/images/home/salon.jpg" />
+                        </div>
+                        <div class="aboutsalon-subtitle">                            
+                            場所を選べる
+                        </div>
+                        <div class="aboutsalon-description">
+                            自前の店舗をかまえておらず、レンタルサロンまたは出張での施術をしております。
+                            <br />ある程度場所は固定しておりますが、いくつかの候補からサロンの場所をお選びいただけます。
+                            <br />また、自宅やホテルへの出張も可能ですので、お客様のご都合に合わせてご利用いただけます。
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="reserve-section">
+            <h2 class="section-title reserve-title"><span class="english">Reservation</span></h2>
+            <div class="reserve-container">
+                <ul class="reserve-flow">
+                    <li>
+                        <div class="reserve-subtitle">
+                            <span class="english">０１.</span>
+                            フォームをご提出ください
+                        </div>
+                        <div class="reserve-description">
+                            当HPのご予約フォーム、または公式LINEからアクセスできるgoogleフォームをお送りください。
+                            <br />※公式LINEなどのリンクはページ下部にあります。
+                        </div>
+                    </li>
+                    <li>
+                        <div class="reserve-subtitle">
+                            <span class="english">０２.</span>
+                            料金をお支払いください
+                        </div>
+                        <div class="reserve-description">
+                            お送りいただいたフォーム内容の確認後、お支払いのご案内をお送りいたします。
+                            <br />お支払いができましたら、完了画面のスクショ等をお送りください。
+                            <br />※クレジットカードまたは銀行振込がご利用いただけます。
+                        </div>
+                    </li>
+                    <li>
+                        <div class="reserve-subtitle">
+                            <span class="english">０３.</span>
+                            当日、サロンへお越しください
+                        </div>
+                        <div class="reserve-description">
+                            お支払いが確認でき次第、レンタルサロンをおさえてご予約確定となります。
+                            <br />日時と場所をお送りいたしますので、当日お時間ちょうどにサロンの入口までお越しください。
+                            <br />※早くお越しになった場合は入口にてお待ちいただく可能性がございますのでご了承ください
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2 class="section-title faq-title"><span class="english">FAQ</span></h2>
+            <div class="faq-container">
+                <ul class="faq-list">
+                    <li>                        
+                        <div class="question">
+                            支払い方法は何がありますか？
+                        </div>
+                        <div class="answer">
+                            料金は前払いで、クレジットカードによる支払いとなります。カードをお持ちでない方は、銀行振込も可能です。paypay等の電子決済には対応しておりません。
+                        </div>
+                        <div class="question">
+                            何か持ち物は必要ですか？
+                        </div>
+                        <div class="answer">
+                            特にございませんが、防犯上の理由からお飲み物をこちらでお出ししていないため、ご入用でしたらお水などをお持ちください。
+                        </div>
+                        <div class="question">
+                            当日は何分前に行けばいいですか？
+                        </div>
+                        <div class="answer">
+                            こちらがお伝えしたお時間ちょうどにお越しください。早くお越しいただいた場合は、恐れ入りますが玄関前にてお待ちいただくことがございます。
+                        </div>
+                        <div class="question">
+                            出張は可能ですか？
+                        </div>
+                        <div class="answer">
+                            目安として新宿駅から45分以内、往復交通費￥1,000以内の場所であれば、現在受け付けております。ご自宅でもホテルでも可能です。
+                            <br />ビジネスホテルの場合は、ホテル側が許可しているかをご確認の上でお申し込みください。
+                        </div>
+                        <div class="question">
+                            学生でも受けられますか？
+                        </div>
+                        <div class="answer">
+                            18歳以上ならどなたでもご利用いただけます。また、学生さんは学割コースでお得にご利用いただけます。<br />
+                            18歳未満の場合、契約能力の問題が発生します。とはいえ、美容院などと同様に高くない金額ならご自身でも契約は可能なはずですが、念のため保護者の方の同意を得てお越しください。<br />
+                        </div>
+
+                        <div class="question">
+                            男性セラピストの施術を受けるのは初めてなのですが、大丈夫でしょうか？
+                        </div>
+                        <div class="answer">
+                            施術部位以外はタオルで覆い、施術範囲もお客様のご要望に応じて調整いたします。特にご要望がなければある程度際まで施術いたしますが（肌が見えている範囲まで）、もし不安などありましたら遠慮なくお申し付けください。
+                        </div>
+                        <div class="question">
+                            セラピストがどんな人か知りたいです。
+                        </div>
+                        <div class="answer">
+                            セラピストは普段本業の仕事をしており、その傍らで副業としてセラピストをしています。<br />
+                            あまり詳細は書けませんが、少し自己紹介を書いておきますね。<br />
+                            ・年齢：３０代<br />
+                            ・出身：地方です。東京歴は数年です<br />
+                            ・好きなこと：何か作業に没頭すること、食べること、散歩、身体を動かすこと、マッサージ<br />
+                            ・苦手なこと：写真に写ること、騒がしい場所や大人数での会話<br />
+                        </div>
+                        <div class="question">
+                            生理または妊娠中でも利用できますか？
+                        </div>
+                        <div class="answer">
+                            生理中の場合、お客様ご自身が問題なければ施術は可能です。<br />
+                            妊娠中の場合は、安全を考え基本的にはお断りしていますが、お医者さんに確認の上、どのような体勢・施術なら問題ないかなどをご申告いただけるなら、それに基づいて対応は可能です。<br />
+                            ただし、何かあっても責任は取れかねますので、その点だけご了承ください。
+                        </div>
+                        <div class="question">
+                            マッサージは痛くないですか？
+                        </div>
+                        <div class="answer">
+                            お客様のお身体の状態によって変わりますので、痛くないという保証はできませんが、方針としてはできるだけ痛みのない施術を心がけています。<br />
+                            強さのご希望がある場合は、その都度調整しますので、施術中でも遠慮なくおっしゃってください。
+                        </div>                                                
+                        <div class="question">
+                            オイルは何を使用していますか？
+                        </div>
+                        <div class="answer">
+                            オイルは基本的にセサミオイルを使用しています。<br />
+                            一般的なサロンでよく使われてる水溶性オイルとは違い、100%のオイルですので、高い保湿効果があります。<br />
+                            また、インドのアーユルヴェーダで主に使われており、解毒や抗炎症効果が期待され、身体の調子を整えるとされています。<br />
+                            100%オイルのデメリットとしては、水溶性オイルよりも落ちにくいので、匂いやべたつきが気になる方には向きません。
+                            また、ごまアレルギーの方には使用できませんのでお気を付けください。
+                        </div>
+                        <div class="question">
+                            トリートメントを受けるときは裸になりますか？
+                        </div>
+                        <div class="answer">
+                            施術時は、紙パンツと紙ブラジャーのご用意があります。<br />
+                            紙パンツは通常タイプとTバックタイプからお選びいただけます。紙ブラジャーは着用なしでも大丈夫です。
+                        </div>
+                        <div class="question">
+                            紙パンツが苦手なのですが、着用しなくてもいいですか？
+                        </div>
+                        <div class="answer">
+                            紙パンツの素材が苦手な方がいらっしゃるのは理解しておりますので、無理に紙パンツを着用いただく必要はありませんが、その場合はご自身の水着もしくは下着を着用の上でお受けください。<br />
+                            ただし、オイルの匂いが残るかもしれないので、その点だけご了承ください。
+                        </div>
+                        
+                        <div class="question">
+                            お友達を紹介してもいいですか？
+                        </div>
+                        <div class="answer">
+                            もちろん大丈夫ですし、ご紹介はとても嬉しいです。<br />
+                            過去にもご紹介してくださった方が何名かいらっしゃいます。<br />
+                            紹介された方がご来店された場合、紹介してくださった方は次回￥1,000割引いたします。
+                        </div>
+                        <div class="question">
+                            ポイントカードはありますか？
+                        </div>
+                        <div class="answer">
+                            今のところポイントカードはご用意しておりません。<br />
+                            しかし、何度かご来店いただいているお客様には、少しでもお得で、よりよいサービスを提供できるようにしていきたいと思っております。<br />                            
+                        </div>
+                        <div class="question">
+                            男性でも利用できますか？
+                        </div>
+                        <div class="answer">
+                            申し訳ございませんが、現在は女性のみとしております。
+                        </div>
+                    </li>                    
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="note-section" id="noteSection">
+            <h2 class="section-title note-title"><span class="english">NOTE</span></h2>
+            <div class="note-container">
+                <ul class="note-list">
+                    <li>                        
+                        <div class="note-subtitle">
+                            ご利用条件
+                        </div>
+                        <div class="note-subcontent">
+                            ・当サロンは、女性専用です。
+                            <br />・以下の方はご利用をお断りいたします。
+                            <br />暴力団関係者、反社会的勢力に関わる方、入れ墨（タトゥー）のある方、精神疾患・心臓疾患・伝染病・感染症を患っている方、皮膚に疾患（重度の水虫や炎症など）がある方、泥酔者、薬物使用者、保護者の同意のない未成年者
+                        </div>
+                        <div class="note-subtitle">
+                            サービス内容
+                        </div>
+                        <div class="note-subcontent">
+                            ・当サロンのサービスは、オイルトリートメントを主としたリラクゼーションです。風俗店ではありません。
+                            <br />・医療に類似する行為は行っておりません。
+                        </div>
+                        <div class="note-subtitle">
+                            ご予約・お支払いについて
+                        </div>
+                        <div class="note-subcontent">
+                            ・予約方法は、HPに記載の手続きに則っていただき、正確な情報をご申告ください。
+                            <br />虚偽の申告が発覚した場合、即刻サービスを中止し、以降のご予約はお断りさせていただく可能性があります。
+
+                            <br />・料金はクレジットによる前払いとなります。クレジットカードをお持ちでないお客様は、銀行振込によるお支払いも可能です。
+                            <br />paypay等の電子決済サービスには対応しておりませんのでご了承ください。
+
+                            <br />・ご予約は、「お客様が料金のお支払い完了後に、セラピストがレンタルサロン等の場所を確保した」時点で、または出張の場合は「お客様が料金のお支払いを完了した」時点で確定されます。
+
+                            <br />・お客様の都合で開始時刻に遅れた場合、終了時刻の変更はできませんのでご了承ください。
+                            
+                        </div>
+
+                        <div class="note-subtitle">
+                            キャンセル・返金について
+                        </div>
+                        <div class="note-subcontent">                            
+                            ・ご予約確定後のキャンセルについては、以下のキャンセル料が発生します。
+
+                            <br />　ご来店予定日の3日前18時まで
+                            <br />　　⇒コース料金の10%
+                            <br />　ご来店予定日の2日前18時まで
+                            <br />　　⇒コース料金の30%
+                            <br />　ご来店予定日の前日18時まで
+                            <br />　　⇒コース料金の50%
+                            <br />　ご来店予定日の当日18時まで
+                            <br />　　⇒コース料金の100%
+
+                            <br />※キャンセル料は、生理や体調不良などの理由に関わらず発生しますので、あらかじめご了承ください。
+                            <br />※日程変更はキャンセルに含まれます。（レンタルサロンを一度キャンセルして予約しなおすため）
+                            <br />※お客様に関わる何らかの事情により、キャンセル料を超える損害が出た場合、キャンセル料とは別に損害賠償請求をする可能性があります。
+                            
+                            <br />・施術開始後にキャンセルを希望される場合、施術開始後10分以内にお申し出ください。直ちに施術を中止し、全額返金させていただきます。なお、それ以降の返金・キャンセルは対応できません。
+
+                            <br />・返金の際は、返金手続きに必要な手数料等を差し引いた後の金額が返金額となります。予めご了承ください。
+
+                        </div>
+
+
+                        <div class="note-subtitle">
+                            禁止事項
+                        </div>
+                        <div class="note-subcontent">
+                            ・施術中に携帯電話の操作、撮影、盗撮、盗聴は禁止です。
+                            <br />・セラピストに対するストーカー行為や個人情報の交換を要求する行為、性的サービスの強要、自慰行為などの嫌がらせ行為は禁止です。
+                            <br />セラピストが危険を感じた場合には、施術途中であっても直ちにサービスを中止し、ご退店いただきます。また、悪質と判断した場合は所轄の警察署に通報することがあります。その場合の返金には一切応じられません。
+                        </div>
+                        <div class="note-subtitle">
+                            健康状態について
+                        </div>
+                        <div class="note-subcontent">
+                            ・生理中の方は、ご自身で体調に問題がなければご来店いただけますが、トリートメントの内容についてはご相談の上、決定させていただきます。
+                            <br />・妊娠中の方は、基本的にお断りさせていただいておりますが、医師の確認を得て、ご自身の責任の下でのご来店は可能です。よってトリートメントの内容については、お客様からのご要望の範囲内で、かつこちらも危険性が低いと判断したもののみ、提供いたします。
+                            <br />・施術後は、身体活動が活発になることで筋肉の痛み、だるさ、倦怠感などの症状が、また、オイル（アロマオイル含む）を使用することによるアレルギー反応が起こることがあります。万が一、症状がひどい場合は専門医にご相談ください。治療費等は対応できかねますので予めご了承ください。 
+                        </div>
+                        <div class="note-subtitle"> 
+                            貴重品の管理
+                        </div>
+                        <div class="note-subcontent">
+                            ・貴重品はご自身での管理となります。
+                            <br />多くのサロンには貴重品ボックスなどは設置していないため、あまり高価なものなどはご持参されないようお願いいたします。
+                            <br />紛失や盗難については当サロンでは責任を負いかねます。
+                        </div>
+
+                    </li>                    
+                </ul>
+            </div>
+        </section>
+    </section>
+</div>
+<!--
+<section class="campaign-section">
+    <h2>キャンペーン</h2>
+    <div class="campaign-content">
+        <ul>
+            <li>期間限定口コミ割引実施中</li>
+            <li><a href="#" class="btn btn-primary">詳細を見る</a></li>
+        </ul>
+    </div>
+</section>
+-->
+@section CustomScripts {
+    <script src="~/js/home.js" asp-append-version="true"></script>
+}

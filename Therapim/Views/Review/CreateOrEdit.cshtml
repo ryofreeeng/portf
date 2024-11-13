@@ -1,0 +1,103 @@
+﻿@model Therapim.Models.ReviewRequestModel
+
+@{
+    ViewData["Title"] = Model.ReviewId == null ? "ReviewPost" : "ReviewEdit";
+    var formAction = Model.ReviewId == null ? "Create" : "Edit";
+    var buttonText = Model.ReviewId == null ? "投稿する" : "更新する";
+}
+@section CustomStyles {
+    <link rel="stylesheet" href="~/css/reviewEdit.css" asp-append-version="true" />
+}
+
+<div class="review-edit-container">
+    @if (Model.ReviewId == null)
+    {
+        <h2 class="page-title review-regist-title"><span class="english">@ViewData["Title"]</span></h2>
+    }
+    else
+    {
+        <h2 class="page-title  review-edit-title"><span class="english">@ViewData["Title"]</span></h2>
+    }
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
+    }
+
+    <form asp-action="@formAction" method="post">
+        @Html.AntiForgeryToken()
+
+        <input asp-for="ReviewId" class="form-control" readonly type="hidden"/>
+
+        <div class="form-group">
+            <label asp-for="Author" class="control-label">投稿者名</label>
+            <input asp-for="Author" class="form-control" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Gender" class="control-label">性別</label>
+            <select asp-for="Gender" class="form-control">
+                <!-- <option value="Male">男性</option> -->
+                <option value="女性" selected>女性</option>
+            </select>
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Age" class="control-label">年齢</label>
+            <select asp-for="Age" class="form-control">                
+                <option value=0>-</option>
+                <option value=10>１０代</option>
+                <option value=20>２０代</option>
+                <option value=30>３０代</option>
+                <option value=40>４０代</option>
+                <option value=50>５０代</option>
+                <option value=60>６０代</option>
+                <option value=70>７０代</option>
+                <option value=80>８０代</option>
+            </select>
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Title" class="control-label">タイトル</label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Content" class="control-label">本文</label>
+            <textarea asp-for="Content" class="form-control"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Rating" class="control-label">満足度</label>
+            <select asp-for="Rating" class="form-control review-rating">
+                <option value=0 class="star">-</option>
+                <option value=1 class="star">★</option>
+                <option value=2 class="star">★★</option>
+                <option value=3 class="star">★★★</option>
+                <option value=4 class="star">★★★★</option>
+                <option value=5 class="star">★★★★★</option>
+            </select>
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>        
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary clickSendingDisp">@buttonText</button>
+        </div>
+    </form>
+
+    <div class="form-group">
+        <button onclick="window.history.back();" class="btn btn-secondary">戻る</button>
+    </div>
+
+</div>
+
+@section CustomScripts {
+    <script src="~/js/reviews.js" asp-append-version="true"></script>
+}

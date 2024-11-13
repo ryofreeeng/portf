@@ -1,0 +1,95 @@
+﻿@model Therapim.Models.ReviewResponseModel
+@{
+    ViewData["Title"] = " Review";
+}
+@section CustomStyles {
+    <link rel="stylesheet" href="~/css/reviews.css" asp-append-version="true" />
+}
+
+<div class="reviews-container">
+    <h2 class="page-title"><span class="english">@ViewData["Title"]</span></h2>
+
+    <div class="review-list-guide-section">
+        <span>
+            ご来店いただいたお客様にお書きいただいた口コミを掲載しています。</br>
+            ご来店を迷われている方は、よろしければ参考にご覧ください。
+        </span>
+    </div>
+    <div class="review-list">
+        @foreach (var item in Model.SqlContent)
+        {
+            <section class="review-item">
+                <div class="review-header">
+                    <span class="review-rating">
+                        @for (int i = 0; i < item.Rating; i++)
+                        {
+                            <span class="star">★</span>
+                        }
+                    </span>
+                    <span class="review-authorInfo">
+                        <span class="review-author">@item.Author</span>
+                        <span class="review-age">@item.Age 代</span>
+                        <span class="review-gender">@item.Gender</span>
+                    </span>
+                </div>
+                <div class="review-title">
+                    <strong>@item.Title</strong>
+                </div>
+                <div class="review-content">
+                    @item.Content
+                </div>
+                <div class="review-posted-at">
+                    <span class="english">Posted at: @item.PostedDateTime</span>
+                </div>
+                @if (ViewData["UserId"]?.ToString() == item.UserId && ViewData["UserId"]?.ToString() != "")
+                {
+                    <div class="review-edit">
+                        <a href="/Review/Edit?reviewId=@item.ReviewId" class="btn btn-primary clickLoadingDisp">編集する</a>
+                    </div>
+                }
+            </section>
+        }
+    </div>
+
+    <div>
+        <div class="revirew-create-guide">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <!--
+                <div>                
+                    <form asp-controller="Login" asp-action="XtLogout" method="post" style="display:inline;">
+                        <button type="submit">ログアウト</button>
+                    </form>                
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Review" asp-action="Create">Review新規登録</a>
+                </div>
+                    -->
+            
+                    <!--
+                    <span>口コミを投稿いただくと、次回¥500割引が適用されます。</span>
+                    <span>メンズセラピストサロンナビの口コミも同様に適用されますので、両方お書きいただくと¥1,000割引となります。</span>
+                    <a href="https://mtsnavi.com/ty104/"><span>メンズセラピストサロンナビ（THERAPIMのページ）</span></a>
+                    -->
+                    <a asp-area="" asp-controller="Review" asp-action="Create" class="btn btn-primary">口コミを投稿する</a>                            
+            }else
+            {            
+                    <span>一度ご来店いただいたことのあるお客様は、ログインすることで口コミをご投稿いただけます。</span>
+                    <span>ご来店後、情報が反映されるまでに数日かかる場合があります。しばらく経過してもログインできない場合はお問い合わせください。</span>
+                    <a asp-area="" asp-controller="Login" asp-action="Index"　class="btn btn-primary">ログイン</a>         
+            }
+            <span class="review-coupon-navi">※口コミ割引について</span>
+        </div>
+    </div>
+</div>
+<div class="review-coupon-guide-modal-bk">
+    <div class="review-coupon-guide-modal">
+        <span>施術後にサロン内にて口コミをお書き頂ける方は、<strong>「¥1000割引」</strong>または<strong>「有料オプション2つ無料」</strong>です</span>
+        <span><strong>ご予約時にお申し付けください</strong></span>
+        <span>※メンズセラピストサロンナビというサイトにアクセスしてそのままお書きいただけます</span>
+        <span><a href="https://mtsnavi.com/ty104/">メンズセラピストサロンナビ（THERAPIMのページ）</a></span><br />
+        <span>ご来店後には、当HPの口コミ投稿が可能となりますので、そちらをお書きいただける場合、<strong>「次回¥1,000割引」</strong>または<strong>「次回有料オプション全て無料」</strong>となります</span>
+    </div>
+</div>
+
+@section CustomScripts {
+    <script src="~/js/reviews.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,739 @@
+// reviews.scss
+@import 'variables';
+@import 'mixins';
+
+/* ホーム画面スタイル */
+//上部画像の基準
+.hero-section {
+  position: relative;
+  filter: brightness(100%) contrast(100%) blur(0px);
+}
+//上部画像のアニメーション等
+.hero-image {
+	display: block;
+	width:100%;
+	aspect-ratio: 1 / 1;	
+	animation: fadeOutIn 7s;
+	background-image: url('https://lh3.googleusercontent.com/d/1wefNo2eMQmJg26Cb-e2ytiXSSp4kjtxo');
+    background-size: cover;
+    background-position: center;	
+}
+
+
+/* PCスタイルのオーバーライド */
+@media (min-width: $breakpoint-md) {
+	.hero-image {
+		//min-height:60vh;
+		//max-height:100vh;
+		aspect-ratio: 1.65/1;
+		background-image: url('https://lh3.googleusercontent.com/d/1mWi0-eG_7y8mBJq76Z7e_4f-SzK10Q61');
+	    background-size: cover;
+	    background-position: center;	
+	}
+}
+
+//上部画像上の文字
+.hero-title {
+  position: absolute;
+  top: 33%;
+  left: 30%;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+  text-align: center;
+  animation: fadeInOut 7s forwards;
+}
+
+//上部画像より下は両端を空ける　⇒途中で横幅いっぱいにするのに面倒なのでやめた。セクションごとに余白つくる
+//.contents-container {
+//	padding: 0;
+//}
+
+
+//セクションタイトル
+.section-title { 
+    position: relative;
+    text-align:center;
+    margin: 3em auto 2em auto;
+}
+//セクションタイトルの英語は変更を加える
+.section-title .english{
+	font-family: $font-EN-serif;
+	font-weight: normal;
+    font-style: normal;
+    font-size: 1.3em;
+    text-shadow: 0 2px 2px rgb(244, 210, 182);
+}
+//セクションタイトルの装飾
+.section-title:before {
+	content:"";
+	height: 0.5em;
+	width: 10em;
+	background-color:rgba(251, 231, 217, 0.3);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+	filter: blur(4px);
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index:-1;	
+}
+//セクションタイトル直下の日本語文字（お知らせ）
+.news-title:after {
+	content:"お知らせ";
+	font-size: 0.5em;
+	background-color:rgba(251, 245, 234, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	transform: translateX(-50%);
+	//color: rgba(83,83,83,1);
+}
+//セクションタイトル直下の日本語文字（当サロンについて）
+.aboutsalon-title:after {
+	content:"当サロンについて";
+	font-size: 0.5em;
+	background-color:rgba(251, 245, 234, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	transform: translateX(-50%);
+	//color: rgba(83,83,83,1);
+}
+//セクションタイトル直下の日本語文字（ご予約）
+.reserve-title:after {
+	content:"ご予約の流れ";
+	font-size: 0.5em;
+	background-color:rgba(251, 245, 234, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	transform: translateX(-50%);
+	//color: rgba(83,83,83,1);
+}
+//セクションタイトル直下の日本語文字（FAQ）
+.faq-title:after {
+	content:"よくある質問";
+	font-size: 0.5em;
+	background-color:rgba(251, 245, 234, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	transform: translateX(-50%);
+	//color: rgba(83,83,83,1);
+}
+//セクションタイトル直下の日本語文字（NOTE）
+.note-title:after {
+	content:"注意事項";
+	font-size: 0.5em;
+	background-color:rgba(251, 245, 234, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	transform: translateX(-50%);
+	//color: rgba(83,83,83,1);
+}
+
+
+/* お知らせ */
+.news-list-container {
+	padding: 0 10%;
+}
+.news-list {
+    position: relative;
+    list-style: none;
+    padding: 0.3em 0.5em 0 0.5em;
+    margin: 0;
+    background-color:rgba(251, 238, 238, 0.6);
+    border: 1px solid rgba(200,200,200,1);
+    //border-top: solid 6px rgba(182, 216, 244.1);
+    border-radius: 8px;
+    //max-width: 100%; /* リストの最大幅を親要素に合わせる */
+    //margin: 0 auto; /* センター配置 */
+    box-shadow: 0px 0px 18px rgba(150, 150, 150, 0.2);
+}
+.news-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0.3em;
+    background-color:rgba(182, 216, 244.1);
+    border-radius: 4px 4px 0 0;
+}
+.news-list li {
+    //font-size: 16px;
+    //color: #555;
+    padding: 15px;
+    border-bottom: 1px solid rgba(200,200,200,0.6);
+}
+.news-list li:last-child {
+    border-bottom: none; /* 最後のアイテムのボーダーを削除 */
+}
+
+
+/* 当サロンについて */
+.aboutsalon-message {
+	width: 80%;
+	margin: 0 auto;
+	line-height: 2em;
+}
+
+.aboutsalon-list {
+	list-style: none;	
+	padding:0 0 1em 0;
+}
+.aboutsalon-list li{
+	padding: 1.5em 0;
+}
+.aboutsalon-image {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	margin: 0 0 1em 0;
+	position: relative;
+}
+.aboutsalon-image::before {
+	content:"";
+	position: absolute;
+	height: 180px;
+	width: 1000px;
+	background: linear-gradient(rgba(255,255,255,0.7) 0,rgba(255,255,255,1) 50% ,rgba(255,255,255,0.6) 100%);
+	filter: blur(10px);
+	box-shadow: 15px 0 40px rgba(255,255,255,1);
+	top:0%;
+	left: -10%;
+	z-index: 100;
+	transform: rotate(-30deg);
+	transform-origin: 0% 50%;
+}
+.aboutsalon-image::after {
+	content:"";
+	position: absolute;
+	height: 80px;
+	width: 1000px;
+	background: linear-gradient(rgba(255,255,255,0.5) 0,rgba(255,255,255,0.8) 60% ,rgba(255,255,255,0.6) 100%);
+	filter: blur(10px);
+	box-shadow: 15px 0 40px rgba(255,255,255,1);
+	top:85%;
+	left: -10%;
+	z-index: 1000;
+	transform: rotate(-15deg);
+	transform-origin: 0% 50%;
+}
+.aboutsalon-image img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    display: block; //これをつけないと画像下に余白ができる
+}
+.aboutsalon-subtitle {
+	font-size: 1.2em;
+	margin: 0 10% 1em 10%;
+	line-height: 2em;
+	padding-bottom: 0.5em;
+	border-bottom: solid 1px rgba(100,100,100,1);
+}
+.aboutsalon-description {
+	//font-size: 1em;
+	margin: 0 10%;
+	line-height: 1.8em;
+}
+
+
+
+/* ご予約 */
+.reserve-container {
+	background-color: rgba(255,255,248,0.6);
+	margin: 0 10%;
+	padding: 2em;
+}
+.reserve-flow {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.reserve-flow li{
+	padding: 1.5em 0;
+}
+.reserve-subtitle {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 0 0 0.5em 0;
+	//line-height: 3em;
+	//border-bottom: solid 1px rgba(100,100,100,1);
+}
+.reserve-description {
+	//font-size: 1em;
+	//margin: 0 10%;
+	line-height: 1.8em;
+}
+
+
+/* よくある質問 */
+.faq-container {
+	padding: 0 10%;
+}
+.faq-list {
+	list-style: none;
+	padding: 1em;
+}
+.faq-list li {
+	padding: 0 0 1em 0;
+}
+
+.question {
+	font-weight: bold;
+	font-size: 1.1em;
+	padding: 0.5em 0.4em 0.3em 0.4em;
+	border-top: 1px solid rgba(200,210,220,1);
+	border-bottom: 1px solid rgba(200,210,220,1);
+	//border: 1px solid rgba(200,210,220,1);
+	//border-radius: 5px;
+}
+.question:before {
+	content:"[Q]";
+	font-size: 1.2em;
+}
+.answer {
+	max-height: 0px;
+	transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+	overflow: hidden;
+	padding: 0 1em;	
+	//visibility: hidden;
+	line-height:1.7em;
+		
+}
+.answer.open {	
+	max-height: 500px;
+	transition: max-height 0.3s ease-out, padding 0.3s ease-in;
+	padding: 1em;
+	
+}
+
+
+
+/* 注意事項 */
+.note-container {
+	padding: 0 10%;
+	background-color: rgba(255,255,238,0.6);
+	margin: 0 10%;
+	padding: 1em;
+}
+.note-list {
+	list-style: none;
+	padding: 0em;
+}
+.note-list li {
+	padding: 0 0 1em 0;
+}
+
+.note-subtitle {
+	font-weight: bold;
+	//font-size: 1.1em;
+	padding: 0.5em 0.4em 0.3em 0.4em;
+	//border-top: 1px solid rgba(200,210,220,1);
+	//border-bottom: 1px solid rgba(200,210,220,1);
+	//border: 1px solid rgba(200,210,220,1);
+	//border-radius: 5px;
+}
+.note-subtitle:before {
+	content:"◆";
+	//font-size: 1.2em;
+}
+.note-subcontent {
+	//max-height: 0px;
+	//transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+	//overflow: hidden;
+	padding: 0.5em;
+	//visibility: hidden;
+	line-height:1.7em;
+		
+}
+note-subcontent.open {
+	max-height: 500px;
+	transition: max-height 0.3s ease-out, padding 0.3s ease-in;
+	padding: 1em;
+	
+}
+
+
+
+/* アニメーション定義 */
+@keyframes zoomInOut {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOutIn {
+  0% { opacity: 1; }
+  70% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 0; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+
+
+/* ここから下は未使用 */
+
+
+/* キャンペーン */
+.campaign-section {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 800px; /* セクションの最大幅を設定 */
+    position: relative;
+    text-align: center; /* タイトルを中央に配置 */
+    overflow: hidden; /* はみ出しを防ぐ */
+}
+.campaign-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #00bcd4; /* セクションの区切り色 */
+    border-radius: 4px 4px 0 0;
+}
+.campaign-section h2 {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+}
+.campaign-content {
+    display: inline-block; /* コンテンツを中央に配置 */
+    text-align: center; /* 内容を中央揃え */
+    background-color: #e0f7fa; /* コンテンツの背景色 */
+    border: 1px solid #b2ebf2;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%; /* コンテンツの幅を調整 */
+    max-width: 600px; /* コンテンツの最大幅を設定 */
+    margin: 0 auto; /* センター配置 */
+}
+.campaign-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.campaign-content li {
+    font-size: 20px;
+    color: #333;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: $primary-btn-color;
+    border: none;
+    cursor: pointer;
+}
+.btn-primary {
+    background-color: $primary-btn-color; /* プライマリボタンの背景色 */
+}
+.btn-primary:hover {
+    background-color: #0097a7; /* ホバー時の色 */
+}
+
+
+/* アクションセクション */
+//アクションセクション
+.action-section {
+	text-align: center;
+}
+//アクションメッセージ
+.action-message {
+	display:inline-block;
+	width:70%;
+	font-size:1.2em;
+}
+//アクションボタン
+.action-buttons {
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+	display: flex;
+	//justify-content: space-between; 要素が増えたらこっちにする
+	justify-content: center;
+	padding: 10px 0 40px 0;
+}
+
+
+/* メインコンテンツ */
+//各メニューごとに高さを設ける
+.contents-section {
+	position: relative;
+	height:300px;
+	overflow: visible;
+}
+//メニューのタイトル
+/*
+.section-title {
+	position: absolute;
+	top: 8%;
+	right: 15%;
+	z-index: 10;
+	color: $secondary-color;
+	font-weight: 600;
+	text-shadow: 0px 2px 10px rgba(0, 0, 0, 1);
+}
+*/
+//メニューのメッセージ
+/*
+.section-message {
+	position: absolute;
+	top: 25%;
+	left: 20%;
+	right: 5%;
+	z-index: 10;
+	color: $primary-color;
+}
+*/
+//メニューのボタンリンク
+.section-btn {
+	position: absolute;
+	top: 65%;
+	right: 5%;
+	z-index: 10;
+}
+//画像が用意できたら変えたいがひとまず背景CSSで作成
+.section-image {
+    position: relative;
+    height: 35vh;
+    overflow: hidden;    
+    margin: auto;
+    border-radius: 10% 10% 80% 10%;
+    //background: linear-gradient(to bottom, #a2c2e2, #e0f7fa);
+    background-image: radial-gradient(ellipse at 0 0,#a8d8ff, transparent),repeating-radial-gradient(ellipse at 0% 0%, #a8d8ff 0, #a8d8ff 30px, #e3f6ff 60px, #a8d8ff 90px, transparent 120px);
+    background-blend-mode: multiply;
+	filter: blur(0px);
+	z-index: 1;
+	box-shadow: 8px 18px 8px rgba(150, 150, 150, 0.15);
+}
+
+.section-image::before {
+	content: "";
+	position: absolute;
+	top:10%;
+	left:10%;
+	border-radius:50%;
+	height:200%;
+	width:200%;
+	background-image: repeating-radial-gradient(ellipse at -5% -5%, #a8d8ff 0, #a8d8ff 30px, #e3f6ff 60px, #a8d8ff 90px, transparent 120px);
+	filter: blur(5px);
+	opacity: 0.5;
+	z-index: 3;	
+}
+.section-image::after {
+	content: "";
+	position: absolute;
+	top:10%;
+	left:10%;
+	border-radius:50%;
+	height:200%;
+	width:200%;
+	//background-color: rgba(120,160,200,1);
+	background-color: white;
+	z-index: 2;
+}
+
+
+.course-image {
+	//background-image: repeating-radial-gradient(ellipse at 5% 5%, #a8d8ff 0, #a8d8ff 30px, #e3f6ff 60px, #a8d8ff 90px, transparent 120px);
+	//filter: blur(1.5px);
+}
+
+
+/* 
+メニュー背景に実験的においてみたが微妙
+.chain-pattern {
+	display: none;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: #e0f7fa;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.chain-link {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 8px solid rgba(0, 150, 255, 0.5);
+    border-radius: 50%;
+    background: rgba(0, 150, 255, 0.2);
+}
+.chain-link:nth-child(1) {
+    top: 5%;
+    left: 3%;
+}
+.chain-link:nth-child(2) {
+    top: 0%;
+    left: 50%;
+}
+.chain-link:nth-child(3) {
+    top: 16%;
+    left: 19%;
+}
+.chain-link:nth-child(4) {
+    top: 34%;
+    left: 22%;
+}
+.chain-link:nth-child(5) {
+    top: 20%;
+    left: 55%;
+}
+.chain-link:nth-child(6) {
+    top: 7%;
+    left: 76%;
+}
+.chain-link:nth-child(7) {
+    top: 40%;
+    left: 70%;
+}
+.chain-link:nth-child(8) {
+    top: 60%;
+    left: 10%;
+}
+.chain-link:nth-child(9) {
+    top: 90%;
+    left: 50%;
+}
+*/
+
+
+/* セクション区切り */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc; /* 区切り線の色 */
+}
+
+.section-divider::before {
+  margin-right: 10px;
+}
+
+.section-divider::after {
+  margin-left: 10px;
+}
+
+.divider-text {
+	padding: 0.3em;
+	margin: 0.3em;
+	color: rgb(38, 18, 4); /* テキストの色 */
+	background: rgba(230,230,230,0.1);
+	//box-shadow: 5px 5px 5px 0.8;
+	box-shadow: 4px 4px 28px rgba(150, 150, 150, 0.1);
+	text-shadow: 2px 2px 2px rgb(251, 231, 217);
+	border-radius: 5px;
+}
+
+
+
+
+/* テスト用 */
+.testback {
+	height: 50vh;
+	//background-color:rgba(190,213,232);
+	background-color:rgba(138,111,58);
+	//background-color:rgba(127,161,217);
+	
+}
+
+.testback2 {
+	height: 100vh;
+	background: linear-gradient(0deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%),
+ 		linear-gradient(90deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%);
+	position: relative;
+	overflow: hidden;
+}
+
+
+.testback2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 90% 30%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 30% 70%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 70% 80%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 65% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 20% 90%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 80% 10%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 40% 40%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 60% 60%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 25% 15%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 75% 85%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 95% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 5% 55%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 55% 5%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%),
+    radial-gradient(circle at 45% 95%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%);
+
+	//opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

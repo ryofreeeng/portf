@@ -1,0 +1,401 @@
+@charset "UTF-8";
+/* 共通設定 */
+* {
+  box-sizing: border-box;
+}
+
+.english {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.loader {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.5em;
+  border-radius: 0.3em;
+  font-size: 20px;
+  color: rgb(120, 120, 120);
+  background-color: rgba(250, 250, 250, 0.7);
+  box-shadow: 0px 0px 5px rgba(250, 250, 250, 0.7);
+  z-index: 10000; /* 他の要素の上に表示 */
+}
+
+.page-title {
+  position: relative;
+  text-align: center;
+  margin: 1.5em auto 2em auto;
+}
+
+.page-title .english {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.3em;
+  text-shadow: 0 2px 2px rgb(244, 210, 182);
+}
+
+.page-title:before {
+  content: "";
+  height: 0.5em;
+  width: 6em;
+  background-color: rgba(251, 231, 217, 0.3);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  filter: blur(4px);
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+/* 全体構造 */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-image: radial-gradient(circle at 10% 20%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 90% 30%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 30% 70%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 70% 80%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 65% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 20% 90%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 80% 10%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 40% 40%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 60% 60%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 25% 15%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 75% 85%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 95% 45%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 5% 55%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 55% 5%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), radial-gradient(circle at 45% 95%, rgba(182, 216, 244, 0.2) 0%, rgba(182, 216, 244, 0.1) 5%, transparent 8.1%), linear-gradient(0deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%), linear-gradient(90deg, rgb(217, 238, 255) 0%, rgb(235, 244, 255) 10%, rgba(235, 244, 255, 0.5) 40%, transparent 50%, rgba(235, 244, 255, 0.5) 60%, rgb(235, 244, 255) 90%, rgb(217, 238, 255) 100%);
+  background-attachment: fixed;
+}
+
+main {
+  flex: 1;
+}
+
+/* フォントとカラーのベースを設定 */
+body {
+  font-family: "Noto Serif JP", "Hiragino Mincho Pro", "MS Mincho", "Yu Mincho", serif;
+  font-size: 16px;
+  color: #000000;
+}
+
+@media (mqx-width: 320px) {
+  body {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 24px;
+  }
+}
+/* スマホ用スタイルがベース */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(251, 231, 217, 0.5), rgb(209, 232, 246), rgb(182, 216, 244));
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  height: auto;
+  opacity: 80%;
+}
+
+/* タイトル行（タイトルとユーザーアイコン、ハンバーガーメニュー）の配置 */
+.title-row {
+  padding: 8px;
+}
+
+.title-row h1 {
+  display: block;
+  width: auto;
+  text-align: center;
+  margin: 0 0 4px 0;
+}
+
+.title-row h1 a {
+  text-decoration: none;
+  color: #000000;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: normal;
+  font-style: normal;
+  text-shadow: 2px 2px 2px rgb(251, 231, 217);
+}
+
+.user-menu {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  right: 15%;
+  font-size: 1.8em;
+}
+
+.user-icon {
+  cursor: pointer;
+}
+
+.user-menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.user-menu-dropdown a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #000000;
+  font-size: 0.5em;
+}
+
+.hamburger-menu {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5%;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #000000;
+  transition: all 0.6s ease;
+}
+
+.hamburger {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger::before {
+  position: absolute;
+  top: -10px;
+}
+
+.hamburger::after {
+  position: absolute;
+  top: 10px;
+}
+
+/* ハンバーガーメニューの開閉状態 */
+.hamburger.open {
+  background-color: transparent;
+}
+
+.hamburger.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.hamburger.open::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* ナビゲーションの開閉管理 */
+@media (max-width: 769px) {
+  .nav-row {
+    background: linear-gradient(to right, rgb(182, 216, 244), rgb(217, 237, 251), rgb(209, 232, 246));
+    position: absolute;
+    top: 100%;
+    right: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 1.5em;
+    height: 100vh;
+    font-size: 1.2em;
+  }
+}
+.nav-row.active {
+  transform: translateX(0%);
+}
+
+/* ナビゲーションリンクのスタイル */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #000000;
+  padding: 5px 10px;
+}
+
+.nav-links li a:hover {
+  background-color: #f0f0f0;
+  color: #0066cc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ユーザーメニューのポップアップ表示 */
+.user-icon.active + .user-menu-dropdown {
+  display: block;
+}
+
+/* PC用スタイル */
+@media (min-width: 769px) {
+  header {
+    height: auto;
+  }
+  .title-row {
+    justify-content: center;
+    padding: 5px 10px;
+  }
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    height: auto;
+  }
+  nav {
+    margin: 0 auto;
+  }
+  .nav-links {
+    flex-direction: row;
+    gap: 15px;
+  }
+  .nav-links li a {
+    padding: 8px 15px;
+  }
+  .hamburger-menu {
+    display: none;
+  }
+  .user-menu {
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    margin: 0;
+  }
+  .user-menu-dropdown {
+    top: 110%;
+  }
+}
+.footer {
+  bottom: 0px;
+  height: 40px;
+  padding: 10px 0;
+  margin-top: 3em;
+}
+
+.privacy-policy-container {
+  text-align: center;
+  padding: 0.5em 0;
+}
+
+.privacy-policy a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* サロン情報 */
+.salon-info {
+  padding: 1.5em 1.5em 1em 1.5em;
+  background-color: rgb(220, 230, 240);
+}
+
+.salon-info-name {
+  font-weight: bold;
+}
+
+.salon-subInfo {
+  padding: 0.5em 0;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  font-size: 0.8em;
+  max-width: 400px;
+}
+
+/* フッターの各メニューリンク */
+.footer-links {
+  padding: 1em 1.5em;
+  background-color: rgba(120, 130, 140, 0.5);
+  color: white;
+  display: flex;
+}
+
+.left-links, .right-links {
+  width: 50%;
+}
+
+.left-links-ul, .right-links-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+/* フッターのSNSリンク */
+.sns-links {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5em;
+  row-gap: 0.5em;
+  justify-content: center;
+  padding: 0.5em 0 0.3em 0;
+  background-color: rgba(20, 30, 40, 0.5);
+}
+
+.sns-image {
+  width: 25px;
+  height: 25px;
+  object-fit: contains; /* 画像を要素の枠に合わせて拡大または縮小 */
+}
+
+/* PCスタイルのオーバーライド */
+@media (min-width: 769px) {
+  .salon-info-links {
+    display: flex;
+  }
+  .salon-info {
+    flex: 5;
+  }
+  .footer-links {
+    flex: 5;
+  }
+  .salon-subInfo {
+    max-width: 550px;
+  }
+}
+/* 未使用
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+
+button {
+  background-color: $primary-back-color;
+  color: $secondary-color;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  @include border-radius(5px);
+}
+*/
+
+/*# sourceMappingURL=styles.css.map */

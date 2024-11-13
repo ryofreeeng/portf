@@ -1,0 +1,52 @@
+// _variables.scss
+
+//メディアクエリ用
+$breakpoint-sm: 320px; // 小程度の画面幅
+$breakpoint-md: 768px; // 中程度の画面幅
+$breakpoint-lg: 1024px; // 大きな画面幅
+
+//文字サイズ
+$small-font-size: 14px; // 小さめ
+$base-font-size: 16px; // 標準サイズ
+$large-font-size: 24px; // 大きめ
+
+//背景等のカラー
+$primary-back-color: #B0E0E6; // メインカラー
+$secondary-back-color: #2ecc71; // セカンダリーカラー
+$tertiary-back-color: #6C8EBF; // サードカラー
+$quaternary-back-color: #FF0000; // フォースカラー
+$quinary-back-color: #FFFFFF; // ファイブカラー
+
+//ボタンのカラー
+$primary-btn-color: #a2846b ; // メインカラー
+$secondary-btn-color: #3399cc; // セカンダリーカラー
+$tertiary-btn-color: #007bff; // サードカラー
+$quaternary-btn-color: #2e86c1; // フォースカラー
+$quinary-btn-color: #ffead9; // ファイブカラー
+
+//文字色カラー
+$primary-color: #000000; // メインカラー（通常）
+$secondary-color: #FFFFFF; // セカンダリーカラー（ボタンの文字色 進む）
+$tertiary-color: #000000; // サードカラー（ボタンの文字色 戻る）
+$quaternary-color: #3498db; // フォースカラー（強調文字色）
+$quinary-color: #2ecc71; // ファイブカラー
+
+//入力欄の枠線カラー
+$primary-border-color: #cccccc; // メインカラー（通常）
+$secondary-border-color: #FFFFFF; // セカンダリーカラー（ボタンの文字色 進む）
+$tertiary-border-color: #000000; // サードカラー（ボタンの文字色 戻る）
+$quaternary-border-color: #3498db; // フォースカラー（強調文字色）
+$quinary-border-color: #2ecc71; // ファイブカラー
+
+//フォント
+$font-JP-serif: "Noto Serif JP", "Hiragino Mincho Pro", "MS Mincho", "Yu Mincho", serif;
+	//$font-JP-serif: 'NotoSerifJP'; 容量の関係で使用中止
+$font-EN-serif: "Cormorant Garamond", serif;
+	//$font-EN-serif: 'Cormorant Garamond', serif;  容量の関係で使用中止
+	
+$font-JP-sanserif: Arial, sans-serif;
+//$font-EN-sanserif: ; 使用箇所がない
+
+//$font-stack: "Times New Roman", Times, serif;
+//$font-stack: Georgia, serif;
+

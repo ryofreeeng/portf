@@ -1,0 +1,78 @@
+// reviews.scss
+@import 'variables';
+@import 'mixins';
+
+/* ログイン画面用のスタイル */
+.login-container {	
+    padding: 15px 10%;
+    background-color: rgba(255, 255, 248, 0.6);
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+//PCでのレイアウト微調整
+@media (min-width: $breakpoint-md) {
+	.login-container {	
+	    padding: 15px 3%;	    
+	    border-radius: 15px;
+	    margin: 40px auto;
+	}
+}
+
+//タイトルは中央に
+.login-container h2 {
+    text-align: center;    
+}
+
+//ページタイトル直下の日本語文字
+.page-title:after {
+	content:"ログイン";
+	font-size: 0.5em;
+	background-color:rgba(251, 245, 234, 0.3);
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+/* フォーム領域 */
+//各項目のまとまりの間を空ける
+.login-container .form-group {
+    margin-bottom: 1.2em;
+}
+//ラベルは下を少し空ける
+.login-container .form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    display: block;
+}
+//入力欄は文字サイズ等の調整
+.login-container .form-group input {
+    width: 100%;
+    border: 1px solid $primary-border-color;
+    border-radius: 4px;
+    font-size: 1em;
+    padding: 0.75em;
+}
+//バリデーション表示のサイズと位置調整
+.login-container .form-group .text-danger {
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: 0.25em;
+    display: block;
+}
+//ボタンは入力欄より少し文字を大きく
+.login-container button {
+	@include calm-brown-btn;
+	font-size: 1.2em;
+	font-family: $font-JP-serif;
+	width: auto;
+	display: block;
+    margin: 2em auto;
+}
+//ホバー時は少し暗く
+.login-container button:hover {
+    @include calm-brown-btn-hover;
+}
+

@@ -1,0 +1,191 @@
+﻿@using static Therapim.Helpers.CommonHelper
+@model Therapim.Models.CourseResponseModel
+@{
+    ViewData["Title"] = " Course";
+}
+@section CustomStyles {
+    <link rel="stylesheet" href="~/css/courses.css" asp-append-version="true" />    
+}
+@{
+    var visitedTimes = ViewData["VisitedTimes"];
+    var fullName = ViewData["FullName"];
+}
+
+<div class="courses-container">
+    <h2 class="page-title"><span class="english">@ViewData["Title"]</span></h2>
+
+    <div class="course-guide-section">
+        <div>
+            @if (User.Identity.IsAuthenticated)
+            {
+
+                <div class="course-guide">
+                    <span class="visited-times">@fullName さんのこれまでのご来店回数は @visitedTimes 回です。</span>
+                    <span>以下のコースがご利用いただけます。</span>
+                </div>
+            }
+            else
+            {
+                <div class="course-guide">
+                    <span>以下のコースがご利用いただけます。</span>
+                </div>
+            }
+        </div>
+        <span class="review-coupon-navi"><Strong>※口コミ割引がご利用いただけます</Strong></span>
+    </div>
+
+    <div class="course-list">        
+        @for (int i = 0; i < Model.SqlContent.Count; i++)
+        {
+            <section class="course-item">                
+                <!--コースのメイン内容-->
+                <div class="course-overview">
+                    <div class="course-image">
+                        <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath1" />
+                    </div>
+                    <div class="course-display">
+                        <!--コースのラベル-->
+                        <div class="course-label">
+                            @Html.Raw(@devideLabel(@Model.SqlContent[i].Label)) <!--メソッドで生成したタグのためHTMLエンコードされないようにする-->
+                        </div>
+                        <!--コース名-->
+                        <div class="course-name">
+                            <strong>@Model.SqlContent[i].CourseNameDisp</strong>
+                        </div>
+                        <!--金額-->
+                        <div class="course-price">
+                            @FormatAsCurrency(Model.SqlContent[i].Price)
+                        </div>
+                        <!--金額補足-->
+                        <div class="course-priceAddInfo">
+                            @Html.Raw(Model.SqlContent[i].PriceAddInfo)
+                        </div>                    
+                    </div>
+                </div>
+                <!--コース説明-->
+                <div class="course-description">
+                    @Model.SqlContent[i].Description
+                </div>
+                <!--補足情報-->
+                <div class="course-addInfo">                    
+                    <div class="course-addInfo-list">
+                        <div class="course-addInfo-list-title">
+                            <strong>＜補足・注意事項＞</strong>
+                        </div>
+                        <ul>
+                            @if (@Model.SqlContent[i].AddInfo1 != "")
+                            {
+                                <li>@Model.SqlContent[i].AddInfo1</li>
+                            }
+                            @if (@Model.SqlContent[i].AddInfo2 != "")
+                            {
+                                <li>@Model.SqlContent[i].AddInfo2</li>
+                            }
+                            @if (@Model.SqlContent[i].AddInfo3 != "")
+                            {
+                                <li>@Model.SqlContent[i].AddInfo3</li>
+                            }
+                            @if (@Model.SqlContent[i].AddInfo4 != "")
+                            {
+                                <li>@Model.SqlContent[i].AddInfo4</li>
+                            }
+                            @if (@Model.SqlContent[i].AddInfo5 != "")
+                            {
+                                <li>@Model.SqlContent[i].AddInfo5</li>
+                            }                            
+                        </ul>
+                    </div>
+                    <div class="course-target">
+                        <div class="course-target-title">
+                        <strong>＜対象＞</strong>
+                        </div>
+                        <span>@Model.SqlContent[i].Target</span><br />
+                        <span>@Model.SqlContent[i].Level</span>
+                    </div>                    
+                    @if (@Model.SqlContent[i].CourseImagePath1 != "")
+                    {
+                        <div class="course-image-other" id="thumbnails">
+                            @if (@Model.SqlContent[i].CourseImagePath1 != "")
+                            {
+                                <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath1" />
+                            }
+                            @if (@Model.SqlContent[i].CourseImagePath2 != "")
+                            {
+                                <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath2" />
+                            }
+                            @if (@Model.SqlContent[i].CourseImagePath3 != "")
+                            {
+                                <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath3" />
+                            }
+                            @if (@Model.SqlContent[i].CourseImagePath4 != "")
+                            {
+                                <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath4" />
+                            }
+                            @if (@Model.SqlContent[i].CourseImagePath5 != "")
+                            {
+                                <img class="course-image-a" src="@Model.SqlContent[i].CourseImagePath5" />
+                            }
+                        </div>
+                    }
+                    
+                    <div class="course-reserve">
+                        <a href="/Reservation/Create?MenuId=@Model.SqlContent[i].MenuId" class="btn btn-primary clickLoadingDisp">このコースで予約</a>
+                    </div>
+                    
+                </div>
+                <div class="course-addInfo-navi">詳細を見る <span class="course-addInfo-icon"></span></div>
+
+                <!--
+                
+                <div>
+                    <iframe src="@Model.SqlContent[i].CourseVideoPath1" width="640" height="480" allow="autoplay"></iframe>
+                </div>
+                <div>
+                    <iframe width="560" height="315" src="@Model.SqlContent[i].CourseVideoPath2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>                
+                <div>@Model.SqlContent[i].CourseVideoPath3</div>
+                <div>@Model.SqlContent[i].Label</div>
+                <div>@Model.SqlContent[i].Rank</div>
+                <div>@Model.SqlContent[i].Permission</div>
+
+                -->
+
+            </section>
+        }
+    </div>  
+</div>
+
+<!--
+<div class="course-image-modal-bk">
+    <div class="course-image-modal">                
+        <img class="course-image-a" src="" />
+    </div>
+</div>
+-->
+
+
+<div class="course-image-modal-bk" id="modalBack">
+    <div class="course-image-modal">
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Modal Image">
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="review-coupon-guide-modal-bk">
+    <div class="review-coupon-guide-modal">
+        <span>施術後にサロン内にて口コミをお書き頂ける方は、<strong>「¥1000割引」</strong>または<strong>「有料オプション2つ無料」</strong>です</span>
+        <span><strong>ご予約時にお申し付けください</strong></span>
+        <span>※メンズセラピストサロンナビというサイトにアクセスしてそのままお書きいただけます</span>
+        <span><a href="https://mtsnavi.com/ty104/">メンズセラピストサロンナビ（THERAPIMのページ）</a></span><br />
+        <span>ご来店後には、当HPの口コミ投稿が可能となりますので、そちらをお書きいただける場合、<strong>「次回¥1,000割引」</strong>または<strong>「次回有料オプション全て無料」</strong>となります</span>
+    </div>
+</div>
+
+@section CustomScripts {
+    <script src="~/js/courses.js" asp-append-version="true"></script>
+    <script src="~/js/reviews.js" asp-append-version="true"></script>
+}

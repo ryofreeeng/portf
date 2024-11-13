@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - THERAPIM</title>
+    
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/fonts.css" asp-append-version="true" />
+    @RenderSection("CustomStyles", required:false)
+
+    <!-- Google tag (gtag.js) -->    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELQM1S65CN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ELQM1S65CN');
+    </script>
+    
+
+</head>
+<body>
+    <header>
+        <div class="header-row title-row">
+            <h1><a asp-area="" asp-controller="Home" asp-action="Index">Therapim</a></h1>
+            <div class="header-spacer"></div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="user-menu">
+                    <span class="user-icon">&#x1F34A;</span>
+                    <div class="user-menu-dropdown">
+                        <!--<a href="#">予約一覧</a>-->
+                        <a asp-area="" asp-controller="Login" asp-action="XtLogout">ログアウト</a>
+                    </div>
+                </div>
+            }
+            <div class="hamburger-menu">
+                <div class="hamburger"></div>
+            </div>
+        </div>
+        <div class="header-row nav-row">
+            <nav>
+                <ul class="nav-links">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">ホーム</a></li>
+                    <li><a asp-area="" asp-controller="Course" asp-action="List" class="clickLoadingDisp">コース・料金</a></li>
+                    <li><a asp-area="" asp-controller="Review" asp-action="List" class="clickLoadingDisp">口コミ</a></li>
+                    <li><a asp-area="" asp-controller="Reservation" asp-action="Create" class="clickLoadingDisp">ご予約</a></li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-controller="Login" asp-action="Index">ログイン</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-area="" asp-controller="Login" asp-action="XtLogout">ログアウト</a></li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main role="main">
+        @RenderBody()
+    </main>
+    
+
+
+
+    <footer class="border-top footer text-muted">
+        <div class="salon-info-links">
+            <div class="salon-info">
+                <div><strong>男性セラピストサロン</strong></div>
+                <div><strong><span class="english salon-info-name">Therapim</span>（セラピム）</strong></div>
+                <div class="salon-subInfo">
+                    <span class="salon-subInfo-label">MAIL</span>
+                    <span class="salon-subInfo-label">：</span>
+                    <span class="salon-subInfo-label">ryo.therapist@gmail.com(代表Mail)</span>
+                    <span class="salon-subInfo-label">受付</span>
+                    <span class="salon-subInfo-label">：</span>
+                    <span class="salon-subInfo-label">土日祝8:00～22:00</span>
+                    <span class="salon-subInfo-label">休日</span>
+                    <span class="salon-subInfo-label">：</span>
+                    <span class="salon-subInfo-label">不定休</span>
+                    <span class="salon-subInfo-label">アクセス</span>
+                    <span class="salon-subInfo-label">：</span>
+                    <span class="salon-subInfo-label">新宿、渋谷、下北沢、吉祥寺駅近くのレンタルサロン</span>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <nav class="left-links">
+                    <ul class="left-links-ul">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">ホーム</a></li>
+                        <li><a asp-area="" asp-controller="Course" asp-action="List" class="clickLoadingDisp">コース・料金</a></li>
+                        <li><a asp-area="" asp-controller="Review" asp-action="List" class="clickLoadingDisp">口コミ</a></li>
+                        <li><a asp-area="" asp-controller="Reservation" asp-action="Create" class="clickLoadingDisp">ご予約</a></li>
+                    </ul>
+                </nav>
+                <nav class="right-links">                
+                    <ul class="right-links-ul">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li><a asp-area="" asp-controller="Login" asp-action="Index">ログイン</a></li>
+                        }
+                        else
+                        {
+                            <li><a asp-area="" asp-controller="Login" asp-action="XtLogout">ログアウト</a></li>
+                        }
+                        <!--
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">サービス内容</a></li>
+                        <li><a asp-area="" asp-controller="Course" asp-action="List">セラピストについて</a></li>
+                        <li><a asp-area="" asp-controller="Review" asp-action="List">お知らせ</a></li>
+                        -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="sns-links">
+            <div class="sns-image-area">
+                <a href="https://www.instagram.com/ryotherapiki"><img class="sns-image" src="/images/SNS/Instagram_Glyph_Gradient.png" /></a>
+            </div>
+            <div class="sns-image-area">
+                <a href="https://lin.ee/VArQtPV"><img class="sns-image" src="/images/SNS/LINE_Brand_icon.png" /></a>
+            </div>
+            <div class="sns-image-area">
+                <a href="https://x.com/ryotherapis"><img class="sns-image" src="/images/SNS/logo-white.png" /></a>
+            </div>
+            <div class="sns-image-area">
+                <a href="https://www.youtube.com/@@ryo.therapist"><img class="sns-image" src="/images/SNS/yt_icon_rgb.png" /></a>
+            </div>     
+            <div class="sns-image-area">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ryo.therapist@gmail.com&su=予約希望またはその他の件名をお書きください&body=予約希望の旨または問い合わせ内容をお書きください">
+                    <img class="sns-image" src="/images/SNS/icons8-gmail.png" />
+                </a>                
+            </div>            
+        </div>        
+
+        <div class="privacy-policy-container">
+            <div class="privacy-policy">
+                &copy; 2024 - Therapim - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="loader" id="loader"></div>
+
+    <script src="~/js/script.js" asp-append-version="true"></script>
+    @RenderSection("CustomScripts", required: false)
+
+</body>
+</html>
