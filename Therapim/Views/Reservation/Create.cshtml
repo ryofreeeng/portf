@@ -51,7 +51,7 @@
             <!-- お名前 -->
             <div class="form-group">
                 <label asp-for="FullName" class="control-label required-field" required>お名前</label>                
-                <input asp-for="FullName" class="form-control" placeholder="（例）施術受子" />
+                <input asp-for="FullName" class="form-control" placeholder="お名前" />
                 <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
 
@@ -91,22 +91,22 @@
             <div class="form-group">
                 <label asp-for="SnsName" class="control-label">LINEやSNSでの表示名</label>
                 <label class="control-label-support">※メール・SMSでのご連絡希望の方は不要</label>
-                <input asp-for="SnsName" class="form-control" placeholder="アロマ子（LINE）" />
+                <input asp-for="SnsName" class="form-control" placeholder="アカウント名" />
                 <span asp-validation-for="SnsName" class="text-danger"></span>
             </div>
         </div>
 
 
         <div class="section-group">
-            <!-- コース選択セクション -->
+            <!-- メニュー選択セクション -->
             <div class="section-title mb-4 mt-5">
-                <h3>＜コース選択＞</h3>
+                <h3>＜メニュー選択＞</h3>
             </div>            
 
-            <!-- コース -->
+            <!-- メニュー -->
             <div class="form-group">
-                <label asp-for="MenuId" class="control-label required-field">コース</label>
-                <label class="control-label-support">※時間指定がないコースは下部のご要望の入力欄に希望時間をご入力ください</label>
+                <label asp-for="MenuId" class="control-label required-field">メニュー</label>
+                <label class="control-label-support"></label>
                 <div class="select-wrapper">
                     <select asp-for="MenuId" class="form-control" id="courseSelect">
                         @for (int i = 0; i < courseList.Count; i++)
@@ -126,16 +126,16 @@
                 <input asp-for="CourseNameDisp" class="form-control" id="courseNameDisp" type="hidden" readonly />
             </div>
 
-            <!-- コースオプション -->
+            <!-- メニューオプション -->
             <div class="form-group">
-                <label asp-for="CourseOptionId" class="control-label required-field">オプション</label>
+                <label asp-for="CourseOptionId" class="control-label required-field">オプション１</label>
                 <div class="select-wrapper">
                     <select asp-for="CourseOptionId" class="form-control" id="CourseOptionId">
                         <option value="0">なし</option>
-                        <option value="1">バストマッサージ（ニップレスあり）</option>
-                        <option value="2">バストマッサージ（ニップレスなし）</option>
-                        <option value="3">ヒップマッサージ</option>
-                        <option value="4">鼠経リンパ流し</option>
+                        <option value="1">選択肢１</option>
+                        <option value="2">選択肢２</option>
+                        <option value="3">選択肢３</option>
+                        <option value="4">選択肢４</option>
                     </select>
                 </duv>
                 <span asp-validation-for="CourseOptionId" class="text-danger"></span>
@@ -146,43 +146,43 @@
         <div class="section-group">
             <!-- オプション選択セクション -->
             <div class="section-title mb-4 mt-5">
-                <h3>＜アメニティ選択＞</h3>
+                <h3>＜特別オプション＞</h3>
             </div>
 
-            <!-- ペーパーブラ選択 -->
+            <!-- オプション２選択 -->
             <div class="form-group">
-                <label asp-for="PaperBraSelect" class="control-label required-field">紙ブラジャー</label>
+                <label asp-for="PaperBraSelect" class="control-label required-field">オプション２</label>
                 <div class="select-wrapper">
                     <select asp-for="PaperBraSelect" class="form-control">
-                        <option value="あり">あり</option>
-                        <option value="なし">なし</option>
-                        <option value="水着等持参">水着等持参</option>
+                            <option value="選択肢１">選択肢１</option>
+                            <option value="選択肢２">選択肢２</option>
+                            <option value="選択肢３">選択肢３</option>
                     </select>
                 </div>
                 <span asp-validation-for="PaperBraSelect" class="text-danger"></span>
             </div>
 
-            <!-- ペーパーパンツ選択 -->
+            <!-- オプション３選択 -->
             <div class="form-group">
-                <label asp-for="PaperPantsSelect" class="control-label required-field">紙パンツ</label>
+                <label asp-for="PaperPantsSelect" class="control-label required-field">オプション３</label>
                 <div class="select-wrapper">
                     <select asp-for="PaperPantsSelect" class="form-control">
-                        <option value="通常">通常のショーツタイプ</option>
-                        <option value="Tバック">Tバックタイプ</option>
-                        <option value="水着等持参">水着等持参</option>
+                        <option value="選択肢１">選択肢１</option>
+                        <option value="選択肢３">選択肢２</option>
+                        <option value="選択肢３">選択肢３</option>
                     </select>
                 </div>
                 <span asp-validation-for="PaperPantsSelect" class="text-danger"></span>
             </div>
 
-            <!-- アロマオイル選択 -->
+            <!-- オプション４選択 -->
             <div class="form-group">
-                <label asp-for="AromaOilSelect" class="control-label required-field">アロマオイル</label>
-                <label class="control-label-support">※現在、トリートメントオイルに配合できるのはオレンジオイルのみです。</label>
+                <label asp-for="AromaOilSelect" class="control-label required-field">オプション４</label>
+                    <label class="control-label-support">※オプション４の説明文です</label>
                 <div class="select-wrapper">
                     <select asp-for="AromaOilSelect" class="form-control">
                         <option value="なし">なし</option>
-                        <option value="オレンジ">オレンジ</option>
+                        <option value="あり">あり</option>
                     </select>
                 </div>
                 <span asp-validation-for="AromaOilSelect" class="text-danger"></span>
@@ -208,7 +208,7 @@
             <div id="visitSection">
                 <div class="form-group">
                     <label asp-for="DesiredVisitPlace" class="control-label required-field">出張場所概要</label>
-                    <label class="control-label-support">※最寄り駅とそこからの距離、自宅やホテルなど場所の概要をお書きください。</label>
+                    <label class="control-label-support">※最寄り駅とそこからの距離などの概要をお書きください。</label>
                     <input asp-for="DesiredVisitPlace" class="form-control" placeholder="（例）渋谷駅から徒歩15分の自宅"/>
                     <span asp-validation-for="DesiredVisitPlace" class="text-danger"></span>
                 </div>
@@ -221,11 +221,11 @@
                 </div>
             </div>
 
-            <!-- 希望サロン（IsVisitにチェックありの場合表示） -->
+            <!-- 希望店舗（IsVisitにチェックありの場合表示） -->
             <div id="salonSection">
                 <div class="form-group">
-                    <label class="control-label required-field">ご来店可能サロン</label>
-                    <label class="control-label-support">※空いているレンタルサロンにてご案内いたします。多い方がご案内がしやすくなります</label>
+                    <label class="control-label required-field">ご来店可能店舗</label>
+                    <label class="control-label-support">※空いているレンタル店舗にてご案内いたします。多い方がご案内がしやすくなります</label>
                     <div class="checkbox-group">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input salon-checkbox" id="salon-shinjuku" value="新宿" />
@@ -236,12 +236,12 @@
                             <label class="form-check-label" for="salon-shibuya">渋谷</label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input salon-checkbox" id="salon-shimokita" value="下北沢" />
-                            <label class="form-check-label" for="salon-shimokita">下北沢</label>
+                            <input type="checkbox" class="form-check-input salon-checkbox" id="salon-shimokita" value="池袋" />
+                            <label class="form-check-label" for="salon-shimokita">池袋</label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input salon-checkbox" id="salon-kichijoji" value="吉祥寺" />
-                            <label class="form-check-label" for="salon-kichijoji">吉祥寺</label>
+                            <input type="checkbox" class="form-check-input salon-checkbox" id="salon-kichijoji" value="上野" />
+                            <label class="form-check-label" for="salon-kichijoji">上野</label>
                         </div>
                     </div>
                     <!-- 実際の送信用フィールド -->
@@ -255,7 +255,7 @@
             <!-- 希望時間帯セクション -->
             <div class="section-title mb-4 mt-5">
                 <h3>＜希望時間帯＞</h3>
-                <label class="control-label-support">※広くご指定いただいた方がご案内がしやすくなります。コース時間＋40分程度でお見積りください。</label>
+                <label class="control-label-support">※時間に関する補足１</label>
                 <label class="control-label-support">※終了時刻は自動で開始時刻の3時間後がセットされますが、適宜ご調整ください。</label>
                 <label class="control-label-support">※10分以下の時間は自動で切り上げされます。</label>
             </div>
@@ -320,24 +320,24 @@
 
             <!-- 会話希望 -->
             <div class="form-group">
-                <label asp-for="Conversation" class="control-label">施術中の会話について</label>
+                <label asp-for="Conversation" class="control-label">その他質問１</label>
                 <div class="select-wrapper">
                     <select asp-for="Conversation" class="form-control">
                         <option value="希望なし">特に希望なし</option>
-                        <option value="とにかく静かに受けたい">とにかく静かに受けたい</option>
-                        <option value="強さや気温の確認程度のみでよい">強さや気温の確認程度のみでよい</option>
-                        <option value="通常の会話くらいはOK">通常の会話くらいはOK</option>
-                        <option value="いろいろ話を聞きたい">いろいろ話を聞きたい</option>                
-                    </select>
+                        <option value="その他質問１の回答１">その他質問１の回答１</option>
+                        <option value="その他質問１の回答２">その他質問１の回答２</option>
+                        <option value="その他質問１の回答３">その他質問１の回答３</option>
+                        <option value="その他質問１の回答４">その他質問１の回答４</option>
+                        </select>
                 </div>
                 <span asp-validation-for="Conversation" class="text-danger"></span>
             </div>
 
 
-            <!-- 施術NGな部位 -->
+            <!-- アレルギー -->
             <div class="form-group">
-                <label asp-for="NotTouchParts" class="control-label">NG部位</label>
-                <label class="control-label-support">※お怪我等で施術NGな部位があればお書きください</label>
+                <label asp-for="NotTouchParts" class="control-label">アレルギー</label>
+                <label class="control-label-support">※アレルギーがあればお書きください</label>
                 <textarea asp-for="NotTouchParts" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="NotTouchParts" class="text-danger"></span>
             </div>
@@ -345,7 +345,7 @@
             <!-- ご要望 -->
             <div class="form-group">
                 <label asp-for="OtherRequest" class="control-label">ご要望</label>
-                <label class="control-label-support">※出張などのコース時間のご希望などはこちらにお書きください。</label>
+                <label class="control-label-support">※その他のご希望などはこちらにお書きください。</label>
                 <textarea asp-for="OtherRequest" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="OtherRequest" class="text-danger"></span>
             </div>

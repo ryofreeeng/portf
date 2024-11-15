@@ -345,7 +345,7 @@ header {
     text-decoration: none;
 }
 
-/* サロン情報 */
+/* 店情報 */
 .salon-info {
 	padding: 1.5em 1.5em 1em 1.5em;
 	background-color: rgba(220, 230, 240, 1);
@@ -401,7 +401,7 @@ header {
 
 /* PCスタイルのオーバーライド */
 @media (min-width: 769px) {
-	// サロン情報とHP内リンクの位置を横並びに変更
+	// 店情報とHP内リンクの位置を横並びに変更
 	.salon-info-links{
 		display: flex;
 	}

@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 namespace Therapim.Processers
 {
     /// <summary>
-    /// コース用プロセッサークラス
+    /// メニュー用プロセッサークラス
     /// </summary>
     public class CourseProccesser
     {
@@ -30,9 +30,9 @@ namespace Therapim.Processers
         }
 
         /// <summary>
-        /// Gas APIよりコース一覧を取得する
+        /// Gas APIよりメニュー一覧を取得する
         /// </summary>
-        /// <returns>コース一覧 List<CourseResponseModel></returns>
+        /// <returns>メニュー一覧 List<CourseResponseModel></returns>
         public async Task<CourseResponseModel> getCourseList()
         {
             //リクエスト文字列を作成

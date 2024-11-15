@@ -12,7 +12,7 @@
         /// <summary>
         /// GasAPIのURL（テスト用）
         /// </summary>
-        //public const string GAS_API_URL = "https://script.google.com/macros/s/AKfycbzbul0oe7087_pugKKklCUeq7jK-k_Bl_nHl2Ybv3yLJAP3XtcRl5J0XyHDZcwsZlC_/exec";
+        public const string GAS_API_URL = "https://script.google.com/macros/s/AKfycbyP0m7DlrdCeuVfDAeCTIDlVoMJADtd1Yed-Rc9wj_zG1n_nwFYOCQ4Y7cQGVQapIcg/exec";
 
     }
 

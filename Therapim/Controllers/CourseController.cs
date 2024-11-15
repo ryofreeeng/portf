@@ -15,7 +15,7 @@ using Therapim.Filters;
 namespace Therapim.Controllers
 {
     /// <summary>
-    /// コース用コントローラークラス
+    /// メニュー用コントローラークラス
     /// </summary>
     public class CourseController : Controller
     {
@@ -32,9 +32,9 @@ namespace Therapim.Controllers
         }
 
         /// <summary>
-        /// コース一覧画面表示
+        /// メニュー一覧画面表示
         /// </summary>
-        /// <returns>コース一覧画面 with <CourseResponseModel></returns>
+        /// <returns>メニュー一覧画面 with <CourseResponseModel></returns>
         [HttpGet]
         public async Task<IActionResult> List()
         {
@@ -45,7 +45,7 @@ namespace Therapim.Controllers
             if(CourseList == null)
             {
                 // TempData にエラーメッセージを設定
-                TempData["ErrorMessage"] = "コース情報取得の通信に失敗しました。再度お試しいただいても解決しない場合は店舗までお問い合わせください。";
+                TempData["ErrorMessage"] = "メニュー情報取得の通信に失敗しました。再度お試しいただいても解決しない場合は店舗までお問い合わせください。";
                 // エラー画面にリダイレクト
                 return RedirectToAction("Error", "Home");
             }

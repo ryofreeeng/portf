@@ -6,7 +6,7 @@
 }
 
 .page-title:after {
-  content: "コース";
+  content: "メニュー";
   font-size: 0.5em;
   background-color: rgba(251, 245, 234, 0.3);
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -16,7 +16,7 @@
   transform: translateX(-50%);
 }
 
-/* コース一覧ページの案内 */
+/* メニュー一覧ページの案内 */
 .course-guide-section {
   padding-bottom: 2em;
 }
@@ -88,7 +88,7 @@
   background: linear-gradient(to right, rgba(233, 30, 99, 0.4), rgba(233, 30, 99, 0.6), rgba(233, 30, 99, 0.5));
 }
 
-/* コース内容の初期表示箇所 */
+/* メニュー内容の初期表示箇所 */
 .course-overview {
   display: flex;
   justify-content: space-between;
@@ -255,7 +255,7 @@
   cursor: pointer;
 }
 
-/* コース画像のモーダル */
+/* メニュー画像のモーダル */
 .course-image-modal-bk {
   display: none;
   position: fixed;

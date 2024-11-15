@@ -41,7 +41,7 @@ namespace Therapim.Controllers
                 reservation.PhoneNumber = _commonService.GetCookiePhoneNumber();
                 reservation.MailAddress = _commonService.GetCookieMailAddress();
 
-                // コース情報取得処理
+                // メニュー情報取得処理
                 var CourseProcesser = new CourseProccesser(_logger, _commonService);
                 var CourseList = await CourseProcesser.getCourseList();
 
@@ -55,7 +55,7 @@ namespace Therapim.Controllers
 
                 ViewData["CourseList"] = CourseList;
 
-                // コース画面から来た場合はパラメータのメニューID取得して渡す
+                // メニュー画面から来た場合はパラメータのメニューID取得して渡す
                 ViewData["MenuId"] = MenuId?.ToString() ?? string.Empty;
 
                 return View("Create", reservation);
@@ -79,7 +79,7 @@ namespace Therapim.Controllers
         {
             try
             {
-                // コース情報取得処理
+                // メニュー情報取得処理
                 var CourseProcesser = new CourseProccesser(_logger, _commonService);
                 var CourseList = await CourseProcesser.getCourseList();
 
@@ -122,7 +122,7 @@ namespace Therapim.Controllers
                 // バリデーションエラーがある場合は入力画面を再表示
                 if (!ModelState.IsValid)
                 {
-                    // コース情報取得処理
+                    // メニュー情報取得処理
                     var CourseProcesser = new CourseProccesser(_logger, _commonService);
                     var CourseList = await CourseProcesser.getCourseList();
 

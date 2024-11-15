@@ -12,10 +12,10 @@ namespace Therapim.Models
 
     public class CourseRequestModel
     {
-        // コース番号 (任意) 詳細取得を行う場合は使う
+        // メニュー番号 (任意) 詳細取得を行う場合は使う
         public int? CourseId { get; set; }
 
-        // userId なくてもよい。あればコース内容をカスタマイズする
+        // userId なくてもよい。あればメニュー内容をカスタマイズする
         public string? UserId { get; set; }
      
     }

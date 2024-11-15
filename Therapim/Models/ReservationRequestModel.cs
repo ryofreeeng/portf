@@ -46,16 +46,16 @@ namespace Therapim.Models
         public string? SnsName { get; set; }
 
         // メニューID (必須)
-        [Required(ErrorMessage = "コースを選択してください☆")]
+        [Required(ErrorMessage = "メニューを選択してください☆")]
         public int MenuId { get; set; }
 
-        // コース表示名 (必須)        
+        // メニュー表示名 (必須)        
         public string? CourseNameDisp { get; set; }
 
-        // コースオプションID (任意)
+        // メニューオプションID (任意)
         public int? CourseOptionId { get; set; }
 
-        // コースオプション (任意)
+        // メニューオプション (任意)
         public string? CourseOption { get; set; }
 
         // オプション1選択 (必須)

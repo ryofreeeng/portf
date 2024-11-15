@@ -34,7 +34,6 @@ namespace Therapim.Controllers
         //[PermissionAuthorize(false, "adult", "silver", "age30s")] // いずれかの権限タイプが必要
         //[PermissionAuthorize(true, "adult", "silver", "age30s")] // 全ての権限タイプが必要
         //[RankAuthorize(3)] // 権限ランク3以上が必要
-        [Authorize]
         public IActionResult Privacy()
         {
 
