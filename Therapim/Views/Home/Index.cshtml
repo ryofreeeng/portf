@@ -2,7 +2,7 @@
     ViewData["Title"] = "ホーム";
 }
 @section CustomStyles {
-    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).css" asp-append-version="true" />
 }
 
 <div class="home-container">
@@ -229,5 +229,5 @@
 </section>
 -->
 @section CustomScripts {
-    <script src="~/js/home.js" asp-append-version="true"></script>
+    <script src="~/js/home@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).js"></script>
 }

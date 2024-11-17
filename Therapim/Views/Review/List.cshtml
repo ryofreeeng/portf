@@ -3,7 +3,7 @@
     ViewData["Title"] = " Review";
 }
 @section CustomStyles {
-    <link rel="stylesheet" href="~/css/reviews.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/reviews@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).css" asp-append-version="true" />
 }
 
 <div class="reviews-container">
@@ -72,5 +72,5 @@
 </div>
 
 @section CustomScripts {
-    <script src="~/js/reviews.js" asp-append-version="true"></script>
+    <script src="~/js/reviews@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).js"></script>
 }

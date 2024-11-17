@@ -6,7 +6,7 @@
     var buttonText = Model.ReviewId == null ? "投稿する" : "更新する";
 }
 @section CustomStyles {
-    <link rel="stylesheet" href="~/css/reviewEdit.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/reviewEdit@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).css" asp-append-version="true" />
 }
 
 <div class="review-edit-container">
@@ -99,5 +99,5 @@
 </div>
 
 @section CustomScripts {
-    <script src="~/js/reviews.js" asp-append-version="true"></script>
+    <script src="~/js/reviews@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).js"></script>
 }

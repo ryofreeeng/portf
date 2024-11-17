@@ -5,7 +5,7 @@
     var menuId = ViewData["MenuId"] != null ? ViewData["MenuId"].ToString() : string.Empty;
 }
 @section CustomStyles {
-    <link rel="stylesheet" href="~/css/reservation.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/reservation@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).css" asp-append-version="true" />
 }
 
 <div class="reservation-create-container">
@@ -364,12 +364,8 @@
         </div>
     </form>
 
-    <div class="form-group">
-        <button onclick="window.history.back();" class="btn btn-secondary">戻る</button>
-    </div>
-
 </div>
 
 @section CustomScripts {
-    <script src="~/js/reservation.js" asp-append-version="true"></script>
+    <script src="~/js/reservation@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).js"></script>
 }

@@ -1,9 +1,13 @@
 {
   "scripts": {
     "build-css": "sass sass/styles.scss:wwwroot/css/styles.css sass/reviews.scss:wwwroot/css/reviews.css sass/reviewEdit.scss:wwwroot/css/reviewEdit.css sass/login.scss:wwwroot/css/login.css sass/home.scss:wwwroot/css/home.css sass/courses.scss:wwwroot/css/courses.css sass/privacy.scss:wwwroot/css/privacy.css sass/reservation.scss:wwwroot/css/reservation.css sass/reservationConfirm.scss:wwwroot/css/reservationConfirm.css",
-    "watch-css": "sass --watch sass/styles.scss:wwwroot/css/styles.css sass/reviews.scss:wwwroot/css/reviews.css sass/reviewEdit.scss:wwwroot/css/reviewEdit.css sass/login.scss:wwwroot/css/login.css sass/home.scss:wwwroot/css/home.css sass/courses.scss:wwwroot/css/courses.css sass/privacy.scss:wwwroot/css/privacy.css sass/reservation.scss:wwwroot/css/reservation.css sass/reservationConfirm.scss:wwwroot/css/reservationConfirm.css"
+    "watch-css": "sass --watch sass/styles.scss:wwwroot/css/styles.css sass/reviews.scss:wwwroot/css/reviews.css sass/reviewEdit.scss:wwwroot/css/reviewEdit.css sass/login.scss:wwwroot/css/login.css sass/home.scss:wwwroot/css/home.css sass/courses.scss:wwwroot/css/courses.css sass/privacy.scss:wwwroot/css/privacy.css sass/reservation.scss:wwwroot/css/reservation.css sass/reservationConfirm.scss:wwwroot/css/reservationConfirm.css",
+    "js-minify": "npx terser wwwroot/js/script.js --compress --mangle --output wwwroot/js/script.min.js && npx terser wwwroot/js/courses.js --compress --mangle --output wwwroot/js/courses.min.js && npx terser wwwroot/js/home.js --compress --mangle --output wwwroot/js/home.min.js && npx terser wwwroot/js/reviews.js --compress --mangle --output wwwroot/js/reviews.min.js && npx terser wwwroot/js/reservation.js --compress --mangle --output wwwroot/js/reservation.min.js",
+    "css-minify": "npx clean-css-cli wwwroot/css/reviews.css --output wwwroot/css/reviews.min.css && npx clean-css-cli wwwroot/css/styles.css --output wwwroot/css/styles.min.css && npx clean-css-cli wwwroot/css/courses.css --output wwwroot/css/courses.min.css && npx clean-css-cli wwwroot/css/fonts.css --output wwwroot/css/fonts.min.css && npx clean-css-cli wwwroot/css/home.css --output wwwroot/css/home.min.css && npx clean-css-cli wwwroot/css/login.css --output wwwroot/css/login.min.css && npx clean-css-cli wwwroot/css/privacy.css --output wwwroot/css/privacy.min.css && npx clean-css-cli wwwroot/css/reservation.css --output wwwroot/css/reservation.min.css && npx clean-css-cli wwwroot/css/reservationConfirm.css --output wwwroot/css/reservationConfirm.min.css && npx clean-css-cli wwwroot/css/reviewEdit.css --output wwwroot/css/reviewEdit.min.css"
   },
   "devDependencies": {
-    "sass": "^1.77.8"
+    "clean-css-cli": "^5.6.3",
+    "sass": "^1.77.8",
+    "terser": "^5.36.0"
   }
 }

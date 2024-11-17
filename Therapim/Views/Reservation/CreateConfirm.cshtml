@@ -1,7 +1,7 @@
 ﻿@model Therapim.Models.ReservationRequestModel
 
 @section CustomStyles {
-    <link rel="stylesheet" href="~/css/reservationConfirm.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/reservationConfirm@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).css" asp-append-version="true" />
 }
 
 <div class="reservation-create-confirm-container">
@@ -669,5 +669,5 @@
 </div>
 
 @section CustomScripts {
-    <script src="~/js/reservation.js" asp-append-version="true"></script>
+    <script src="~/js/reservation@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).js"></script>
 }
