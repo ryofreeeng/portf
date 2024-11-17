@@ -4,7 +4,7 @@
     ViewData["Title"] = " Course";
 }
 @section CustomStyles {
-    <link rel="stylesheet" href="~/css/courses.css" asp-append-version="true" />    
+    <link rel="stylesheet" href="~/css/courses@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).css" asp-append-version="true" />
 }
 @{
     var visitedTimes = ViewData["VisitedTimes"];
@@ -182,7 +182,8 @@
     </div>
 </div>
 
-@section CustomScripts {
-    <script src="~/js/courses.js" asp-append-version="true"></script>
-    <script src="~/js/reviews.js" asp-append-version="true"></script>
+@section CustomScripts {    
+    <script src="~/js/courses@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).js"></script>
+    <script src="~/js/reviews@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).js"></script>
+
 }

@@ -2,7 +2,7 @@
     ViewData["Title"] = "Privacy Policy";
 }
 @section CustomStyles {
-    <link rel="stylesheet" href="~/css/privacy.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/privacy@((Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? ".min" : "")).css" asp-append-version="true" />
 }
 
 <div class="privacy-container">
